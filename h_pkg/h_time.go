@@ -3,7 +3,6 @@ package h_pkg
 import (
 	"time"
 	"fmt"
-	"fit"
 )
 
 func test(datestr string)  {
