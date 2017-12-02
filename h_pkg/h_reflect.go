@@ -55,7 +55,7 @@ func ReflectTest()  {
 	前者表示真实类型（静态类型），后者表示其基础结构（底层类型）类别 -- 基类型。
 	*/
 	fmt.Println("kind:", t.Kind(), "type:",v3.Type())
-
+	//kind: struct type: h_pkg.User
 
 }
 
