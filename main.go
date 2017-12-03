@@ -1,19 +1,17 @@
 package main
 
 import (
-	//"Hoo/h_math"
-	//"fmt"
-	//"math"
-	//"Hoo/h_pkg"
+
 	"fmt"
-	"Hoo/h_pkg"
 	"github.com/go-xorm/xorm"
 	"github.com/go-xorm/core"
 	"nursing/model"
 	"fit"
-	"reflect"
-
 	"time"
+	"strings"
+	"Hoo/h_pkg"
+	"nursing/utils"
+	"reflect"
 )
 
 type Man struct {
@@ -26,29 +24,20 @@ type Studnt struct {
 }
 
 func main() {
-	fmt.Println(fmt.Sprintf("a%.0f", 0.0/24.0))
-	fmt.Println(fmt.Sprintf("%.0f", 0.0/24))
 
 
-	for index := 1;index < 36 ;index++  {
-		switch index {
-		case 18:
-			fmt.Println("  hehehe ", index)
-		case 31, 32, 33:
-			fmt.Println(" hahaha + ", index)
-		}
-	}
+	teststr1 := "呵呵，"
+	rs := []rune(teststr1)
+	aaa := rs[0:len(rs) - 1]
+	fmt.Println("test:", string(teststr1[0:len(teststr1) - 1]), string(aaa))
+	fmt.Println("test1:", utils.Substr(teststr1, 0, 2))
 
-	t1str := "2018-12-08 12:00:00"
-	t1time, _ := time.ParseInLocation("2006-01-02 15:04:05", t1str, time.Local)
-	if t1time.Before(time.Now()) {
-		fmt.Println("t1time has arrived")
-	} else {
-		fmt.Println("t1time hasn't come yet")
-	}
-	fmt.Println("2016-05-20 09:30:29" > "2016-05-20 08:50:12")
-	fmt.Println("2016-05-21 09:30:29" > "2016-05-20 08:50:12")
-	fmt.Println("08:50" > "")
+	h_pkg.ReflectTest()
+	h_pkg.ReflectTest2()
+	h_pkg.ReflectTest3()
+	h_pkg.ReflectTest4()
+
+
 
 	h_pkg.Test1()
 
@@ -95,7 +84,7 @@ func QueryNRL(rid string, nrl interface{}) (interface{}, error)  {
 func enginesync()  {
 	engine,_ := xorm.NewEngine("mysql", "phpgroup:fitcome_meal1!qw2@tcp(114.119.10.182:1714)/nursing?charset=utf8")
 	engine.SetMapper(core.SameMapper{})
-	engine.Sync(new(model.NRL7Title))
+	engine.Sync(new(model.NRL1Title))
 	// new(model.NRL3), new(model.NRL4), new(model.NRL5), new(model.NRL6), new(model.NRL7),
 	//{{if eq $val.NRL01 "1"}}A{{else if eq $val.NRL01 "2"}}B{{else if $val.NRL01 "3"}}C{{end}}
 }

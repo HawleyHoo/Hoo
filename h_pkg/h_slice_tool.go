@@ -1,4 +1,4 @@
-package h_slice_tool
+package h_pkg
 
 type CommonFunc struct{}
 
