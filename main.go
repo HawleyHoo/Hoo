@@ -7,8 +7,7 @@ import (
 	"github.com/go-xorm/core"
 	"nursing/model"
 	"fit"
-	"time"
-	"strings"
+
 	"Hoo/h_pkg"
 	"nursing/utils"
 	"reflect"
@@ -26,16 +25,16 @@ type Studnt struct {
 func main() {
 
 
-	teststr1 := "呵呵，"
-	rs := []rune(teststr1)
-	aaa := rs[0:len(rs) - 1]
-	fmt.Println("test:", string(teststr1[0:len(teststr1) - 1]), string(aaa))
-	fmt.Println("test1:", utils.Substr(teststr1, 0, 2))
-
-	h_pkg.ReflectTest()
-	h_pkg.ReflectTest2()
-	h_pkg.ReflectTest3()
-	h_pkg.ReflectTest4()
+	str11 := ""
+	fmt.Println("------", utils.Substr(str11, 0, 10))
+	for index := 1;index < 36 ;index++  {
+		switch index {
+		case 18:
+			fmt.Println("  hehehe ", index)
+		case 31, 32, 33:
+			fmt.Println(" hahaha + ", index)
+		}
+	}
 
 
 
@@ -84,7 +83,7 @@ func QueryNRL(rid string, nrl interface{}) (interface{}, error)  {
 func enginesync()  {
 	engine,_ := xorm.NewEngine("mysql", "phpgroup:fitcome_meal1!qw2@tcp(114.119.10.182:1714)/nursing?charset=utf8")
 	engine.SetMapper(core.SameMapper{})
-	engine.Sync(new(model.NRL1Title))
+	engine.Sync(new(model.NRL7Title))
 	// new(model.NRL3), new(model.NRL4), new(model.NRL5), new(model.NRL6), new(model.NRL7),
 	//{{if eq $val.NRL01 "1"}}A{{else if eq $val.NRL01 "2"}}B{{else if $val.NRL01 "3"}}C{{end}}
 }
