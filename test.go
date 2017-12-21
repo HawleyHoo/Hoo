@@ -57,15 +57,15 @@ func testttt()  {
 			results = append(results, str)
 			//fmt.Println("flag:", flag, lable, "str:", str, t1.AddDate(0, 0, ii))
 		}
-		if index == len(operationTimes) - 2 {
+		if offset <= 10 {
 			flag++
 		} else {
-			if offset <= 10 {
-				flag++
-			} else {
-				flag = 1
-			}
+			flag = 1
 		}
+		/*if index == len(operationTimes) - 2 {
+			flag++
+		} else {
+		}*/
 	}
 }
 
@@ -85,6 +85,10 @@ type hospDate struct {
 	dates1  []string    // 住院日数
 	dates2  []string    //手术日数
 	weeknum int         // 入院至今天一共多少周
+}
+
+func GetOperationRecords(operationTimes []time.Time)  {
+
 }
 
 func getWeeksByOperationDateshy(hospitaldate, pid string, weekindex int) (hospdate hospDate, err error) {
@@ -116,6 +120,7 @@ func getWeeksByOperationDateshy(hospitaldate, pid string, weekindex int) (hospda
 	t1 := time.Date(t0.Year(), t0.Month(), t0.Day()+offset, 0, 0, 0, 0, loc)
 
 	// 手术或产后日期
+	// 向前数10天，向后数7天
 	operationTimes, err := model.FetchOperationRecordsDatehy(pid, t1)
 	if err != nil {
 		fit.Logger().LogInfo("info templist", "参数错误！temp ", err)
@@ -124,7 +129,7 @@ func getWeeksByOperationDateshy(hospitaldate, pid string, weekindex int) (hospda
 	// 手术后或产后日期
 	var operatime1 time.Time
 	var operatime2 time.Time
-	//var operatime3 time.Time
+	var operatime3 time.Time
 
 	switch len(operationTimes) {
 	case 0:
@@ -150,35 +155,36 @@ func getWeeksByOperationDateshy(hospitaldate, pid string, weekindex int) (hospda
 		weeks = append(weeks, t2)
 		dates1 = append(dates1, fmt.Sprintln(offset+i+1))
 
-		//var operatime3 time.Time
-		if operationstr1 != "" {
+		if len(operationTimes) == 1 {
 			operatime1, err = time.ParseInLocation("2006-01-02", operationstr1, loc)
 			if err != nil {
 				operatime1 = time.Now().AddDate(1, 0, 0)
 				//fmt.Println("------ hos :", operatime1, err)
 			}
-
-			if operationstr2 != "" {
-				operatime2, err = time.ParseInLocation("2006-01-02", operationstr2, loc)
-				if err != nil {
-					operatime2 = time.Now().AddDate(1, 0, 0)
-					//fmt.Println("------ hos :", operatime2, err)
-				}
+			operaoffset1 := t2.Sub(operatime1).Hours()
+			if operaoffset1 >= 0 && operaoffset1 < 24*10 { // 手术十天以内记录时间
+				operStr := fmt.Sprintf(" %.0f", operaoffset1/24)
+				dates2 = append(dates2, operStr)
+			} else {
+				dates2 = append(dates2, "")
 			}
-			//if operationstr3 != "" {
-			//	operatime3, err = time.ParseInLocation("2006-01-02", operationstr3, loc)
-			//	if err != nil {
-			//		operatime3 = time.Now().AddDate(1, 0, 0)
-			//		fmt.Println("------ hos :", operatime3, err)
-			//	}
-			//}
-			//fmt.Println("success", operatime1, operatime2)
+
+		} else if len(operationTimes) == 2 {
+			operatime1, err = time.ParseInLocation("2006-01-02", operationstr1, loc)
+			if err != nil {
+				operatime1 = time.Now().AddDate(1, 0, 0)
+				//fmt.Println("------ hos :", operatime1, err)
+			}
+			operatime2, err = time.ParseInLocation("2006-01-02", operationstr2, loc)
+			if err != nil {
+				operatime2 = time.Now().AddDate(1, 0, 0)
+				//fmt.Println("------ hos :", operatime2, err)
+			}
 
 			operaoffset1 := t2.Sub(operatime1).Hours()
-
 			difftime1 := operatime2.Sub(operatime1).Hours()
 			//difftime2 := operatime3.Sub(operatime2).Hours()
-			//fmt.Println("offset :", operaoffset1, difftime1)
+			fmt.Println("offset :", operaoffset1, difftime1)
 
 			if operaoffset1 >= 0 && operaoffset1 < 24*10 { // 手术十天以内记录时间
 				if difftime1 < 0 || difftime1 > 24*10 {
@@ -207,6 +213,119 @@ func getWeeksByOperationDateshy(hospitaldate, pid string, weekindex int) (hospda
 					dates2 = append(dates2, "")
 				}
 			}
+
+		} else {
+			operatime1, err = time.ParseInLocation("2006-01-02", operationstr1, loc)
+			if err != nil {
+				operatime1 = time.Now().AddDate(1, 0, 0)
+				//fmt.Println("------ hos :", operatime1, err)
+			}
+			operatime2, err = time.ParseInLocation("2006-01-02", operationstr2, loc)
+			if err != nil {
+				operatime2 = time.Now().AddDate(1, 0, 0)
+				//fmt.Println("------ hos :", operatime2, err)
+			}
+			operatime3, err = time.ParseInLocation("2006-01-02", operationstr3, loc)
+			if err != nil {
+				operatime3 = time.Now().AddDate(1, 0, 0)
+				fmt.Println("------ hos :", operatime3, err)
+			}
+			operaoffset1 := t2.Sub(operatime1).Hours()
+			difftime1 := operatime2.Sub(operatime1).Hours()
+			difftime2 := operatime3.Sub(operatime2).Hours()
+			fmt.Println("offset :", operaoffset1, difftime1, difftime2)
+
+			if operaoffset1 >= 0 && operaoffset1 < 24*10 { // 手术十天以内记录时间
+				if difftime1 < 0 || difftime1 > 24*10 {
+					operstr := fmt.Sprintf(" %.0f", operaoffset1/24)
+					fmt.Println("--------------------", operstr)
+					dates2 = append(dates2, operstr)
+				} else { // 十天以内做过第二次手术 则记为 Ⅱ-1
+					operaoffset2 := t2.Sub(operatime2).Hours()
+					if operaoffset2 >= 0 && operaoffset2 < 24*10 {
+						aaa := int(operaoffset2 / 24)
+						dates2 = append(dates2, fmt.Sprintf("Ⅱ-%d", aaa))
+					} else {
+						dates2 = append(dates2, fmt.Sprintf(" %.0f", operaoffset1/24))
+					}
+				}
+			} else {
+				str := " "
+				if difftime1 < 24*10 {
+					str = "Ⅱ-"
+				}
+				operaoffset2 := t2.Sub(operatime2).Hours()
+				if operaoffset2 >= 0 && operaoffset2 <= 24*10 {
+					aaa := int(operaoffset2 / 24)
+					dates2 = append(dates2, fmt.Sprintf("%s%d", str, aaa))
+				} else {
+					dates2 = append(dates2, "")
+				}
+			}
+		}
+		//var operatime3 time.Time
+		if operationstr1 != "" {
+			operatime1, err = time.ParseInLocation("2006-01-02", operationstr1, loc)
+			if err != nil {
+				operatime1 = time.Now().AddDate(1, 0, 0)
+				//fmt.Println("------ hos :", operatime1, err)
+			}
+
+			if operationstr2 != "" {
+				operatime2, err = time.ParseInLocation("2006-01-02", operationstr2, loc)
+				if err != nil {
+					operatime2 = time.Now().AddDate(1, 0, 0)
+					//fmt.Println("------ hos :", operatime2, err)
+				}
+
+				if operationstr3 != "" {
+					operatime3, err = time.ParseInLocation("2006-01-02", operationstr3, loc)
+					if err != nil {
+						operatime3 = time.Now().AddDate(1, 0, 0)
+						fmt.Println("------ hos :", operatime3, err)
+					}
+				}
+				fmt.Println("success", operatime1, operatime2)
+
+				operaoffset1 := t2.Sub(operatime1).Hours()
+				difftime1 := operatime2.Sub(operatime1).Hours()
+				difftime2 := operatime3.Sub(operatime2).Hours()
+				fmt.Println("offset :", operaoffset1, difftime1)
+
+				if operaoffset1 >= 0 && operaoffset1 < 24*10 { // 手术十天以内记录时间
+					if difftime1 < 0 || difftime1 > 24*10 {
+						operstr := fmt.Sprintf(" %.0f", operaoffset1/24)
+						fmt.Println("--------------------", operstr)
+						dates2 = append(dates2, operstr)
+					} else { // 十天以内做过第二次手术 则记为 Ⅱ-1
+						operaoffset2 := t2.Sub(operatime2).Hours()
+						if operaoffset2 >= 0 && operaoffset2 < 24*10 {
+							aaa := int(operaoffset2 / 24)
+							dates2 = append(dates2, fmt.Sprintf("Ⅱ-%d", aaa))
+						} else {
+							dates2 = append(dates2, fmt.Sprintf(" %.0f", operaoffset1/24))
+						}
+					}
+				} else {
+					str := " "
+					if difftime1 < 24*10 {
+						str = "Ⅱ-"
+					}
+					operaoffset2 := t2.Sub(operatime2).Hours()
+					if operaoffset2 >= 0 && operaoffset2 <= 24*10 {
+						aaa := int(operaoffset2 / 24)
+						dates2 = append(dates2, fmt.Sprintf("%s%d", str, aaa))
+					} else {
+						dates2 = append(dates2, "")
+					}
+				}
+
+			} else {
+
+			}
+
+
+
 		} else {
 			for ii := 0; ii < 7; ii++ {
 				dates2 = append(dates2, "")
