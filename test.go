@@ -7,6 +7,68 @@ import (
 	"nursing/utils"
 )
 
+type FitTime time.Time
+
+type HAAAA struct {
+	ID             int64   // 主键ID
+	PatientId      int64   // 病人ID
+	PatientName    string  // 姓名
+	VisitId        int64   // 就诊ID
+	Bed            string  // 床号
+	NurseId        int     // 责任护士ID
+	NurseName      string  // 责任护士ID
+	DepartmentId   int     // 病区ID(科室)
+	DepartmentName string  // 病区
+	HospNum        string  // 住院号
+	Age            string  // 年龄
+	Category       string  // 病人类别
+	Gender         string  // 性别
+	Physician      string  // 住院医师
+	NursingDegree  string  // 护理级别
+	NursingDegreeV string  // 护理级别
+	Diagnosis      string  // 诊断
+	HospTime       FitTime // 入院时间
+	DateTime       FitTime // 测量时间
+	NewOrder       int     // 新医嘱 ？
+	StoppedOrder   int     // 已停医嘱 ？
+	IsFever        bool    // 是否发热（最后一次测量体温>37.5°）
+	IsOperation    bool    // 是否待手术 ？
+	IsArrearage    bool    // 是否欠费
+	IsNewPatient   bool    // 是否是新病人
+}
+
+func testttt()  {
+	for index := 0; index < len(operationTimes)-1; index++ {
+		t1 = operationTimes[index]
+		t2 = operationTimes[index+1]
+
+		offset := int(t2.Sub(t1).Hours() / 24)
+		//fmt.Println("offset:", t1, t2, "offset day:", offset, t2.Sub(t1).Hours())
+		//if t2.Sub(t1).Hours() <= 24*10 {
+
+		//fmt.Println("index:", index, "flag:",flag, "lable:", dateLables[flag - 1])
+
+		for ii := 0; ii < offset; ii++ {
+			lable = dateLables[flag]
+			str := fmt.Sprintf("%s%d", lable, ii)
+			if ii > 10 {
+				str = ""
+			}
+			results = append(results, str)
+			//fmt.Println("flag:", flag, lable, "str:", str, t1.AddDate(0, 0, ii))
+		}
+		if index == len(operationTimes) - 2 {
+			flag++
+		} else {
+			if offset <= 10 {
+				flag++
+			} else {
+				flag = 1
+			}
+		}
+	}
+}
+
 /**
 datestr 入院时间
 datestr2 手术时间
