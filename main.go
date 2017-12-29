@@ -137,6 +137,14 @@ type tempChart struct {
 }
 
 func main() {
+	list1 := [8]string{"a", "b", "c", "d", "e", "f"}
+	list2 := make([]string, 6)
+	
+	fmt.Println("list:", list1, list2)
+	date2 := time.Now().Unix()
+	fmt.Println("-----", date2, date2 * 1000)
+	return
+
 	//enginesync()
 	chart := new(tempChart)
 	chart.Temp1[2] = "24"
