@@ -136,10 +136,42 @@ type tempChart struct {
 	Incident  []string // 事件
 }
 
+
+
 func main() {
+	data, i := [3]int{0,1,2}, 0
+	//i, data[i] = 2, 100
+	//fmt.Println(data, i)
+	data[i], i = 100, 2
+	fmt.Println(data, i)
+
+	fmt.Println(" SplitN 函数的用法")
+	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 1))
+
+	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 2))  //["/" "home/" "m_ta/" "src"]
+	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", -1)) //["" "home" "m_ta" "src"]
+	fmt.Printf("%q\n", strings.SplitN("home,m_ta,src", ",", 2))   //["/" "home/" "m_ta/" "src"]
+
+	fmt.Printf("%q\n", strings.SplitN("#home#m_ta#src", "#", -1)) //["/" "home/" "m_ta/" "src"]
+	sss := "a,b"
+	ss := "a"
+	sli1 := strings.Split(sss, ",")
+	sli2 := strings.Split(ss, ",")
+	fmt.Println("sli :", sli1, len(sli1))
+	fmt.Println("sli :", sli2, len(sli2))
+
+
+	fmt.Println("---:", 0.00001 > 0)
+	fmt.Println("---:", -0.00001 > 0)
+	datetime ,_ := time.ParseInLocation("2006-01-02 15:04:05", "2017-08-02 01:10:08", time.Local)
+
+	datestr := fmt.Sprintln(datetime.Year(), "年", "月", "日", sinicizingTime(datetime.Hour()), "时", sinicizingTime(datetime.Minute()), "分", sinicizingTime(datetime.Second()), "秒")
+
+	fmt.Println("time:", datestr, len("03"))
+
 	list1 := [8]string{"a", "b", "c", "d", "e", "f"}
 	list2 := make([]string, 6)
-	
+
 	fmt.Println("list:", list1, list2)
 	date2 := time.Now().Unix()
 	fmt.Println("-----", date2, date2 * 1000)
@@ -191,13 +223,7 @@ func main() {
 	//fmt.Println("err commit:", errcommit)
 
 
-	fmt.Println("---:", 0.00001 > 0)
-	fmt.Println("---:", -0.00001 > 0)
-	datetime ,_ := time.ParseInLocation("2006-01-02 15:04:05", "2017-08-02 00:00:08", time.Local)
 
-	datestr := fmt.Sprintln(datetime.Year(), "年", "月", "日", sinicizingTime(datetime.Hour()), "时", sinicizingTime(datetime.Minute()), "分", sinicizingTime(datetime.Second()), "秒")
-
-	fmt.Println("time:", datestr, len("03"))
 
 
 	str11 := ""

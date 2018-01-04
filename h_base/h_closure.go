@@ -1,6 +1,9 @@
 package h_base
 
-import "fmt"
+import (
+	"sync"
+	"fmt"
+)
 
 func test2() {
 
@@ -61,4 +64,39 @@ func test1() {
 
 func p(i int) {
 	fmt.Println(i)
+}
+
+const N = 10
+
+func ClosureTest() {
+	m := make(map[int]int)
+	//它能够一直等到所有的goroutine执行完成，并且阻塞主线程的执行，直到所有的goroutine执行完成。
+	/*
+	WaitGroup总共有三个方法：Add(delta int),Done(),Wait()。简单的说一下这三个方法的作用。
+	Add:添加或者减少等待goroutine的数量
+	Done:相当于Add(-1)
+	Wait:执行阻塞，直到所有的WaitGroup数量变成0
+	*/
+	wg := &sync.WaitGroup{}
+	//golang中sync包实现了两种锁Mutex （互斥锁）和RWMutex（读写锁）
+	/*
+	其中Mutex为互斥锁，Lock()加锁，Unlock()解锁，使用Lock()加锁后，便不能再次对其进行加锁，直到利用Unlock()解锁对其解锁后，才能再次加锁．适用于读写不确定场景，即读写次数没有明显的区别，并且只允许只有一个读或者写的场景，所以该锁叶叫做全局锁．
+	func (m *Mutex) Unlock()用于解锁m，如果在使用Unlock()前未加锁，就会引起一个运行错误．
+	已经锁定的Mutex并不与特定的goroutine相关联，这样可以利用一个goroutine对其加锁，再利用其他goroutine对其解锁．
+	*/
+	mu := &sync.Mutex{}
+
+	wg.Add(N)
+	for i := 0; i < N; i++ {
+		fmt.Println("i:", i)
+		go func(a int) {
+			defer wg.Done()
+			mu.Lock()
+			m[a] = a
+			mu.Unlock()
+		}(i)
+	}
+	wg.Wait()
+	println(len(m))
+	fmt.Println("len:", len(m), m)
 }
