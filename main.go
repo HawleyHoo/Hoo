@@ -137,8 +137,35 @@ type tempChart struct {
 }
 
 
+type S struct {
+	v int
+}
+type AccessType int
 
+const (
+	//
+	AccessTypeBack AccessType = 1 << iota
+	AccessTypeOut
+	AccessTypeAll
+	AccessTypeUnknown = 0
+)
 func main() {
+	fmt.Println("---:", AccessTypeUnknown)
+	fmt.Println("---:", AccessTypeBack)
+	fmt.Println("---:", AccessTypeOut)
+	fmt.Println("---:", AccessTypeAll)
+
+
+	s := []S{{1}, {3}, {5}, {2}}
+	fmt.Printf("%#v", s)
+	// A
+
+	fmt.Printf("sort：%#v", s)
+
+
+}
+
+func main111() {
 	data, i := [3]int{0,1,2}, 0
 	//i, data[i] = 2, 100
 	//fmt.Println(data, i)

@@ -16,20 +16,20 @@ func main() {
 	for i := 0; i < 5; i++ {
 		//wg.Add(2)
 		go func(n int) {
-			 //defer wg.Done()
+			 defer wg.Done()
 			//defer wg.Add(-1)
 			//EchoNumber(n)
 			fmt.Printf(" (2: %d) \n", n)
 		}(i)
 
 		go func(n int) {
-			//defer wg.Done()
+			defer wg.Done()
 			//defer wg.Add(-1)
 			fmt.Printf(" (1: %d) \n", n)
 		}(i)
 
 		if i == 4 {
-			wg.Add(- 10)
+			//wg.Add(- 10)
 		}
 	}
 
