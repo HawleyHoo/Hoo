@@ -16,6 +16,7 @@ import (
 	"database/sql"
 	//"github.com/astaxie/beego/session"
 	"strings"
+	"encoding/json"
 )
 
 type Man struct {
@@ -136,6 +137,9 @@ type tempChart struct {
 	Incident  []string // 事件
 }
 
+type Result struct {
+	Status int
+}
 
 type S struct {
 	v int
@@ -149,7 +153,20 @@ const (
 	AccessTypeAll
 	AccessTypeUnknown = 0
 )
-func main() {
+func main123() {
+
+
+	var data = []byte(`{"Status": 200}`)
+	result := Result{}
+
+	if err := json.Unmarshal(data, &result); err != nil {
+		fmt.Println("error:", err)
+		return
+	}
+
+	fmt.Printf("result=%+v", result)
+	return
+	//data, i := []int{0,1,2}, 0
 	fmt.Println("---:", AccessTypeUnknown)
 	fmt.Println("---:", AccessTypeBack)
 	fmt.Println("---:", AccessTypeOut)
@@ -165,12 +182,12 @@ func main() {
 
 }
 
-func main111() {
-	data, i := [3]int{0,1,2}, 0
+func main() {
+	//data, i := [3]int{0,1,2}, 0
 	//i, data[i] = 2, 100
 	//fmt.Println(data, i)
-	data[i], i = 100, 2
-	fmt.Println(data, i)
+	//data[i], i = 100, 2
+	//fmt.Println(data, i)
 
 	fmt.Println(" SplitN 函数的用法")
 	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 1))
@@ -200,6 +217,23 @@ func main111() {
 	list2 := make([]string, 6)
 
 	fmt.Println("list:", list1, list2)
+	str := "ab&&2"
+	n := strings.Count(str, "&&") + 1
+	a := make([]string, n)
+	n--
+	i := 0
+	for i < n  {
+		m := strings.Index(str, "&&")
+		if m < 0 {
+			break
+		}
+		a[i] = str[:m]
+		str = str[m+len("&&"):]
+		i++
+	}
+	a[i] = str
+	fmt.Println("Hoo:", a[:i+1])
+	return
 	date2 := time.Now().Unix()
 	fmt.Println("-----", date2, date2 * 1000)
 	return
