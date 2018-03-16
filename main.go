@@ -1,7 +1,6 @@
 package main
 
 import (
-
 	"fmt"
 	"github.com/go-xorm/xorm"
 	"github.com/go-xorm/core"
@@ -28,11 +27,11 @@ type Studnt struct {
 	Code int
 }
 
-var timeChina =  []string{"", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
-var dateChina =  []string{"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
+var timeChina = []string{"", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
+var dateChina = []string{"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
 
-func sinicizingDate(intval int)  {
-	for index := len(strconv.Itoa(intval)); index >= 0 ; index++  {
+func sinicizingDate(intval int) {
+	for index := len(strconv.Itoa(intval)); index >= 0; index++ {
 		//ii := intval % 10
 	}
 }
@@ -44,7 +43,7 @@ func sinicizingTime(intval int) (datestr string) {
 		} else if intval < 10 {
 			datestr = timeChina[intval]
 		} else {
-			datestr = timeChina[intval / 10] + "十" + timeChina[intval % 10]
+			datestr = timeChina[intval/10] + "十" + timeChina[intval%10]
 		}
 	} else {
 		datestr = ""
@@ -67,7 +66,7 @@ func initEngine() (*xorm.Engine, error) {
 	return nil, err
 }
 
-func initmysqlEngine() (*sql.DB, error)  {
+func initmysqlEngine() (*sql.DB, error) {
 	db, err := sql.Open("mysql", "phpgroup:fitcome_meal1!qw2@tcp(39.108.133.131:1714)/nursing?charset=utf8")
 	if err != nil {
 		return nil, err
@@ -95,7 +94,7 @@ func splitTag(tag string) (tags []string) {
 	return
 }
 
-func trimTest1()  {
+func trimTest1() {
 	defer utils.Trace("hoo test1")()
 	tagstr := " hy pk - autoincre"
 	for index := 0; index < 10000; index++ {
@@ -106,7 +105,7 @@ func trimTest1()  {
 	}
 }
 
-func trimTest2()  {
+func trimTest2() {
 	defer utils.Trace("hoo test2")()
 	tagstr := " hy pk - autoincre"
 	tagstr = strings.TrimSpace(tagstr)
@@ -122,19 +121,19 @@ type tempChart struct {
 	Temp1     [42]string // 口表
 	Temp2     [42]string // 腋表
 	Temp3     [42]string // 肛表
-	TempOther []string // 体温事件
-	Pulse     []string // 脉搏
-	Heartrate []string // 心率
-	Breathe   []string // 呼吸
-	Intake    []string // 输入液量
-	Output1   []string // 排出其他
-	Output2   []string // 排出尿量
-	Output3   []string // 排出大便
-	Pressure  []string // 血压
-	Weight    []string // 体重
-	Skin      []string // 皮试
-	Other     []string // 其他
-	Incident  []string // 事件
+	TempOther []string   // 体温事件
+	Pulse     []string   // 脉搏
+	Heartrate []string   // 心率
+	Breathe   []string   // 呼吸
+	Intake    []string   // 输入液量
+	Output1   []string   // 排出其他
+	Output2   []string   // 排出尿量
+	Output3   []string   // 排出大便
+	Pressure  []string   // 血压
+	Weight    []string   // 体重
+	Skin      []string   // 皮试
+	Other     []string   // 其他
+	Incident  []string   // 事件
 }
 
 type Result struct {
@@ -148,13 +147,13 @@ type AccessType int
 
 const (
 	//
-	AccessTypeBack AccessType = 1 << iota
+	AccessTypeBack    AccessType = 1 << iota
 	AccessTypeOut
 	AccessTypeAll
 	AccessTypeUnknown = 0
 )
-func main123() {
 
+func main123() {
 
 	var data = []byte(`{"Status": 200}`)
 	result := Result{}
@@ -172,15 +171,15 @@ func main123() {
 	fmt.Println("---:", AccessTypeOut)
 	fmt.Println("---:", AccessTypeAll)
 
-
 	s := []S{{1}, {3}, {5}, {2}}
 	fmt.Printf("%#v", s)
 	// A
 
 	fmt.Printf("sort：%#v", s)
 
-
 }
+
+
 
 func main() {
 	//data, i := [3]int{0,1,2}, 0
@@ -188,6 +187,15 @@ func main() {
 	//fmt.Println(data, i)
 	//data[i], i = 100, 2
 	//fmt.Println(data, i)
+	var  aa = 10
+	var  bb = 10
+	fmt.Println(aa, bb)
+	fmt.Println((aa | bb))
+	fmt.Println((aa & bb))
+	//fmt.Println(aplusb(-100, 100))
+	fmt.Println(Add(aa, bb))
+	fmt.Println(aplusb(aa, bb))
+	return
 
 	fmt.Println(" SplitN 函数的用法")
 	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 1))
@@ -204,10 +212,9 @@ func main() {
 	fmt.Println("sli :", sli1, len(sli1))
 	fmt.Println("sli :", sli2, len(sli2))
 
-
 	fmt.Println("---:", 0.00001 > 0)
 	fmt.Println("---:", -0.00001 > 0)
-	datetime ,_ := time.ParseInLocation("2006-01-02 15:04:05", "2017-08-02 01:10:08", time.Local)
+	datetime, _ := time.ParseInLocation("2006-01-02 15:04:05", "2017-08-02 01:10:08", time.Local)
 
 	datestr := fmt.Sprintln(datetime.Year(), "年", "月", "日", sinicizingTime(datetime.Hour()), "时", sinicizingTime(datetime.Minute()), "分", sinicizingTime(datetime.Second()), "秒")
 
@@ -222,7 +229,7 @@ func main() {
 	a := make([]string, n)
 	n--
 	i := 0
-	for i < n  {
+	for i < n {
 		m := strings.Index(str, "&&")
 		if m < 0 {
 			break
@@ -235,7 +242,7 @@ func main() {
 	fmt.Println("Hoo:", a[:i+1])
 	return
 	date2 := time.Now().Unix()
-	fmt.Println("-----", date2, date2 * 1000)
+	fmt.Println("-----", date2, date2*1000)
 	return
 
 	//enginesync()
@@ -255,14 +262,12 @@ func main() {
 	trimTest1()
 	trimTest2()
 
-
-
 	defer utils.Trace("hoo test")()
 
 	engine, err := initEngine()
 	//engine, err := initmysqlEngine()
 	if err != nil {
-		fmt.Println("err:",err)
+		fmt.Println("err:", err)
 	}
 	//session := engine.NewSession()
 	//
@@ -271,7 +276,7 @@ func main() {
 	//if errsession != nil {
 	//	fmt.Println("err:", errsession)
 	//}
-	for index := 0; index < 1; index++  {
+	for index := 0; index < 1; index++ {
 		//resultmap, errengine := session.QueryString("select value from temperatrurechat where datetime = ? and patientid = ? and headtype in (1,4,5,8,9,10,13,14)", "2017-11-28 00:00:00", "806174")
 		//var resultmap []map[string]interface{}
 		//errengine := engine.SQL("select value from temperatrurechat where datetime = ? and patientid = ? and headtype in (1,4,5,8,9,10,13,14)", "2017-11-28 00:00:00", "806174").Find(&resultmap)
@@ -283,13 +288,9 @@ func main() {
 	//errcommit := session.Commit()
 	//fmt.Println("err commit:", errcommit)
 
-
-
-
-
 	str11 := ""
 	fmt.Println("------", utils.Substr(str11, 0, 10))
-	for index := 1;index < 36 ;index++  {
+	for index := 1; index < 36; index++ {
 		switch index {
 		case 18:
 			fmt.Println("  hehehe ", index)
@@ -297,8 +298,6 @@ func main() {
 			fmt.Println(" hahaha + ", index)
 		}
 	}
-
-
 
 	h_pkg.Test1()
 
@@ -310,14 +309,14 @@ func main() {
 	rt := reflect.TypeOf(model.NRL3{})
 	rv := reflect.ValueOf(model.NRL3{})
 
-	for index := 0; index < rt.NumField() ;index++  {
+	for index := 0; index < rt.NumField(); index++ {
 		fmt.Println("Name :", rt.Field(index).Name, rv.Field(index).Interface(), "field type:", rv.Field(index).Type(), "field kind:", rv.Field(index).Kind(), "kind:", rt.Kind(), "type:", rv.Type())
 	}
 	//Name : NRL01 0 field type: int field kind: int kind: struct type: model.NRL3
 	//enginesync()
 }
 
-func QueryNRL(rid string, nrl interface{}) (interface{}, error)  {
+func QueryNRL(rid string, nrl interface{}) (interface{}, error) {
 	var nr3 interface{}
 	switch nrl.(type) {
 
@@ -341,15 +340,12 @@ func QueryNRL(rid string, nrl interface{}) (interface{}, error)  {
 	}
 }
 
-
-func enginesync()  {
+func enginesync() {
 	//engine,_ := xorm.NewEngine("mysql", "phpgroup:fitcome_meal1!qw2@tcp(114.119.10.182:1714)/nursing?charset=utf8")
 	//engine,_ := xorm.NewEngine("mysql", "root:123456@tcp(127.0.0.1:3307)/nuring?charset=utf8")
-	engine,_ := xorm.NewEngine("mysql", "youhao:youhao@tcp(192.168.0.126:3306)/nursing?charset=utf8")
+	engine, _ := xorm.NewEngine("mysql", "youhao:youhao@tcp(192.168.0.126:3306)/nursing?charset=utf8")
 	engine.SetMapper(core.SameMapper{})
 	engine.Sync(new(model.NRL3), new(model.NRL4), new(model.NRL5), new(model.NRL6), new(model.NRL7), new(model.NRL8), new(model.NRL2), new(model.NRL1Title), new(model.NRL7Title), new(model.IOStatistics))
 	// new(model.NRL3), new(model.NRL4), new(model.NRL5), new(model.NRL6), new(model.NRL7),
 	//{{if eq $val.NRL01 "1"}}A{{else if eq $val.NRL01 "2"}}B{{else if $val.NRL01 "3"}}C{{end}}
 }
-
-
