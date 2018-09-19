@@ -2,20 +2,17 @@ package main
 
 import (
 	"fmt"
-	"github.com/go-xorm/xorm"
-	"github.com/go-xorm/core"
-	"nursing/model"
-	"fit"
+	//"github.com/go-xorm/xorm"
+	//"github.com/go-xorm/core"
+	//"nursing/model"
 
 	"Hoo/h_pkg"
-	"nursing/utils"
-	"reflect"
+	//"nursing/utils"
 	"time"
-	"strconv"
-	"database/sql"
 	//"github.com/astaxie/beego/session"
 	"strings"
 	"encoding/json"
+	"homedoctor/utils"
 )
 
 type Man struct {
@@ -27,52 +24,8 @@ type Studnt struct {
 	Code int
 }
 
-var timeChina = []string{"", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
-var dateChina = []string{"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
 
-func sinicizingDate(intval int) {
-	for index := len(strconv.Itoa(intval)); index >= 0; index++ {
-		//ii := intval % 10
-	}
-}
 
-func sinicizingTime(intval int) (datestr string) {
-	if intval >= 0 && intval <= 60 {
-		if intval == 0 {
-			datestr = "零"
-		} else if intval < 10 {
-			datestr = timeChina[intval]
-		} else {
-			datestr = timeChina[intval/10] + "十" + timeChina[intval%10]
-		}
-	} else {
-		datestr = ""
-	}
-	return
-}
-
-func initEngine() (*xorm.Engine, error) {
-	db, err := xorm.NewEngine("mysql", "phpgroup:fitcome_meal1!qw2@tcp(39.108.133.131:1714)/nursing?charset=utf8")
-	//db, err := xorm.NewEngine("mysql", "root:123456@tcp(127.0.0.1:3307)/nuring?charset=utf8")
-	db.TZLocation = time.Now().Location()
-	db.DatabaseTZ = time.Now().Location() // Now().Location()
-	//SnakeMapper 支持struct为驼峰式命名，表结构为下划线命名之间的转换，这个是默认的Maper
-	//映射同名设置默认
-	db.SetMapper(core.SameMapper{})
-	fmt.Println("------hahaha")
-	if err == nil {
-		return db, err
-	}
-	return nil, err
-}
-
-func initmysqlEngine() (*sql.DB, error) {
-	db, err := sql.Open("mysql", "phpgroup:fitcome_meal1!qw2@tcp(39.108.133.131:1714)/nursing?charset=utf8")
-	if err != nil {
-		return nil, err
-	}
-	return db, nil
-}
 
 func splitTag(tag string) (tags []string) {
 	tag = strings.TrimSpace(tag)
@@ -181,20 +134,19 @@ func main123() {
 
 
 
+
+
 func main() {
-	//data, i := [3]int{0,1,2}, 0
-	//i, data[i] = 2, 100
-	//fmt.Println(data, i)
-	//data[i], i = 100, 2
-	//fmt.Println(data, i)
-	var  aa = 10
-	var  bb = 10
-	fmt.Println(aa, bb)
-	fmt.Println((aa | bb))
-	fmt.Println((aa & bb))
-	//fmt.Println(aplusb(-100, 100))
-	fmt.Println(Add(aa, bb))
-	fmt.Println(aplusb(aa, bb))
+
+
+
+
+	data, i := [3]int{0,1,2}, 0
+	i, data[i] = 2, 100
+	fmt.Println(data, i)
+	data[i], i = 100, 2
+	fmt.Println(data, i)
+
 	return
 
 	fmt.Println(" SplitN 函数的用法")
@@ -214,11 +166,7 @@ func main() {
 
 	fmt.Println("---:", 0.00001 > 0)
 	fmt.Println("---:", -0.00001 > 0)
-	datetime, _ := time.ParseInLocation("2006-01-02 15:04:05", "2017-08-02 01:10:08", time.Local)
 
-	datestr := fmt.Sprintln(datetime.Year(), "年", "月", "日", sinicizingTime(datetime.Hour()), "时", sinicizingTime(datetime.Minute()), "分", sinicizingTime(datetime.Second()), "秒")
-
-	fmt.Println("time:", datestr, len("03"))
 
 	list1 := [8]string{"a", "b", "c", "d", "e", "f"}
 	list2 := make([]string, 6)
@@ -228,7 +176,7 @@ func main() {
 	n := strings.Count(str, "&&") + 1
 	a := make([]string, n)
 	n--
-	i := 0
+	i = 0
 	for i < n {
 		m := strings.Index(str, "&&")
 		if m < 0 {
@@ -264,29 +212,8 @@ func main() {
 
 	defer utils.Trace("hoo test")()
 
-	engine, err := initEngine()
-	//engine, err := initmysqlEngine()
-	if err != nil {
-		fmt.Println("err:", err)
-	}
-	//session := engine.NewSession()
-	//
-	//defer session.Close()
-	//errsession := session.Begin()
-	//if errsession != nil {
-	//	fmt.Println("err:", errsession)
-	//}
-	for index := 0; index < 1; index++ {
-		//resultmap, errengine := session.QueryString("select value from temperatrurechat where datetime = ? and patientid = ? and headtype in (1,4,5,8,9,10,13,14)", "2017-11-28 00:00:00", "806174")
-		//var resultmap []map[string]interface{}
-		//errengine := engine.SQL("select value from temperatrurechat where datetime = ? and patientid = ? and headtype in (1,4,5,8,9,10,13,14)", "2017-11-28 00:00:00", "806174").Find(&resultmap)
-		resultmap, errengine := engine.Query("select value from temperatrurechat where datetime = ? and patientid = ? and headtype in (1,4,5,8,9,10,13,14)", "2017-11-28 00:00:00", "806174")
-		if index == 400 {
-			fmt.Println("index:", index, "result:", resultmap, "err:", errengine)
-		}
-	}
-	//errcommit := session.Commit()
-	//fmt.Println("err commit:", errcommit)
+
+
 
 	str11 := ""
 	fmt.Println("------", utils.Substr(str11, 0, 10))
@@ -306,46 +233,6 @@ func main() {
 	h_pkg.ReflectTest3()
 
 	fmt.Println("------------- 分割线 ---------------")
-	rt := reflect.TypeOf(model.NRL3{})
-	rv := reflect.ValueOf(model.NRL3{})
-
-	for index := 0; index < rt.NumField(); index++ {
-		fmt.Println("Name :", rt.Field(index).Name, rv.Field(index).Interface(), "field type:", rv.Field(index).Type(), "field kind:", rv.Field(index).Kind(), "kind:", rt.Kind(), "type:", rv.Type())
-	}
-	//Name : NRL01 0 field type: int field kind: int kind: struct type: model.NRL3
-	//enginesync()
 }
 
-func QueryNRL(rid string, nrl interface{}) (interface{}, error) {
-	var nr3 interface{}
-	switch nrl.(type) {
 
-	case model.NRL3:
-		//var nr3 model.NRL3
-		nr3 = model.NRL3{}
-		fmt.Println(reflect.TypeOf(nrl))
-	default:
-		break
-	}
-	//var nr3 model.NRL3
-	fit.MySqlEngine().ShowSQL(true)
-	_, err := fit.MySqlEngine().Table("NRL3").Where("ID = ?", rid).Get(&nr3)
-	fit.MySqlEngine().ShowSQL(false)
-	fmt.Println(nrl)
-	if err != nil {
-		return nil, err
-	} else {
-		fmt.Println(nrl)
-		return nr3, nil
-	}
-}
-
-func enginesync() {
-	//engine,_ := xorm.NewEngine("mysql", "phpgroup:fitcome_meal1!qw2@tcp(114.119.10.182:1714)/nursing?charset=utf8")
-	//engine,_ := xorm.NewEngine("mysql", "root:123456@tcp(127.0.0.1:3307)/nuring?charset=utf8")
-	engine, _ := xorm.NewEngine("mysql", "youhao:youhao@tcp(192.168.0.126:3306)/nursing?charset=utf8")
-	engine.SetMapper(core.SameMapper{})
-	engine.Sync(new(model.NRL3), new(model.NRL4), new(model.NRL5), new(model.NRL6), new(model.NRL7), new(model.NRL8), new(model.NRL2), new(model.NRL1Title), new(model.NRL7Title), new(model.IOStatistics))
-	// new(model.NRL3), new(model.NRL4), new(model.NRL5), new(model.NRL6), new(model.NRL7),
-	//{{if eq $val.NRL01 "1"}}A{{else if eq $val.NRL01 "2"}}B{{else if $val.NRL01 "3"}}C{{end}}
-}

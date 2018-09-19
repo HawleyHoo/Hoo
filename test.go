@@ -5,6 +5,8 @@ import (
 	"fit"
 	"fmt"
 	"nursing/utils"
+	"strconv"
+	"database/sql"
 )
 
 type FitTime time.Time
@@ -35,6 +37,54 @@ type HAAAA struct {
 	IsOperation    bool    // 是否待手术 ？
 	IsArrearage    bool    // 是否欠费
 	IsNewPatient   bool    // 是否是新病人
+}
+
+
+var timeChina = []string{"", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
+var dateChina = []string{"零", "一", "二", "三", "四", "五", "六", "七", "八", "九", "十"}
+
+func sinicizingDate(intval int) {
+	for index := len(strconv.Itoa(intval)); index >= 0; index++ {
+		//ii := intval % 10
+	}
+}
+
+func initEngine() (*xorm.Engine, error) {
+	db, err := xorm.NewEngine("mysql", "phpgroup:fitcome_meal1!qw2@tcp(39.108.133.131:1714)/nursing?charset=utf8")
+	//db, err := xorm.NewEngine("mysql", "root:123456@tcp(127.0.0.1:3307)/nuring?charset=utf8")
+	db.TZLocation = time.Now().Location()
+	db.DatabaseTZ = time.Now().Location() // Now().Location()
+	//SnakeMapper 支持struct为驼峰式命名，表结构为下划线命名之间的转换，这个是默认的Maper
+	//映射同名设置默认
+	db.SetMapper(core.SameMapper{})
+	fmt.Println("------hahaha")
+	if err == nil {
+		return db, err
+	}
+	return nil, err
+}
+
+func initmysqlEngine() (*sql.DB, error) {
+	db, err := sql.Open("mysql", "phpgroup:fitcome_meal1!qw2@tcp(39.108.133.131:1714)/nursing?charset=utf8")
+	if err != nil {
+		return nil, err
+	}
+	return db, nil
+}
+
+func sinicizingTime(intval int) (datestr string) {
+	if intval >= 0 && intval <= 60 {
+		if intval == 0 {
+			datestr = "零"
+		} else if intval < 10 {
+			datestr = timeChina[intval]
+		} else {
+			datestr = timeChina[intval/10] + "十" + timeChina[intval%10]
+		}
+	} else {
+		datestr = ""
+	}
+	return
 }
 
 func testttt()  {

@@ -1,11 +1,39 @@
-package main
+package h_math
 
 import (
 	"fmt"
 	//"time"
 )
 
+
+func fansuanjiecheng(n int) (res int) {
+	len := n
+	res = 0
+	for  i := 2; i < len; i++ {
+		remainder := n % i
+		if remainder > 0 { // n 不能被整除  则n不是某个数阶乘的乘
+			return 0
+		}
+		fmt.Println("n:", n, "i:", i, "resmainder:", remainder)
+		n = n / i
+		if n == 1 {
+			res = i
+			return res
+		}
+	}
+	return res
+}
+
 func main() {
+	//fmt.Println(120 / 2)
+	fmt.Println(fmt.Sprintf("120 阶乘反算为：%d", fansuanjiecheng(120)))
+	fmt.Println(fmt.Sprintf("122 阶乘反算为：%d", fansuanjiecheng(122)))
+	fmt.Println(fmt.Sprintf("720 阶乘反算为：%d", fansuanjiecheng(720)))
+	fmt.Println(fmt.Sprintf("721 阶乘反算为：%d", fansuanjiecheng(721)))
+	//fmt.Println("n:", n, "i:", i, "resmainder:", remainder)
+
+	return
+
 	//fmt.Println(fmt.Sprintf("15的阶乘末尾有%d个零", find(15)))
 	//fmt.Println(fmt.Sprintf("25的阶乘末尾有%d个零", find(25)))
 	//fmt.Println(fmt.Sprintf("50的阶乘末尾有%d个零", find(50)))
@@ -83,7 +111,7 @@ func count1(n int) int {
 }
 
 func count_one_bits(n int) (int)  {
-
+	return n;
 }
 
 // 给出两个整数a和b, 求他们的和, 但不能使用 + 等数学运算符。
