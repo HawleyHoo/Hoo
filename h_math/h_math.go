@@ -110,9 +110,23 @@ func count1(n int) int {
 	return count
 }
 
-func count_one_bits(n int) (int)  {
-	return n;
+func countDigitOne(n int) int {
+	ones := 0
+	for m := 1; m <= n;m *= 10 {
+		a := n / m
+		b := n % m
+		if a % 10 == 1 {
+			ones += (a + 8) / 10 * m + 1 * (b + 1)
+		} else {
+			ones += (a + 8) / 10 * m + 0 * (b + 1)
+		}
+	}
+	return ones
 }
+
+//func count_one_bits(n int) (int)  {
+//
+//}
 
 // 给出两个整数a和b, 求他们的和, 但不能使用 + 等数学运算符。
 func aplusb(a int, b int) int {
