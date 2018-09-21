@@ -3,6 +3,7 @@ package h_pkg
 import (
 	"runtime"
 	"fmt"
+	"time"
 )
 
 /*
@@ -43,3 +44,68 @@ func fibonacci(n int, c chan int)  {
 	}
 	close(c)
 }
+
+/* channel  栗子*/
+func sendData(ch chan<- string)  {
+	ch <- "go"
+	ch <- "java"
+	ch <- "c"
+	ch <- "c++"
+	ch <- "python"
+	ch <- "PHP"
+	ch <- "OC"
+	ch <- "swift"
+	close(ch)
+}
+
+func getData(ch <-chan string, chClose chan bool)  {
+	for {
+		str, ok := <-ch
+		if !ok {
+			fmt.Println("chan is close")
+			break
+		}
+		fmt.Println(str)
+	}
+	chClose<-true
+}
+
+func ChClose()  {
+	ch := make(chan string, 10)
+	chclose := make(chan bool, 1)
+
+	go sendData(ch)
+	go getData(ch, chclose)
+
+	<-chclose
+	close(chclose)
+
+
+}
+
+/* eg */
+func produce(p chan<- int)  {
+	for i := 0; i < 10; i++ {
+		p<-i
+		fmt.Println("send:", i)
+	}
+}
+
+func consumer(c <-chan int)  {
+	for i := 0; i < 10; i++ {
+		v := <-c
+		fmt.Println("receive:", v)
+	}
+}
+
+func ChPC() {
+	ch := make(chan int)
+	go produce(ch)
+	go consumer(ch)
+
+	time.Sleep(time.Second)
+}
+
+
+
+

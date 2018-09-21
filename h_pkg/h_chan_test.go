@@ -31,3 +31,18 @@ func TestSum(t *testing.T) {
 	fmt.Println(<-c)
 	fmt.Println(<-c)
 }
+
+func TestChClose(t *testing.T) {
+	ChClose()
+}
+
+/*
+  goroutine test
+*/
+func TestGoRecover(t *testing.T) {
+	//GoRecover()
+
+	//GoChan()
+
+	ChPC()
+}
