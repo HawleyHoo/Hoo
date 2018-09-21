@@ -10,9 +10,9 @@ import (
 	//"nursing/utils"
 	"time"
 	//"github.com/astaxie/beego/session"
-	"strings"
 	"encoding/json"
 	"homedoctor/utils"
+	"strings"
 )
 
 type Man struct {
@@ -23,9 +23,6 @@ type Studnt struct {
 	Man
 	Code int
 }
-
-
-
 
 func splitTag(tag string) (tags []string) {
 	tag = strings.TrimSpace(tag)
@@ -100,7 +97,7 @@ type AccessType int
 
 const (
 	//
-	AccessTypeBack    AccessType = 1 << iota
+	AccessTypeBack AccessType = 1 << iota
 	AccessTypeOut
 	AccessTypeAll
 	AccessTypeUnknown = 0
@@ -132,16 +129,9 @@ func main123() {
 
 }
 
-
-
-
-
 func main() {
 
-
-
-
-	data, i := [3]int{0,1,2}, 0
+	data, i := [3]int{0, 1, 2}, 0
 	i, data[i] = 2, 100
 	fmt.Println(data, i)
 	data[i], i = 100, 2
@@ -166,7 +156,6 @@ func main() {
 
 	fmt.Println("---:", 0.00001 > 0)
 	fmt.Println("---:", -0.00001 > 0)
-
 
 	list1 := [8]string{"a", "b", "c", "d", "e", "f"}
 	list2 := make([]string, 6)
@@ -212,9 +201,6 @@ func main() {
 
 	defer utils.Trace("hoo test")()
 
-
-
-
 	str11 := ""
 	fmt.Println("------", utils.Substr(str11, 0, 10))
 	for index := 1; index < 36; index++ {
@@ -234,5 +220,3 @@ func main() {
 
 	fmt.Println("------------- 分割线 ---------------")
 }
-
-
