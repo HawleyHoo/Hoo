@@ -1,5 +1,5 @@
 //package h_base
-package  main
+package  h_base
 
 import "fmt"
 

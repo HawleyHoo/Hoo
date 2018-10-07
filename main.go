@@ -7,7 +7,7 @@ import (
 	//"nursing/model"
 
 	"Hoo/h_pkg"
-	//"nursing/utils"
+	"nursing/utils"
 	"time"
 	//"github.com/astaxie/beego/session"
 	"encoding/json"
@@ -97,7 +97,7 @@ type AccessType int
 
 const (
 	//
-	AccessTypeBack AccessType = 1 << iota
+	AccessTypeBack    AccessType = 1 << iota
 	AccessTypeOut
 	AccessTypeAll
 	AccessTypeUnknown = 0
@@ -131,7 +131,18 @@ func main123() {
 
 func main() {
 
-	data, i := [3]int{0, 1, 2}, 0
+	var i = 3
+	go func(a int) {
+		fmt.Println(a)
+		fmt.Println("1")
+	}(i)
+	go fmt.Println("hehe")
+	fmt.Println("2")
+	fmt.Println("22")
+
+	return
+
+	data, i := [3]int{0,1,2}, 0
 	i, data[i] = 2, 100
 	fmt.Println(data, i)
 	data[i], i = 100, 2
