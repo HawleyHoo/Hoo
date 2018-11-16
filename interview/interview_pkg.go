@@ -1,16 +1,17 @@
 package main
 
 import (
-	"sync"
+	"bytes"
 	"fmt"
 	"strings"
+	"sync"
 	"unicode/utf8"
-	"bytes"
 )
 
 const N = 100
 
 func main() {
+
 	m := &map[int]int{} //A
 	wg := &sync.WaitGroup{}
 	mu := &sync.Mutex{}
@@ -26,11 +27,11 @@ func main() {
 	wg.Wait()
 	fmt.Println(m)
 
-	str:="HelloWord"
-	l1:=len([]rune(str))
-	l2:=bytes.Count([]byte(str),nil)
-	l3:=strings.Count(str,"")
-	l4:=utf8.RuneCountInString(str)
+	str := "HelloWord"
+	l1 := len([]rune(str))
+	l2 := bytes.Count([]byte(str), nil)
+	l3 := strings.Count(str, "")
+	l4 := utf8.RuneCountInString(str)
 	fmt.Println(l1)
 	fmt.Println(l2)
 	fmt.Println(l3)

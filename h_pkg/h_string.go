@@ -1,10 +1,10 @@
 package h_pkg
 
 import (
-	"fmt"
-	"time"
-	"strings"
 	"bytes"
+	"fmt"
+	"strings"
+	"time"
 )
 
 //截取字符串 start 起点下标 length 需要截取的长度
@@ -54,6 +54,15 @@ func Substr2(str string, start int, end int) string {
 	return string(rs[start:end])
 }
 
+// 字符串反转
+func Reverse(s string) string {
+	r := []rune(s)
+	count := len(s) / 2
+	for i, j := 0, len(r)-1; i < count; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r)
+}
 
 // We alias `fmt.Println` to a shorter name as we'll use
 // it a lot below.

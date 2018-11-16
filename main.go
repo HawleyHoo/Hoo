@@ -7,11 +7,14 @@ import (
 	//"nursing/model"
 
 	"Hoo/h_pkg"
-	"nursing/utils"
 	"time"
 	//"github.com/astaxie/beego/session"
 	"encoding/json"
 	"homedoctor/utils"
+	"math"
+	"math/rand"
+	"os"
+	"reflect"
 	"strings"
 )
 
@@ -97,7 +100,7 @@ type AccessType int
 
 const (
 	//
-	AccessTypeBack    AccessType = 1 << iota
+	AccessTypeBack AccessType = 1 << iota
 	AccessTypeOut
 	AccessTypeAll
 	AccessTypeUnknown = 0
@@ -129,7 +132,201 @@ func main123() {
 
 }
 
+func (s Studnt) String() string {
+	return fmt.Sprintf("%s, %d")
+}
+
+const MIN = 0.000001
+
+// MIN 为用户自定义的比较精度
+func IsEqual(f1, f2 float64) bool {
+	return math.Dim(f1, f2) < MIN
+}
+
+//func filter(r rune) rune {
+//	if strings.IndexRune() {
+//
+//	}
+//}
+
+func RandInt(min, max int) int {
+	if min >= max || min == 0 || max == 0 {
+		return max
+	}
+	return rand.Intn(max-min) + min
+}
+
+func testsss(str string) string {
+
+	str = "hehe"
+	return str
+}
+func testsssss() {
+	var str string = "12345"
+	tmpstr := str
+	fmt.Printf("%p %p\n", &str, &tmpstr)
+	tmpstr = tmpstr + "x"
+	fmt.Printf("%p %p\n", &str, &tmpstr)
+
+	var b []string = []string{"b"}
+	a := "a"
+	fmt.Printf("%p %p\n", &a, &b)
+	b = append(b, a)
+	fmt.Printf("%p %p\n", &a, &b[1])
+}
+
+func DeepCopy(value interface{}) interface{} {
+	if valueMap, ok := value.(map[string]interface{}); ok {
+		newMap := make(map[string]interface{})
+		for k, v := range valueMap {
+			newMap[k] = DeepCopy(v)
+		}
+
+		return newMap
+	} else if valueSlice, ok := value.([]interface{}); ok {
+		newSlice := make([]interface{}, len(valueSlice))
+		for k, v := range valueSlice {
+			newSlice[k] = DeepCopy(v)
+		}
+
+		return newSlice
+	}
+
+	return value
+}
+
+func testhehe(arr interface{}) [][]interface{} {
+	if reflect.TypeOf(arr).Kind() != reflect.Slice {
+		return nil
+	}
+	arrValue := reflect.ValueOf(arr)
+	step := 2
+	retArr := make([][]interface{}, 0)
+	for k := 0; k < arrValue.Len(); k = k + step {
+		temp := make([]interface{}, 0)
+
+		temp = append(temp, arrValue.Index(k).Interface())
+		if k+1 < arrValue.Len() {
+			temp = append(temp, arrValue.Index(k+1).Interface())
+		}
+
+		retArr = append(retArr, temp)
+	}
+	return retArr
+}
+
+type Test struct {
+	Name string
+}
+
 func main() {
+	//arr1 := []string{"a", "b", "c", "d", "e"}
+	//arr1 := []int{1,2, 3, 4, 5, 6}
+	arr1 := []Test{Test{"a"}, Test{"b"}, Test{"c"}, Test{"d"}, Test{"e"}, Test{"f"}}
+	arr2 := testhehe(arr1)
+	fmt.Printf("%+v  \n", arr2)
+
+	return
+	//rad := rand.New(rand.NewSource(time.Now().Unix()))
+	//for i := 0; i < rad.Intn(9)+1; i++ {
+	//	fmt.Println(rad.Intn(50))
+	//}
+	//testsssss()
+
+	workPath, err := os.Getwd()
+	fmt.Println(workPath)
+	workPath2, err := os.Getwd()
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(workPath2)
+
+	now := time.Now()
+	timenow := now.Format("20060102") + " 000000"
+	fmt.Println(timenow)
+	list := make([]int, 0)
+	for i := 0; i < 10; i++ {
+		list = append(list, i*2)
+		if i == 9 {
+			h := list[i]
+			h = 168
+			fmt.Println(h, list[i])
+			//list[i] = 168
+		}
+	}
+	fmt.Println(list)
+
+	aaaaaa := "haha"
+
+	fmt.Println("200025893" < "200025892")
+	fmt.Println("200025893" <= "200025893")
+	fmt.Println("200025893" < "200025894")
+
+	fmt.Println(testsss(aaaaaa))
+	fmt.Println(aaaaaa)
+	return
+	fmt.Println(strings.Replace("10-17-18", "-", "", -1))
+	fmt.Println("123456789"[:8])
+	for i := 0; i < 100; i++ {
+		fmt.Println(RandInt(1000, 9999))
+	}
+	SaleTime := func(input string, characters string) string { //
+		filter := func(r rune) rune {
+			if strings.IndexRune(characters, r) < 0 {
+				return r
+			}
+			return -1
+		}
+		return strings.Map(filter, input)
+	}("2016-05-08 23:00:00", "-:")
+	fmt.Println(SaleTime)
+	//fmt.Println(strings.Map(":","2016-05-08 23:00:00"))
+	ru := []rune(":")
+	fmt.Println("ele:", strings.IndexRune("20asdf16:88", ru[0]))
+
+	he := ";asdfasdfa;sldkfj;"
+	strhe := strings.TrimSuffix(he, ";")
+
+	fmt.Println(he, len("哈哈"))
+	fmt.Println(strhe)
+	fmt.Println(time.Now().Unix())
+	a1 := 0.0000123
+	b2 := 0.000012234
+	if IsEqual(a1, b2) {
+		fmt.Println("a < b", 7/2, h_pkg.Reverse("Hello world!"))
+	}
+	lsit := make([]string, 0)
+	fmt.Println("list :", lsit, "len:", len(lsit))
+	storeList := []string{"204149", "204146", "204251", "204086", "204024", "204081", "204220", "204121", "204190", "204007", "204191", "204005", "204010", "204100", "204209", "204221", "204002", "204004", "204008", "204204", "204241", "204206", "204335"}
+	for _, v := range storeList {
+		if v != "" {
+			lsit = append(lsit, v)
+		}
+	}
+
+	fmt.Println("list :", lsit, "len:", len(lsit))
+	return
+
+	hhe := map[string]int{"a": 2, "b": 3}
+	if aaaaaaa, ok := hhe["c"]; ok {
+		fmt.Println("c:", aaaaaaa)
+	} else {
+		fmt.Println("no c:", aaaaaaa)
+	}
+
+	s := Studnt{}
+	fmt.Println(s)
+	t1 := time.Now()
+
+	t2 := time.Unix(0, 0)
+
+	fmt.Println(t1)
+	fmt.Println(t2)
+
+	//aaa := [20]int{1}
+	for i := 0; i < 20; i += 3 {
+		fmt.Println("hehe", i)
+	}
 
 	var i = 3
 	go func(a int) {
@@ -142,7 +339,7 @@ func main() {
 
 	return
 
-	data, i := [3]int{0,1,2}, 0
+	data, i := [3]int{0, 1, 2}, 0
 	i, data[i] = 2, 100
 	fmt.Println(data, i)
 	data[i], i = 100, 2

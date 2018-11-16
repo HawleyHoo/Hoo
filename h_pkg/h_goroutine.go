@@ -1,13 +1,13 @@
 package h_pkg
 
 import (
-	"runtime"
 	"fmt"
-	"time"
+	"runtime"
 	"sync"
+	"time"
 )
 
-func NumOfCPU()  {
+func NumOfCPU() {
 	num := runtime.NumCPU() // 本地机器的逻辑CPU数
 	runtime.GOMAXPROCS(num) // 设置可同时执行的最大CPU数
 	fmt.Println(num)
@@ -15,7 +15,9 @@ func NumOfCPU()  {
 
 var domainSyncChan = make(chan int, 10)
 
-func goroutineOfRecover(num int)  {
+/* 如果某个goroutine panic了，而且这个goroutine里面没有捕获(recover)，那么整个进程就会挂掉。
+所以，好的习惯是每当go产生一个goroutine，就需要写下recover。 */
+func goroutineOfRecover(num int) {
 	defer func() {
 		err := recover()
 		if err != nil {
@@ -26,13 +28,12 @@ func goroutineOfRecover(num int)  {
 	panic("error ... ")
 }
 
-func GoRecover()  {
-	for i:=0; i<10;i++  {
+func GoRecover() {
+	for i := 0; i < 10; i++ {
 		domainName := i
 		go goroutineOfRecover(domainName)
 	}
 	time.Sleep(time.Second * 2)
-
 
 	userChan := make(chan interface{})
 	go func() {
@@ -44,7 +45,7 @@ func GoRecover()  {
 			}
 		}
 	}()
-	for  {
+	for {
 		name := <-userChan
 		fmt.Println("name:", name)
 		time.Sleep(time.Second)
@@ -55,7 +56,7 @@ func GoRecover()  {
  goroutine + channel 栗子
  多个goroutine处理任务，等待一组channel的返回结果
 */
-func calc(taskChan, resChan chan int, exitChan chan bool)  {
+func calc(taskChan, resChan chan int, exitChan chan bool) {
 	defer func() {
 		err := recover()
 		if err != nil {
@@ -66,7 +67,7 @@ func calc(taskChan, resChan chan int, exitChan chan bool)  {
 
 	for v := range taskChan {
 		flag := true
-		for i := 2; i < v; i++  {
+		for i := 2; i < v; i++ {
 			if v%i == 0 {
 				flag = false
 				break
@@ -80,13 +81,13 @@ func calc(taskChan, resChan chan int, exitChan chan bool)  {
 	exitChan <- true
 }
 
-func GoChan()  {
+func GoChan() {
 	intChan := make(chan int, 1000)
 	resChan := make(chan int, 1000)
 	exitChan := make(chan bool, 8)
 
 	go func() {
-		for i := 0; i < 1000;i++  {
+		for i := 0; i < 1000; i++ {
 			intChan <- i
 		}
 		close(intChan)
@@ -124,7 +125,7 @@ func ChanMerge(cs <-chan int) <-chan int {
 
 	output := func(c <-chan int) {
 		for n := range c {
-			out <-n
+			out <- n
 		}
 		wg.Done()
 	}

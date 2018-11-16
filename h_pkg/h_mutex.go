@@ -2,7 +2,10 @@ package h_pkg
 
 import (
 	"fmt"
+	"io/ioutil"
 	"math/rand"
+	"net/http"
+	"os"
 	"runtime"
 	"sync"
 	"sync/atomic"
@@ -65,4 +68,38 @@ func MutexTs() {
 	mutex.Lock()
 	fmt.Println("state:", state)
 	mutex.Unlock()
+}
+
+var waitGroup = new(sync.WaitGroup)
+
+func download(i int) {
+	url := fmt.Sprintf("http://pic2016.ytqmx.com:82/2016/0919/41/%d.jpg", i)
+	fmt.Printf("开始下载:%s\n", url)
+	res, err := http.Get(url)
+	if err != nil || res.StatusCode != 200 {
+		fmt.Printf("下载失败:%s", res.Request.URL)
+	} else {
+		fmt.Printf("开始读取文件内容,url=%s\n", url)
+		data, err2 := ioutil.ReadAll(res.Body)
+		if err2 != nil {
+			fmt.Printf("读取数据失败")
+		}
+		err3 := ioutil.WriteFile(fmt.Sprintf("pic2018/1_%d.jpg", i), data, 0644)
+		if err3 != nil {
+			fmt.Println("文件写入失败:", i)
+		}
+	}
+	//计数器-1
+	waitGroup.Done()
+}
+
+func SyncWaitGroup() {
+	os.MkdirAll("/pic2019", 0666)
+	now := time.Now()
+	for i := 1; i < 24; i++ {
+		waitGroup.Add(1)
+		go download(i)
+	}
+	waitGroup.Wait()
+	fmt.Printf("下载总时间:%v\n", time.Now().Sub(now))
 }

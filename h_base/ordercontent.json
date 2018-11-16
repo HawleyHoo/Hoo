@@ -1,0 +1,155 @@
+﻿{
+	"count": 30,
+	"list": [
+		{
+			"StoreCode": "204086",
+			"PKUCode": "20001513",
+			"Qty": 20
+		},
+		{
+			"StoreCode": "204190",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204168",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204206",
+			"PKUCode": "20001513",
+			"Qty": 10
+		},
+		{
+			"StoreCode": "204121",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204091",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204102",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204165",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204112",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204115",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204082",
+			"PKUCode": "20001513",
+			"Qty": 20
+		},
+		{
+			"StoreCode": "204081",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204220",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204185",
+			"PKUCode": "20001513",
+			"Qty": null
+		},
+		{
+			"StoreCode": "204302",
+			"PKUCode": "20001513",
+			"Qty": 20
+		},
+		{
+			"StoreCode": "204203",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204236",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204225",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204089",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204317",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204184",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204157",
+			"PKUCode": "20001513",
+			"Qty": 20
+		},
+		{
+			"StoreCode": "204251",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204233",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204052",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204167",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204215",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204120",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204006",
+			"PKUCode": "20001513",
+			"Qty": 15
+		},
+		{
+			"StoreCode": "204177",
+			"PKUCode": "20001513",
+			"Qty": 15
+		}
+	]
+}
