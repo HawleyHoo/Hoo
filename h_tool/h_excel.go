@@ -11,26 +11,27 @@ import (
 
 func testReadFile() {
 	//excelFileName := "./h_tool/Workbook.xlsx"
-	excelFileName := "./h_tool/orderlist.xlsx"
+	excelFileName := "./h_tool/testlist.xlsx"
 	xlFile, err := xlsx.OpenFile(excelFileName)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
-	headers := []string{"序号", "门店名称", "门店编号", "品名", "PKU编码", "pku采购单位", "销售单位", "订货单价（元）", "订货数量", "需求配货时间", "备注"}
+	//headers := []string{"序号", "门店名称", "门店编号", "品名", "PKU编码", "pku采购单位", "销售单位", "订货单价（元）", "订货数量", "需求配货时间", "备注"}
 	for _, sheet := range xlFile.Sheets {
 		fmt.Println("name:", sheet.Name, "rows:", len(sheet.Rows), "max row:", sheet.MaxRow, sheet.MaxCol)
 		if len(sheet.Rows) == 1 {
 			return // sheet 为空
 		}
+
 		for i, row := range sheet.Rows {
 			fmt.Printf("row: %d :", i)
-			for j, cell := range row.Cells {
+			for _, cell := range row.Cells {
 				text := cell.String()
 				if i == 0 {
-					if text != headers[j] {
-						return // 数据错误
-					}
+					//if text != headers[j] {
+					//	return // 数据错误
+					//}
 				}
 				fmt.Printf("%s\t", text)
 			}
@@ -40,8 +41,9 @@ func testReadFile() {
 }
 
 func main() {
-	testReadFile()
+	//testReadFile()
 	//readFile()
+	writeFile()
 }
 
 func readFile() {
@@ -78,6 +80,24 @@ func readFile() {
 			fmt.Print(colCell, "\t")
 		}
 		fmt.Println(row)
+	}
+}
+
+func writeFile() {
+	categories := map[string]string{"A2": "Small", "A3": "Normal", "A4": "Large", "B1": "Apple", "C1": "Orange", "D1": "Pear"}
+	values := map[string]int{"B2": 2, "C2": 3, "D2": 3, "B3": 5, "C3": 2, "D3": 4, "B4": 6, "C4": 7, "D4": 8}
+	xlsx := excelize.NewFile()
+	for k, v := range categories {
+		xlsx.SetCellValue("Sheet1", k, v)
+	}
+	for k, v := range values {
+		xlsx.SetCellValue("Sheet1", k, v)
+	}
+	//xlsx.AddChart("Sheet1", "E1", `{"type":"col3DClustered","series":[{"name":"Sheet1!$A$2","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$2:$D$2"},{"name":"Sheet1!$A$3","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$3:$D$3"},{"name":"Sheet1!$A$4","categories":"Sheet1!$B$1:$D$1","values":"Sheet1!$B$4:$D$4"}],"title":{"name":"Fruit 3D Clustered Column Chart"}}`)
+	// Save xlsx file by the given path.
+	err := xlsx.SaveAs("./Book1.xlsx")
+	if err != nil {
+		fmt.Println(err)
 	}
 }
 
