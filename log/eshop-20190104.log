@@ -1,0 +1,59 @@
+INFO 2019/01/04 18:10:50.275289 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:10:50.295342 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:10:50.295342 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:10:50.295342 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:10:50.328431 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:12:09.496415 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:12:09.496415 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:12:09.496415 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:12:09.496415 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:12:09.533514 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:12:41.552591 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:12:41.553593 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:12:41.553593 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:12:41.553593 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:12:41.584675 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:13:28.563843 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:13:28.563843 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:13:28.563843 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:13:28.563843 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:13:28.596955 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:17:09.294775 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:17:09.294775 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:17:09.294775 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:17:09.294775 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:17:09.323852 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:37:18.904658 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:37:18.905662 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:37:18.905662 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:37:18.905662 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:37:18.936744 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:38:30.944644 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:38:30.944644 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:38:30.945647 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:38:30.945647 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:38:30.976729 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:39:46.288707 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:39:46.288707 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:39:46.288707 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:39:46.288707 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:39:46.320803 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:39:46.371092 qdm_eshop.go:36:  no match storeid%!(EXTRA string=201005, string=惠阳丹堤)
+INFO 2019/01/04 18:48:56.033256 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 18:48:56.034260 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 18:48:56.034260 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 18:48:56.034260 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 18:48:56.065342 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 18:48:56.118484 qdm_eshop.go:36:  no match storeid 201005 惠阳丹堤
+INFO 2019/01/04 19:01:26.786122 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 19:01:26.787125 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 19:01:26.787125 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 19:01:26.787125 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 19:01:26.941534 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 19:01:27.003700 qdm_eshop.go:36:  no match storeid 201005 惠阳丹堤
+INFO 2019/01/04 19:01:58.971063 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/04 19:01:58.972065 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/04 19:01:58.972065 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/04 19:01:58.972065 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/04 19:01:59.004169 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2019/01/04 19:01:59.054285 qdm_eshop.go:36:  no match storeid 201005 惠阳丹堤

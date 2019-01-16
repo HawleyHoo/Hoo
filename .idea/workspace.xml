@@ -1,0 +1,817 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2c388fe1-dc96-4bf9-a2c6-caf2607254af" name="Default Changelist" comment="excel 列标题">
+      <change afterPath="$PROJECT_DIR$/config.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/h_base/h_ticker.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/h_tool/20181121.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/qdm_eshop.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h_base/h_json.go" beforeDir="false" afterPath="$PROJECT_DIR$/h_base/h_json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h_math/h_excel_index.go" beforeDir="false" afterPath="$PROJECT_DIR$/h_math/h_excel_index.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h_net/h_getpost.go" beforeDir="false" afterPath="$PROJECT_DIR$/h_net/h_getpost.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h_pkg/h_map.go" beforeDir="false" afterPath="$PROJECT_DIR$/h_pkg/h_map.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h_pkg/h_map_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/h_pkg/h_map_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/h_tool/h_excel.go" beforeDir="false" afterPath="$PROJECT_DIR$/h_tool/h_excel.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.go" beforeDir="false" afterPath="$PROJECT_DIR$/test.go" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="2010314125">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="52" />
+          <entry key="project.open.time.0" value="23" />
+          <entry key="project.open.time.1" value="12" />
+          <entry key="project.open.time.10" value="1" />
+          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.13" value="3" />
+          <entry key="project.open.time.14" value="2" />
+          <entry key="project.open.time.15" value="5" />
+          <entry key="project.open.time.16" value="3" />
+          <entry key="project.open.time.17" value="3" />
+          <entry key="project.open.time.18" value="2" />
+          <entry key="project.open.time.19" value="3" />
+          <entry key="project.open.time.2" value="5" />
+          <entry key="project.open.time.20" value="2" />
+          <entry key="project.open.time.3" value="6" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="6" />
+          <entry key="project.open.time.6" value="4" />
+          <entry key="project.open.time.7" value="2" />
+          <entry key="project.opened" value="86" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="go" value="10454" />
+          <entry key="txt" value="17" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="Go" value="10454" />
+          <entry key="PLAIN_TEXT" value="17" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="conf" value="2" />
+          <entry key="go" value="187" />
+          <entry key="html" value="2" />
+          <entry key="json" value="2" />
+          <entry key="key" value="1" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="Go" value="187" />
+          <entry key="HTML" value="2" />
+          <entry key="JSON" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.js.language.service.starts" />
+      <usages-collector id="statistics.go.postfix.template.usages.trigger" />
+      <usages-collector id="statistics.vcs.git.usages" />
+    </session>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Hoo" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/qdm_eshop.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="338">
+              <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+              <folding>
+                <element signature="e#14#164#0" expanded="true" />
+                <element signature="n#!!block;n#groupby#0" />
+                <element signature="n#!!block;n#accumulatePurchaseQty#0" />
+                <element signature="n#!!block;n#writeSchPlanFile#0" />
+                <element signature="n#!!block;n#getSchSkuList#0" />
+                <element signature="n#!!block;n#convertToTitle2#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_base/h_loop.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="130">
+              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_tool/factory.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_tool/h_crypto.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/main.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5434">
+              <caret line="228" column="14" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test2.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test3.go">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/h_base/h_ticker.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="260">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="156">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>String()</find>
+      <find>run</find>
+      <find>run(</find>
+      <find>204136</find>
+      <find>setcellstyle</find>
+      <find>initStoreList</find>
+      <find>惠阳丹堤</find>
+      <find>259</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>E:\goworks\src\Hoo\h_base</dir>
+    </dirStrings>
+  </component>
+  <component name="GOROOT" path="C:\Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/h_pkg/h_mutex.go" />
+        <option value="$PROJECT_DIR$/h_pkg/h_mutex_test.go" />
+        <option value="$PROJECT_DIR$/interview/interview_pkg.go" />
+        <option value="$PROJECT_DIR$/h_pkg/h_string.go" />
+        <option value="$PROJECT_DIR$/h_pkg/h_goroutine.go" />
+        <option value="$PROJECT_DIR$/h_base/h_pointer.go" />
+        <option value="$PROJECT_DIR$/h_base/h_flow.go" />
+        <option value="$PROJECT_DIR$/h_net/h_curl.go" />
+        <option value="$PROJECT_DIR$/h_base/h_struct.go" />
+        <option value="$PROJECT_DIR$/h_tool/h_crypto.go" />
+        <option value="$PROJECT_DIR$/h_math/math.go" />
+        <option value="$PROJECT_DIR$/h_base/h_os.go" />
+        <option value="$PROJECT_DIR$/testgo.go" />
+        <option value="$PROJECT_DIR$/h_base/h_rune.go" />
+        <option value="$PROJECT_DIR$/h_base/h_readfile.go" />
+        <option value="$PROJECT_DIR$/h_base/h_json.go" />
+        <option value="$PROJECT_DIR$/h_net/h_getpost.go" />
+        <option value="$PROJECT_DIR$/../eshop/schedule/schedule.go" />
+        <option value="$PROJECT_DIR$/main.go" />
+        <option value="$PROJECT_DIR$/h_tool/h_excel.go" />
+        <option value="$PROJECT_DIR$/h_math/h_excel_index.go" />
+        <option value="$PROJECT_DIR$/test.go" />
+        <option value="$PROJECT_DIR$/../eshop/model/shopInfoM.go" />
+        <option value="$PROJECT_DIR$/../eshop/model/wxMainM.go" />
+        <option value="$PROJECT_DIR$/../eshop/service/oms_stock.go" />
+        <option value="$PROJECT_DIR$/../eshop/model/stock_order_m.go" />
+        <option value="$PROJECT_DIR$/../eshop/service/sch_update_stock.go" />
+        <option value="$PROJECT_DIR$/../eshop/model/errRecord.go" />
+        <option value="$PROJECT_DIR$/h_base/h_ticker.go" />
+        <option value="$PROJECT_DIR$/../eshop/model/yz_trade_m.go" />
+        <option value="$PROJECT_DIR$/h_pkg/h_map.go" />
+        <option value="$PROJECT_DIR$/h_pkg/h_map_test.go" />
+        <option value="$PROJECT_DIR$/qdm_eshop.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-7" />
+    <option name="width" value="1700" />
+    <option name="height" value="1050" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Hoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hoo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hoo" type="462c0819:PsiDirectoryNode" />
+              <item name="h_base" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hoo" type="462c0819:PsiDirectoryNode" />
+              <item name="h_pkg" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Hoo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Hoo" type="462c0819:PsiDirectoryNode" />
+              <item name="h_tool" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultGoTemplateProperty" value="Go File" />
+    <property name="GO_FMT" value="true" />
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.gopath.indexing.explicitly.defined" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gintest" />
+    <property name="settings.editor.selected.configurable" value="go.autoimport" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\goworks\src\Hoo\h_tool" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\goworks\src\Hoo" />
+      <recent name="E:\goworks\src\Hoo\h_tool" />
+      <recent name="E:\goworks\src\Hoo\h_base" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Go Build.go build qdm_eshop.go">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/../Hoo|E:\goworks\src\Hoo\main.go" />
+      <package value="Hoo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build h_excel.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Hoo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/h_tool/h_excel.go" />
+      <package value="Hoo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build h_excel_index.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Hoo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/h_math/h_excel_index.go" />
+      <package value="Hoo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build main.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Hoo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/main.go" />
+      <package value="Hoo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build qdm_eshop.go" type="GoApplicationRunConfiguration" factoryName="Go Application" temporary="true" nameIsGenerated="true">
+      <module name="Hoo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$/qdm_eshop.go" />
+      <package value="Hoo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="main" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="E:\goworks\src\Hoo\main.go" />
+      <package value="Hoo" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration name="TestNew in Hoo/h_tool" type="GoTestRunConfiguration" factoryName="Go Test" temporary="true" nameIsGenerated="true">
+      <module name="Hoo" />
+      <working_directory value="$PROJECT_DIR$/h_tool" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="PACKAGE" />
+      <package value="Hoo/h_tool" />
+      <directory value="$PROJECT_DIR$/" />
+      <filePath value="$PROJECT_DIR$/" />
+      <pattern value="^TestNew$" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Go Build.main" />
+      <item itemvalue="Go Build.go build main.go" />
+      <item itemvalue="Go Build.go build h_excel.go" />
+      <item itemvalue="Go Build.go build h_excel_index.go" />
+      <item itemvalue="Go Build.go build qdm_eshop.go" />
+      <item itemvalue="Go Test.TestNew in Hoo/h_tool" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Go Build.go build qdm_eshop.go" />
+        <item itemvalue="Go Test.TestNew in Hoo/h_tool" />
+        <item itemvalue="Go Build.go build h_excel.go" />
+        <item itemvalue="Go Build.go build h_excel_index.go" />
+        <item itemvalue="Go Build.go build main.go" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="StructureViewFactory">
+    <option name="ACTIVE_ACTIONS" value=",Show Private Members" />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 15h 06m 30s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 15h 58m 05s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 16h 23m 02s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 16h 23m 33s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 16h 24m 32s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 16h 25m 00s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 16h 29m 43s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 17h 25m 40s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 17h 26m 04s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+    <history-entry file="TestMutexTs_in_Hoo_h_pkg - 2018.10.10 at 17h 26m 18s.xml">
+      <configuration name="TestMutexTs in Hoo/h_pkg" configurationId="GoTestRunConfiguration" />
+    </history-entry>
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="0" width="1700" height="1050" extended-state="1" />
+    <layout>
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6064865" visible="true" weight="0.13902439" />
+      <window_info id="Structure" order="1" sideWeight="0.3935135" side_tool="true" weight="0.21005252" />
+      <window_info id="Favorites" order="2" sideWeight="0.5443322" side_tool="true" weight="0.20415647" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32435465" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295964" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3295964" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6064865" visible="true" weight="0.21005252" />
+      <window_info id="Structure" order="1" sideWeight="0.3935135" side_tool="true" visible="true" weight="0.21005252" />
+      <window_info id="Favorites" order="2" sideWeight="0.5443322" side_tool="true" weight="0.20415647" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.2738496" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.3295964" />
+      <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.3295964" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add tool" />
+    <MESSAGE value="excel 列标题" />
+    <option name="LAST_COMMIT_MESSAGE" value="excel 列标题" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../eshop/schedule/schedule.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="457">
+          <caret line="197" column="24" selection-start-line="197" selection-start-column="24" selection-end-line="197" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/goLiveM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-23">
+          <caret column="7" selection-start-column="7" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/lib.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="118" column="5" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/strings/strings.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="461" column="5" selection-start-line="461" selection-start-column="5" selection-end-line="461" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/rows.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="166" lean-forward="true" selection-start-line="166" selection-end-line="166" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_tool/h_excel.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="18" column="20" selection-start-line="18" selection-start-column="20" selection-end-line="18" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/wxMainM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3302">
+          <caret line="131" column="47" selection-start-line="131" selection-start-column="47" selection-end-line="131" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/shopInfoM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4758">
+          <caret line="192" column="14" selection-start-line="192" selection-start-column="14" selection-end-line="192" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/styles.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="61542">
+          <caret line="2374" column="12" selection-start-line="2374" selection-start-column="3" selection-end-line="2374" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/sheet.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="416">
+          <caret line="29" column="15" selection-start-line="29" selection-start-column="15" selection-end-line="29" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/excelize.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="676">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/shape.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6526">
+          <caret line="256" column="15" selection-start-line="256" selection-start-column="15" selection-end-line="256" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/file.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="650">
+          <caret line="61" column="15" selection-start-line="61" selection-start-column="15" selection-end-line="61" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/service/sms_service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="69">
+          <caret line="176" column="14" lean-forward="true" selection-start-line="176" selection-start-column="14" selection-end-line="176" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/controller/stock_order_c.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="428" column="5" lean-forward="true" selection-start-line="428" selection-start-column="5" selection-end-line="428" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/sheetpr.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="139" column="15" selection-start-line="139" selection-start-column="15" selection-end-line="139" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../github.com/Luxurioust/excelize/cell.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="202" column="15" selection-start-line="202" selection-start-column="15" selection-end-line="202" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/skuInfoM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="45" column="66" lean-forward="true" selection-start-line="45" selection-start-column="66" selection-end-line="45" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/service/youzan_service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="590">
+          <caret line="194" column="25" lean-forward="true" selection-start-line="194" selection-start-column="25" selection-end-line="194" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/service/sch_update_stock.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="624">
+          <caret line="32" column="7" selection-start-line="32" selection-start-column="7" selection-end-line="32" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/orderCounterM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1066">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_base/h_json.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_math/h_excel_index.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2028">
+          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/curStoreM.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2236">
+          <caret line="95" column="18" selection-start-line="95" selection-start-column="18" selection-end-line="95" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/stock_order_m.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-7">
+          <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_pkg/h_chan_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_pkg/h_time.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_pkg/h_chan.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/errRecord.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1742">
+          <caret line="67" column="21" selection-start-line="67" selection-start-column="21" selection-end-line="67" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/service/sch_plan_service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="763" column="5" selection-start-line="763" selection-start-column="5" selection-end-line="763" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Go/src/time/time.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27898">
+          <caret line="1073" column="14" selection-start-line="1073" selection-start-column="14" selection-end-line="1073" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_pkg/h_goroutine.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_base/h_select.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/yz_trade_m.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="36" column="17" selection-start-line="36" selection-start-column="17" selection-end-line="36" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testgo.go" />
+    <entry file="file://$PROJECT_DIR$/h_net/h_getpost.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4767">
+          <caret line="251" column="1" selection-start-line="251" selection-start-column="1" selection-end-line="251" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/model/sku_schedule_m.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="691" column="5" selection-start-line="691" selection-start-column="5" selection-end-line="691" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_tool/new_option.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../eshop/service/oms_stock.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4342">
+          <caret line="179" column="30" selection-start-line="179" selection-start-column="30" selection-end-line="179" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_tool/new_option_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_pkg/h_map_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="4" column="1" lean-forward="true" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_pkg/h_map.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="789">
+          <caret line="98" column="1" selection-start-line="98" selection-start-column="1" selection-end-line="98" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/qdm_eshop.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="338">
+          <caret line="82" column="21" selection-start-line="82" selection-start-column="21" selection-end-line="82" selection-end-column="21" />
+          <folding>
+            <element signature="e#14#164#0" expanded="true" />
+            <element signature="n#!!block;n#groupby#0" />
+            <element signature="n#!!block;n#accumulatePurchaseQty#0" />
+            <element signature="n#!!block;n#writeSchPlanFile#0" />
+            <element signature="n#!!block;n#getSchSkuList#0" />
+            <element signature="n#!!block;n#convertToTitle2#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_base/h_loop.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_tool/factory.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_tool/h_crypto.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5434">
+          <caret line="228" column="14" selection-start-line="228" selection-start-column="8" selection-end-line="228" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test2.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test3.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/h_base/h_ticker.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="10" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

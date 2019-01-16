@@ -1,7 +1,6 @@
 package main
 
 import (
-	"Hoo/h_pkg"
 	"fmt"
 )
 
@@ -46,28 +45,70 @@ func exponent(n, m int32) int32 {
 }
 
 func main() {
-	fmt.Println("index:", convertToIndex("AB"))
+	fmt.Println("index:", convertToIndex("EF"))
 	fmt.Printf("%d %d  %c \n", 'A', 'Z', 68)
 	fmt.Println(convertToTitle(28))
 
-	for i := 1; i < 100; i++ {
-		title := convertToTitle(int32(i))
-		index := convertToIndex(title)
-		fmt.Println("index:", index, " title:", title)
+	for i := 1; i < 60; i++ {
+		title := convertToTitle2(i)
+		//index := convertToIndex(title)
+		fmt.Println("index:", i, " title:", title)
 	}
 }
 
-func convertToTitle(n int32) (t string) {
+// letterOnlyMapF is used in conjunction with strings.Map to return only the
+// characters A-Z and a-z in a string.
+func letterOnlyMapF(rune rune) rune {
+	switch {
+	case 'A' <= rune && rune <= 'Z':
+		return rune
+	case 'a' <= rune && rune <= 'z':
+		return rune - 32
+	}
+	return -1
+}
 
+// intOnlyMapF is used in conjunction with strings.Map to return only the
+// numeric portions of a string.
+func intOnlyMapF(rune rune) rune {
+	if rune >= 48 && rune < 58 {
+		return rune
+	}
+	return -1
+}
+
+
+
+/*
+public String convertToTitle(int n) {
+	String temp="";
+	  while(n>0) {
+		  char s=(char) ((n-1)%26+'A');
+		  temp=s+temp;
+		  n=(n-1)/26;
+	  }
+	return temp;
+}
+
+*/
+func convertToTitle2(n int) (t string) {
+	for n > 0 {
+		t = fmt.Sprintf("%c", (n - 1)%26 + 'A') + t
+		n = (n - 1) / 26
+	}
+	//t = fmt.Sprintf("%c", n+'A') + t
+	//return h_pkg.Reverse(t)
+	return t
+}
+
+
+func convertToTitle(n int32) (t string) {
 	for n > 26 {
 		s := n % 26
 		n = n / 26
-		t += fmt.Sprintf("%c", s+64)
+		t += fmt.Sprintf("%c", s+'A')
 	}
-	t += fmt.Sprintf("%c", n+64)
-	//if n < 26 {
-	//	return fmt.Sprintf("%c", n)
-	//}
-	//s := n % 26
-	return h_pkg.Reverse(t)
+	t = fmt.Sprintf("%c", n+'A') + t
+	//return h_pkg.Reverse(t)
+	return t
 }

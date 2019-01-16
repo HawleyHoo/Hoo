@@ -1,0 +1,61 @@
+{
+    #host: "127.0.0.1"
+
+    # offical online (39)
+    #host: "10.111.101.51"
+
+    # test db (70)
+    host : "10.111.101.52"
+
+    #offical online server (118)
+    #"host": "10.111.101.1"
+
+    "userName": ""
+    "password": ""
+    "port": 27017
+    "dbName" : "qdmDB"
+    # IgnoreOMS not push to OMS server
+    ignoreOMS : true
+
+    # Ignore3RdStore not push nothing to 3Rd store
+    ignore3RdStore: true
+    # IgnoreReduceQuantity not reudce quantity will ignore POS offline sale
+    ignoreReduceQuantity : true
+
+    # isDebug mode, the oms api is test url
+    isDebug: true
+
+    # PosIntervalQueryTime query offline pos sale data every 3 min
+    posIntervalQueryTime : 3
+    # RuntimeCheckInterval system will check runtime status every 5 min
+    runtimeCheckInterval : 3
+    # ImageBasePath base path for where store images
+    imageBasePath : "image/"
+    # ThumbnailBasePath base path for thumbnail / each sku has only one
+    thumbnailBasePath : "image/thumbnail/"
+    # RefundPicBasePath base path for order's refund pic, max number is 3 
+    refundPicBasePath : "image/refund/"
+    #Weixin customer feedback image folder
+    customerFdbackImagePath : "image/wx/feedback/"
+	#self mode wx mini program order / barcode path
+	barcodeImagePath : "image/barcode/"
+
+    # SaleStartHour start time Hour
+    saleStartHour : 6
+    # SaleStartMinute start time Minute
+    saleStartMinute : 30
+    # SaleLastHour presale last hours
+    saleLastHour : 12
+    # SaleLastMinutes pre sale last minutes
+    saleLastMinutes : 30
+    # HotSearchAgeTime 60*4 : 240 min
+    hotSearchAgeTime : 240
+    # HotSearchMax max hot search
+    hotSearchMax : 30
+    # Ticket expire
+    TicketRechExpireHintDay : 3
+
+    #Servive Host
+    #ServiceHost: "mall.qdama.cn"
+    ServiceHost: "test.qdama.cn"
+}

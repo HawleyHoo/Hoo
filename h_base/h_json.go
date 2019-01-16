@@ -17,7 +17,7 @@ type User struct {
 
 type User2 struct {
 	User string
-	Name string
+	Name string `json:"nickname"`
 	//Age      int
 	//Birthday string
 	//Sex      string

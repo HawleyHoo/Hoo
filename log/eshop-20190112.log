@@ -1,0 +1,5 @@
+INFO 2019/01/12 15:19:46.846096 config.go:73: Database Configuration file is : ./config.json
+INFO 2019/01/12 15:19:46.862139 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2019/01/12 15:19:46.862139 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2019/01/12 15:19:46.871163 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2019/01/12 15:19:46.896229 mgoconn.go:51: mgo connect '10.111.101.52' successfully

@@ -1,6 +1,8 @@
 package h_pkg
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestSafeMap_ReadMap(t *testing.T) {
 	safeMap := NewSafeMap(10)
@@ -9,4 +11,11 @@ func TestSafeMap_ReadMap(t *testing.T) {
 		go safeMap.WriteMap(i, i)
 		go safeMap.ReadMap(i)
 	}
+
+	//testSlice(testTimeSlice)
+	//testMap(testTimeMap)
+	//fmt.Println("test 2")
+	//testSlice(testTimeSlice2)
+	//testMap(testTimeMap2)
 }
+

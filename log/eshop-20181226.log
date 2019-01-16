@@ -1,0 +1,1 @@
+INFO 2018/12/26 14:11:17.471075 youzan_service.go:164: get youzan oauth token: {"access_token":"da27ab31eec731c0ad9472f2ea722d5c","expires_in":604800,"scope":"storage points reviews multi_store salesman pay_qrcode item user trade_advanced trade item_category logistics coupon_advanced shop coupon crm_advanced trade_virtual retail_goods"}

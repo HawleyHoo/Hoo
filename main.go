@@ -16,6 +16,9 @@ import (
 	"os"
 	"reflect"
 	"strings"
+	"net/url"
+	"regexp"
+	"errors"
 )
 
 type Man struct {
@@ -162,6 +165,7 @@ func testsss(str string) string {
 	return str
 }
 func testsssss() {
+	fmt.Println("ehhehehehehehehehehehehheheheh")
 	var str string = "12345"
 	tmpstr := str
 	fmt.Printf("%p %p\n", &str, &tmpstr)
@@ -220,6 +224,33 @@ type Test struct {
 }
 
 func main() {
+	var err error
+	err = errors.New("hehe")
+	fmt.Printf("%s\v",err)
+
+	phone := "18682169331"
+	match,err := regexp.MatchString("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$", phone)
+	fmt.Println("regexp:", match, err)
+	fmt.Println(phone[:8])
+	//sbsb := 1
+	//fmt.Println(float64(sbsb))
+	timestamp := time.Now().Format("0102150405")
+	values := url.Values{"access_token": {"token"}}
+	values.Add("name", "aaa")
+	values.Add("name", "bbb")
+	fmt.Println(timestamp, values)
+	ts := "20181203 163920"
+	t1, err := time.ParseInLocation("20060102 150405", ts, time.Local)
+	t2, err := time.Parse("20060102 150405", ts)
+	fmt.Println("t1", t1)
+	fmt.Println("t2", t2)
+	//t3 := time.Now().Add(time.Second * 18).Format("20060102 150405")
+	fmt.Println(time.Unix(0,0))
+	//schedule.Start()
+	//schedule.Every(1).AtOnce(t3).Do(testsssss)
+	time.Sleep(200 * time.Second)
+	local := time.Now().Local()
+	fmt.Println(local)
 	//arr1 := []string{"a", "b", "c", "d", "e"}
 	//arr1 := []int{1,2, 3, 4, 5, 6}
 	arr1 := []Test{Test{"a"}, Test{"b"}, Test{"c"}, Test{"d"}, Test{"e"}, Test{"f"}}
@@ -316,9 +347,8 @@ func main() {
 
 	s := Studnt{}
 	fmt.Println(s)
-	t1 := time.Now()
-
-	t2 := time.Unix(0, 0)
+	//t1 := time.Now()
+	//t2 := time.Unix(0, 0)
 
 	fmt.Println(t1)
 	fmt.Println(t2)
