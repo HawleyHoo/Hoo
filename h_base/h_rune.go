@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 func nonRepeatingSubStr(s string) string {
 
@@ -56,6 +59,19 @@ func nonRepeatingSubStr(s string) string {
 
 	return result
 
+}
+
+func indexRu() {
+	SaleTime := func(input string, characters string) string { //
+		filter := func(r rune) rune {
+			if strings.IndexRune(characters, r) < 0 {
+				return r
+			}
+			return -1
+		}
+		return strings.Map(filter, input)
+	}("2016-05-08 23:00:00", "-:")
+	fmt.Println(SaleTime)
 }
 
 func main() {

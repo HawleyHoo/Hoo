@@ -8,7 +8,7 @@
     host : "10.111.101.52"
 
     #offical online server (118)
-    #"host": "10.111.101.1"
+    #"host": "10.111.101"
 
     "userName": ""
     "password": ""

@@ -139,3 +139,46 @@ func Test2() {
 	p("Char:", "hello"[1])
 
 }
+
+func teststringsplitn() {
+	fmt.Println(" SplitN 函数的用法")                                             // n 代表分隔成几份，-1是所有
+	fmt.Printf("SplitN 0 : %q\n", strings.SplitN("/home/m_ta/src", "/", 0))  // []
+	fmt.Printf("SplitN 1 : %q\n", strings.SplitN("/home/m_ta/src", "/", 1))  // ["/home/m_ta/src"]
+	fmt.Printf("SplitN 2 : %q\n", strings.SplitN("/home/m_ta/src", "/", 2))  // ["" "home/m_ta/src"]
+	fmt.Printf("SplitN 3 : %q\n", strings.SplitN("/home/m_ta/src", "/", 3))  // ["" "home" "m_ta/src"]
+	fmt.Printf("SplitN 4 : %q\n", strings.SplitN("/home/m_ta/src", "/", 4))  // ["" "home" "m_ta" "src"]
+	fmt.Printf("SplitN -1: %q\n", strings.SplitN("/home/m_ta/src", "/", -1)) // ["" "home" "m_ta" "src"]
+	fmt.Printf("%q\n", strings.SplitN("home,m_ta,src", ",", 2))              // ["home" "m_ta,src"]
+	fmt.Printf("%q\n", strings.SplitN("#home#m_ta#src", "#", 2))             // ["" "home#m_ta#src"]
+}
+
+//
+func findMaxLength() {
+	sss := []rune("pwwkew")
+	fmt.Println("sli :", sss, len(sss))
+	l := len(sss)
+	maxLength := 1
+	maxS := ""
+	for k, _ := range sss {
+		keyHash := make(map[rune]bool)
+		maxl := 0
+		maxStr := make([]rune, 0)
+		//fmt.Println("key:", k, " val:", string(v))
+		for i := k; i < l; i++ {
+			v2 := sss[i]
+			if _, ok := keyHash[v2]; ok {
+				break
+			} else {
+				keyHash[v2] = true
+				maxl++
+				maxStr = append(maxStr, v2)
+			}
+		}
+		fmt.Println("max length:", maxl, " max str:", string(maxStr))
+		if maxl > maxLength {
+			maxLength = maxl
+			maxS = string(maxStr)
+		}
+	}
+	fmt.Println("-------max length:", maxLength, " max str:", string(maxS))
+}

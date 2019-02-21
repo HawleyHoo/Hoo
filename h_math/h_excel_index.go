@@ -1,4 +1,4 @@
-package main
+package h_math
 
 import (
 	"fmt"
@@ -44,7 +44,7 @@ func exponent(n, m int32) int32 {
 	return res
 }
 
-func main() {
+func testmain() {
 	fmt.Println("index:", convertToIndex("EF"))
 	fmt.Printf("%d %d  %c \n", 'A', 'Z', 68)
 	fmt.Println(convertToTitle(28))
@@ -77,8 +77,6 @@ func intOnlyMapF(rune rune) rune {
 	return -1
 }
 
-
-
 /*
 public String convertToTitle(int n) {
 	String temp="";
@@ -93,14 +91,13 @@ public String convertToTitle(int n) {
 */
 func convertToTitle2(n int) (t string) {
 	for n > 0 {
-		t = fmt.Sprintf("%c", (n - 1)%26 + 'A') + t
+		t = fmt.Sprintf("%c", (n-1)%26+'A') + t
 		n = (n - 1) / 26
 	}
 	//t = fmt.Sprintf("%c", n+'A') + t
 	//return h_pkg.Reverse(t)
 	return t
 }
-
 
 func convertToTitle(n int32) (t string) {
 	for n > 26 {

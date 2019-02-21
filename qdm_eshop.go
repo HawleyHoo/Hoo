@@ -1,24 +1,25 @@
 package main
 
 import (
-	"time"
 	"eshop/model"
-	"github.com/Luxurioust/excelize"
-	"fmt"
 	"eshop/util"
+	"fmt"
+	"github.com/Luxurioust/excelize"
 	"strconv"
+	"time"
 	//"github.com/tealeg/xlsx"
-	"os"
+	"errors"
 	"eshop/service"
+	"os"
 )
 
 type Hoo struct {
-	SkuID string `json:"sku_id"`
+	SkuID   string `json:"sku_id"`
 	skuName string `json:"sku_name"`
-	Qty int `json:"qty"`
+	Qty     int    `json:"qty"`
 }
 
-func groupby(arr1, arr2 []model.ScheOrder) (res []model.ScheOrder)  {
+func groupby(arr1, arr2 []model.ScheOrder) (res []model.ScheOrder) {
 	g1 := make(map[string]model.ScheOrder)
 	for _, v := range arr1 {
 		g1[v.StoreID] = v
@@ -28,7 +29,7 @@ func groupby(arr1, arr2 []model.ScheOrder) (res []model.ScheOrder)  {
 		g2[v.StoreID] = v
 	}
 
-	for k,v := range g1 {
+	for k, v := range g1 {
 		v2, ok := g2[k]
 		if ok {
 			v.PurchaseQTY += v2.PurchaseQTY
@@ -43,7 +44,7 @@ func groupby(arr1, arr2 []model.ScheOrder) (res []model.ScheOrder)  {
 func accumulatePurchaseQty(source []model.ScheduleSKU) (result []model.ScheduleSKU) {
 	g1 := make(map[string]model.ScheduleSKU)
 
-	for _ , v := range source {
+	for _, v := range source {
 		id := v.SkuID[:8]
 		fmt.Println("id", id)
 		h, ok := g1[id]
@@ -71,34 +72,34 @@ func accumulatePurchaseQty(source []model.ScheduleSKU) (result []model.ScheduleS
 }
 
 func main() {
-	var n int64 = 500
-	fmt.Println("n", int(n))
-	return
-	//for  {
-	//	fmt.Println("1")
-	//	fmt.Println("2")
-	//	fmt.Println("--------")
-	//	time.Sleep(time.Second)
-	//}
-	var sum int64 = 0
-	var ii uint
-	for ii = 0; ii <= 36;ii++ {
-		v := 2 << ii
-		sum += int64(v)
-	}
-	fmt.Printf("2^365: %d .\n", sum)
-	fmt.Println("2^365: ", 0xffff)
 
-	for i := 0;i < 10 ; i ++ {
-		//defer func(i int) {
-		//	fmt.Println("hehe", i)
-		//}(i)
+	pkuqty, err := util.ConvertSkuQtyToPkuQTY(2, "kg", "kg", "n")
+	if err != nil {
+		fmt.Println("err:", err.Error())
+	}
+	fmt.Println("pku qty", pkuqty)
+
+	return
+	mm := make(map[string]int)
+	mm["hehe"] = 30
+	fmt.Println("hehe", mm["hehe"])
+	fmt.Println("hehe", mm["haah"])
+
+	aa := errors.New("hehe")
+	fmt.Println("aaaa", aa)
+
+	for i := 0; i < 10; i++ {
 		switch i {
-		case 1, 6, 8,9:
+		case 1, 6, 8, 9:
 			{
+				if i == 9 {
+					break
+				}
 				switch i {
 				case 8:
-					fmt.Println("aaaa", 8)
+					bb := 2
+					bb, aa = 1, errors.New("aabb")
+					fmt.Println("aaaa", 8, aa, bb)
 				case 9:
 					fmt.Println("aaaa", 9)
 
@@ -110,10 +111,34 @@ func main() {
 			continue
 		}
 
-
-		fmt.Println("-----------", i)
+		fmt.Println("-----------", i, aa)
 	}
 
+	return
+
+	//var n int64 = 100
+	//aa := 260
+	//c := math.Ceil(float64(aa)/float64(n))
+	//cn := int(c)
+	//for i := 1; i <= cn; i++ {
+	//	fmt.Println("i:", i)
+	//}
+	//fmt.Printf(" %f  %d", c, cn)
+	return
+	//for  {
+	//	fmt.Println("1")
+	//	fmt.Println("2")
+	//	fmt.Println("--------")
+	//	time.Sleep(time.Second)
+	//}
+	var sum int64 = 0
+	var ii uint
+	for ii = 0; ii <= 36; ii++ {
+		v := 2 << ii
+		sum += int64(v)
+	}
+	fmt.Printf("2^365: %d .\n", sum)
+	fmt.Println("2^365: ", 0xffff)
 
 	//h1 := Hoo{"202", "文昌蛋", 10}
 	//h3 := Hoo{"203", "武昌蛋", 12}
@@ -121,7 +146,7 @@ func main() {
 	//arr := []Hoo{h1, h2, h3}
 	orglist := service.GetSchSkuList(time.Now())
 	for i, v := range orglist {
-		fmt.Println(i," org:", v.SkuID, v.SkuName, v.TotalQTY, v.OrderList)
+		fmt.Println(i, " org:", v.SkuID, v.SkuName, v.TotalQTY, v.OrderList)
 	}
 	//g1 := make(map[string]Hoo)
 
@@ -142,11 +167,6 @@ func main() {
 	//	fmt.Println("err:", err)
 	//}
 	//fmt.Println("res", data)
-	//mm := make(map[int]string)
-	//mm[20] = "hehe"
-	//fmt.Println("hehe", mm[20])
-	//fmt.Println("hehe", mm[30])
-
 
 	//ticker:=time.NewTicker(time.Second*1)
 	//go func() {
@@ -180,11 +200,6 @@ func schplan() {
 	}
 	fmt.Println("hehe", len(" "))
 
-	pkuqty, err := util.ConvertSkuQtyToPkuQTY(16, 200, "kg", "kg", "n")
-	if err != nil {
-		fmt.Println("err:", err.Error())
-	}
-	fmt.Println("pku qty", pkuqty)
 	return
 	//model.SchAddWarningErrorRecord("getSkuInfoErr", "logstr")
 	//fmt.Println(time.Now())

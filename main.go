@@ -9,16 +9,12 @@ import (
 	"Hoo/h_pkg"
 	"time"
 	//"github.com/astaxie/beego/session"
+	"Hoo/h_math"
 	"encoding/json"
 	"homedoctor/utils"
 	"math"
-	"math/rand"
-	"os"
-	"reflect"
+	"strconv"
 	"strings"
-	"net/url"
-	"regexp"
-	"errors"
 )
 
 type Man struct {
@@ -141,44 +137,6 @@ func (s Studnt) String() string {
 
 const MIN = 0.000001
 
-// MIN 为用户自定义的比较精度
-func IsEqual(f1, f2 float64) bool {
-	return math.Dim(f1, f2) < MIN
-}
-
-//func filter(r rune) rune {
-//	if strings.IndexRune() {
-//
-//	}
-//}
-
-func RandInt(min, max int) int {
-	if min >= max || min == 0 || max == 0 {
-		return max
-	}
-	return rand.Intn(max-min) + min
-}
-
-func testsss(str string) string {
-
-	str = "hehe"
-	return str
-}
-func testsssss() {
-	fmt.Println("ehhehehehehehehehehehehheheheh")
-	var str string = "12345"
-	tmpstr := str
-	fmt.Printf("%p %p\n", &str, &tmpstr)
-	tmpstr = tmpstr + "x"
-	fmt.Printf("%p %p\n", &str, &tmpstr)
-
-	var b []string = []string{"b"}
-	a := "a"
-	fmt.Printf("%p %p\n", &a, &b)
-	b = append(b, a)
-	fmt.Printf("%p %p\n", &a, &b[1])
-}
-
 func DeepCopy(value interface{}) interface{} {
 	if valueMap, ok := value.(map[string]interface{}); ok {
 		newMap := make(map[string]interface{})
@@ -199,211 +157,145 @@ func DeepCopy(value interface{}) interface{} {
 	return value
 }
 
-func testhehe(arr interface{}) [][]interface{} {
-	if reflect.TypeOf(arr).Kind() != reflect.Slice {
-		return nil
+//判断a是否等于b
+func IsEqualA(a, b float64) bool {
+	var r = a - b
+	if r == 0.0 {
+		return true
+	} else if r < 0.0 {
+		return r > -0.0001
 	}
-	arrValue := reflect.ValueOf(arr)
-	step := 2
-	retArr := make([][]interface{}, 0)
-	for k := 0; k < arrValue.Len(); k = k + step {
-		temp := make([]interface{}, 0)
-
-		temp = append(temp, arrValue.Index(k).Interface())
-		if k+1 < arrValue.Len() {
-			temp = append(temp, arrValue.Index(k+1).Interface())
-		}
-
-		retArr = append(retArr, temp)
-	}
-	return retArr
+	return r < 0.0001
 }
 
-type Test struct {
-	Name string
+func parseIP(s string, require int) []string {
+	if require == 1 {
+		return []string{s}
+	}
+	r := []string{}
+	for i := 1; i < 4 && i+require-1 < len(s); i++ {
+		pre := s[:i]
+		if v, _ := strconv.Atoi(pre); v < 256 {
+			r = append(r, pre)
+			r = append(r, parseIP(s[i:], require-1)...)
+		}
+		if '0' == s[0] {
+			fmt.Println("break:", len(s), s)
+			break
+		}
+	}
+
+	return r
+}
+
+func addDot(s string, k int) (res string) {
+	if len(s) < k {
+		return ""
+	}
+	if len(s) > 3*(k+1) {
+		return ""
+	}
+	return res
+}
+
+func isValid(s string) bool {
+	if ('0' == s[0] && len(s) > 1) || len(s) > 3 || len(s) == 0 {
+		return false
+	}
+
+	val, err := strconv.Atoi(s)
+	if err != nil {
+		fmt.Println("strconv err:%s , str:%s", err.Error(), s)
+		return false
+	}
+	if val < 256 && val >= 0 {
+		return true
+	}
+	return false
 }
 
 func main() {
-	var err error
-	err = errors.New("hehe")
-	fmt.Printf("%s\v",err)
+	//defer func() { //必须要先声明defer，否则不能捕获到panic异常
+	//	fmt.Println("2")
+	//	if err := recover(); err != nil {
+	//		fmt.Println(err) //这里的err其实就是panic传入的内容，bug
+	//	}
+	//	fmt.Println("3")
+	//}()
+	//s := "25525511135"
+	s := "127001"
+	for i := 1; i < len(s)-2 && i < 4; i++ {
+		for j := i + 1; j < len(s)-1 && j < 4+i; j++ {
+			for k := j + 1; k < len(s) && k < 4+j; k++ {
+				v1 := s[:i]
+				v2 := s[i:j]
+				v3 := s[j:k]
+				v4 := s[k:]
 
-	phone := "18682169331"
-	match,err := regexp.MatchString("^((13[0-9])|(14[5,7])|(15[0-3,5-9])|(17[0,3,5-8])|(18[0-9])|166|198|199|(147))\\d{8}$", phone)
-	fmt.Println("regexp:", match, err)
-	fmt.Println(phone[:8])
-	//sbsb := 1
-	//fmt.Println(float64(sbsb))
-	timestamp := time.Now().Format("0102150405")
-	values := url.Values{"access_token": {"token"}}
-	values.Add("name", "aaa")
-	values.Add("name", "bbb")
-	fmt.Println(timestamp, values)
-	ts := "20181203 163920"
-	t1, err := time.ParseInLocation("20060102 150405", ts, time.Local)
-	t2, err := time.Parse("20060102 150405", ts)
-	fmt.Println("t1", t1)
-	fmt.Println("t2", t2)
-	//t3 := time.Now().Add(time.Second * 18).Format("20060102 150405")
-	fmt.Println(time.Unix(0,0))
-	//schedule.Start()
-	//schedule.Every(1).AtOnce(t3).Do(testsssss)
-	time.Sleep(200 * time.Second)
-	local := time.Now().Local()
-	fmt.Println(local)
-	//arr1 := []string{"a", "b", "c", "d", "e"}
-	//arr1 := []int{1,2, 3, 4, 5, 6}
-	arr1 := []Test{Test{"a"}, Test{"b"}, Test{"c"}, Test{"d"}, Test{"e"}, Test{"f"}}
-	arr2 := testhehe(arr1)
-	fmt.Printf("%+v  \n", arr2)
-
-	return
-	//rad := rand.New(rand.NewSource(time.Now().Unix()))
-	//for i := 0; i < rad.Intn(9)+1; i++ {
-	//	fmt.Println(rad.Intn(50))
-	//}
-	//testsssss()
-
-	workPath, err := os.Getwd()
-	fmt.Println(workPath)
-	workPath2, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(workPath2)
-
-	now := time.Now()
-	timenow := now.Format("20060102") + " 000000"
-	fmt.Println(timenow)
-	list := make([]int, 0)
-	for i := 0; i < 10; i++ {
-		list = append(list, i*2)
-		if i == 9 {
-			h := list[i]
-			h = 168
-			fmt.Println(h, list[i])
-			//list[i] = 168
-		}
-	}
-	fmt.Println(list)
-
-	aaaaaa := "haha"
-
-	fmt.Println("200025893" < "200025892")
-	fmt.Println("200025893" <= "200025893")
-	fmt.Println("200025893" < "200025894")
-
-	fmt.Println(testsss(aaaaaa))
-	fmt.Println(aaaaaa)
-	return
-	fmt.Println(strings.Replace("10-17-18", "-", "", -1))
-	fmt.Println("123456789"[:8])
-	for i := 0; i < 100; i++ {
-		fmt.Println(RandInt(1000, 9999))
-	}
-	SaleTime := func(input string, characters string) string { //
-		filter := func(r rune) rune {
-			if strings.IndexRune(characters, r) < 0 {
-				return r
+				if isValid(v1) && isValid(v2) && isValid(v3) && isValid(v4) {
+					fmt.Println("-------------------------:" + v1 + "." + v2 + "." + v3 + "." + v4)
+				}
 			}
-			return -1
-		}
-		return strings.Map(filter, input)
-	}("2016-05-08 23:00:00", "-:")
-	fmt.Println(SaleTime)
-	//fmt.Println(strings.Map(":","2016-05-08 23:00:00"))
-	ru := []rune(":")
-	fmt.Println("ele:", strings.IndexRune("20asdf16:88", ru[0]))
-
-	he := ";asdfasdfa;sldkfj;"
-	strhe := strings.TrimSuffix(he, ";")
-
-	fmt.Println(he, len("哈哈"))
-	fmt.Println(strhe)
-	fmt.Println(time.Now().Unix())
-	a1 := 0.0000123
-	b2 := 0.000012234
-	if IsEqual(a1, b2) {
-		fmt.Println("a < b", 7/2, h_pkg.Reverse("Hello world!"))
-	}
-	lsit := make([]string, 0)
-	fmt.Println("list :", lsit, "len:", len(lsit))
-	storeList := []string{"204149", "204146", "204251", "204086", "204024", "204081", "204220", "204121", "204190", "204007", "204191", "204005", "204010", "204100", "204209", "204221", "204002", "204004", "204008", "204204", "204241", "204206", "204335"}
-	for _, v := range storeList {
-		if v != "" {
-			lsit = append(lsit, v)
 		}
 	}
+	fmt.Println("IP:", h_math.RestoreIPAddress2("25525511135"))
+	fmt.Println("IP:", h_math.RestoreIPAddress2("4710620350"))
+	fmt.Println("IP:", h_math.RestoreIPAddress2("2552551113"))
+	fmt.Println("IP:", h_math.RestoreIPAddress2("127001"))
+	for i := 1; i <= 30; i++ {
+		fmt.Println("Fibonacci1:", i, "    ", h_math.Fibonacci(i))
 
-	fmt.Println("list :", lsit, "len:", len(lsit))
-	return
-
-	hhe := map[string]int{"a": 2, "b": 3}
-	if aaaaaaa, ok := hhe["c"]; ok {
-		fmt.Println("c:", aaaaaaa)
-	} else {
-		fmt.Println("no c:", aaaaaaa)
 	}
+	fmt.Println("Fibonacci2:", h_math.Fibonacci2(100))
+	fmt.Println("Fibonacci3:", h_math.Fibonacci3(100))
+	return
+	s1 := "4710620350"
+	r := []string{}
 
-	s := Studnt{}
-	fmt.Println(s)
-	//t1 := time.Now()
-	//t2 := time.Unix(0, 0)
-
-	fmt.Println(t1)
-	fmt.Println(t2)
-
-	//aaa := [20]int{1}
-	for i := 0; i < 20; i += 3 {
-		fmt.Println("hehe", i)
+	for i := 1; i < len(s); i++ {
+		pre := s[:i]
+		if v, _ := strconv.Atoi(pre); v < 256 {
+			r = append(r, pre)
+		}
+		s = s[i:]
 	}
-
-	var i = 3
-	go func(a int) {
-		fmt.Println(a)
-		fmt.Println("1")
-	}(i)
-	go fmt.Println("hehe")
-	fmt.Println("2")
-	fmt.Println("22")
-
+	fmt.Println(r)
+	fmt.Println("parse:", parseIP(s1, 4))
 	return
-
-	data, i := [3]int{0, 1, 2}, 0
-	i, data[i] = 2, 100
-	fmt.Println(data, i)
-	data[i], i = 100, 2
-	fmt.Println(data, i)
-
+	//sr := []rune(s)
+	l := len(s)
+	for i := 0; i < l; i++ {
+		fmt.Printf(" %s ", s[:i])
+	}
+	fmt.Println("\n")
+	for _, v := range s {
+		fmt.Printf(" %c ", v)
+	}
 	return
+	//fmt.Println(restore(s, 4))
+	//fmt.Println(restore(s1, 4))
 
-	fmt.Println(" SplitN 函数的用法")
-	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 1))
+	fmt.Printf("%0.10f \n", math.Abs(0.00000001-0.000000026))
 
-	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 2))  //["/" "home/" "m_ta/" "src"]
-	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", -1)) //["" "home" "m_ta" "src"]
-	fmt.Printf("%q\n", strings.SplitN("home,m_ta,src", ",", 2))   //["/" "home/" "m_ta/" "src"]
+	arr1 := []string{"1", "2"}
+	arr2 := []string{"21", "22"}
+	arr3 := []string{}
 
-	fmt.Printf("%q\n", strings.SplitN("#home#m_ta#src", "#", -1)) //["/" "home/" "m_ta/" "src"]
-	sss := "a,b"
-	ss := "a"
-	sli1 := strings.Split(sss, ",")
-	sli2 := strings.Split(ss, ",")
-	fmt.Println("sli :", sli1, len(sli1))
-	fmt.Println("sli :", sli2, len(sli2))
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	fmt.Println("srr1:", arr1, len(arr1))
+	arr1 = append(arr1, arr2...)
+	fmt.Println("srr1:", arr1, len(arr1))
 
-	fmt.Println("---:", 0.00001 > 0)
-	fmt.Println("---:", -0.00001 > 0)
-
-	list1 := [8]string{"a", "b", "c", "d", "e", "f"}
-	list2 := make([]string, 6)
-
-	fmt.Println("list:", list1, list2)
-	str := "ab&&2"
+	tt := "ab&&2&&fasdfa&&1802395"
+	str := tt
 	n := strings.Count(str, "&&") + 1
 	a := make([]string, n)
 	n--
-	i = 0
+	i := 0
 	for i < n {
 		m := strings.Index(str, "&&")
 		if m < 0 {
@@ -414,7 +306,10 @@ func main() {
 		i++
 	}
 	a[i] = str
-	fmt.Println("Hoo:", a[:i+1])
+	fmt.Println("Hoo:", a[:], len(a))
+
+	res := strings.SplitN(tt, "&&", -1)
+	fmt.Println("res:", res[:3], len(res))
 	return
 	date2 := time.Now().Unix()
 	fmt.Println("-----", date2, date2*1000)

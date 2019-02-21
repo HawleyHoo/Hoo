@@ -24,6 +24,20 @@ Mutex 为互斥锁，Lock() 加锁，Unlock() 解锁
 在同一个 goroutine 中的 Mutex 解锁之前再次进行加锁，会导致死锁
 适用于读写不确定，并且只有一个读或者写的场景
 */
+
+/*
+RWMutex的使用主要事项
+1、读锁的时候无需等待读锁的结束
+2、读锁的时候要等待写锁的结束
+3、写锁的时候要等待读锁的结束
+4、写锁的时候要等待写锁的结束
+RWMutex的四种操作方法
+RLock（） //读锁定
+RUnlock（） //读解锁
+
+Lock（） //写锁定
+Unlock（） //写解锁
+*/
 func MutexTs() {
 
 	var state = make(map[int]int)
@@ -103,3 +117,67 @@ func SyncWaitGroup() {
 	waitGroup.Wait()
 	fmt.Printf("下载总时间:%v\n", time.Now().Sub(now))
 }
+
+var m *sync.RWMutex
+
+func main() {
+	m = new(sync.RWMutex)
+	go write(1)
+	go read(21)
+	go write(3)
+	go read(22)
+	go write(4)
+	go read(23)
+	go write(5)
+	go read(24)
+	go write(6)
+	go read(25)
+	go write(7)
+
+	time.Sleep(20 * time.Second)
+}
+
+func read(i int) {
+	println(i, "read start")
+	m.RLock()
+	var p = 0
+	var pr = "read"
+	for {
+		pr += "."
+		if p == 10 {
+			break
+		}
+		time.Sleep(350 * time.Millisecond)
+		p++
+		println(i, pr)
+
+	}
+	m.RUnlock()
+	println(i, "read end")
+}
+
+func write(i int) {
+	println(i, "write start")
+
+	m.Lock()
+	var p = 0
+	var pr = "write"
+	for {
+		pr += "."
+		if p == 10 {
+			break
+		}
+		time.Sleep(350 * time.Millisecond)
+		p++
+		println(i, pr)
+
+	}
+	m.Unlock()
+	println(i, "write end")
+}
+
+//---------------------
+//作者：番薯粉
+//来源：CSDN
+//原文：https://blog.csdn.net/u010230794/article/details/78554370
+//版权声明：本文为博主原创文章，转载请附上博文链接！

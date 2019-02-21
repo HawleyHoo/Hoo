@@ -3,13 +3,26 @@ package h_math
 import (
 	"fmt"
 	//"time"
+	"math"
 )
 
+// 向上取整 向下取整
+func ceilFloor() {
+	x := 1.1
+	fmt.Println(math.Ceil(x))  // 2
+	fmt.Println(math.Floor(x)) // 1
+
+}
+
+// 四舍五入方法
+func round(x float64) int {
+	return int(math.Floor(x + 0.5))
+}
 
 func fansuanjiecheng(n int) (res int) {
 	len := n
 	res = 0
-	for  i := 2; i < len; i++ {
+	for i := 2; i < len; i++ {
 		remainder := n % i
 		if remainder > 0 { // n 不能被整除  则n不是某个数阶乘的乘
 			return 0
@@ -112,13 +125,13 @@ func count1(n int) int {
 
 func countDigitOne(n int) int {
 	ones := 0
-	for m := 1; m <= n;m *= 10 {
+	for m := 1; m <= n; m *= 10 {
 		a := n / m
 		b := n % m
-		if a % 10 == 1 {
-			ones += (a + 8) / 10 * m + 1 * (b + 1)
+		if a%10 == 1 {
+			ones += (a+8)/10*m + 1*(b+1)
 		} else {
-			ones += (a + 8) / 10 * m + 0 * (b + 1)
+			ones += (a+8)/10*m + 0*(b+1)
 		}
 	}
 	return ones
