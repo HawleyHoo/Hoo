@@ -1,4 +1,4 @@
-package main
+package h_db
 
 import (
 	"database/sql"
@@ -7,10 +7,10 @@ import (
 )
 
 var (
-	dbhostsip  = "127.0.0.1:3306"//IP地址
-	dbusername = "root"//用户名
-	dbpassword = "123456"//密码
-	dbname     = "Test"//表名
+	dbhostsip  = "127.0.0.1:3306" //IP地址
+	dbusername = "root"           //用户名
+	dbpassword = "123456"         //密码
+	dbname     = "Test"           //表名
 )
 
 func main() {

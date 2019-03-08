@@ -1,13 +1,12 @@
 //package
-package main
+package h_db
 
 import (
 	"database/sql"
 	"fmt"
-	"strings"
 	_ "github.com/mattn/go-adodb"
+	"strings"
 )
-
 
 type Mssql struct {
 	*sql.DB

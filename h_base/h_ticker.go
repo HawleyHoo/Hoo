@@ -5,16 +5,32 @@ import (
 	"time"
 )
 
-func main()  {
+func main() {
+	stopped := make(chan bool, 1)
+	ticker := time.NewTicker(1 * time.Second)
+
+	go func() {
+		for {
+			select {
+			case <-ticker.C:
+				fmt.Println("RunPending")
+			case <-stopped:
+				return
+			}
+		}
+	}()
+	//fmt.Printf("stopped %t", <-stopped)
 	//test1()
-	done := startTimer(test1)
-	//time.Sleep(6 * time.Second)
+	time.Sleep(6 * time.Second)
+	ticker.Stop()
+	time.Sleep(3 * time.Second)
 	//wg.Wait()
+	done := startTimer(test1)
 	close(done)
 	//fmt.Println("close :", time.Now().Format("2006-01-02 15:04:05"))
 }
 
-func test1()  {
+func test1() {
 	//ticker:=time.NewTicker(time.Second*1)
 	//ticker.Stop()
 	//go func() {
@@ -38,7 +54,7 @@ func startTimer(f func()) chan struct{} {
 		for {
 			select {
 			case <-timer.C:
-				//f()
+				f()
 				i++
 				fmt.Println("hehe", i, time.Now().Format("2006-01-02 15:04:05"))
 			case <-done:

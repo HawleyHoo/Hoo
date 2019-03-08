@@ -11,10 +11,12 @@ import (
 	//"github.com/astaxie/beego/session"
 	"Hoo/h_math"
 	"encoding/json"
+	"errors"
 	"homedoctor/utils"
 	"math"
 	"strconv"
 	"strings"
+	"sync"
 )
 
 type Man struct {
@@ -214,7 +216,141 @@ func isValid(s string) bool {
 	return false
 }
 
+type Sl []S
+
+func (s *Sl) Remove(value interface{}) error {
+
+	for i, v := range *s {
+		fmt.Println("sl:", i, v)
+		if v.v == value {
+
+			*s = append((*s)[:i], (*s)[i+1:]...)
+
+			return nil
+
+		}
+
+	}
+
+	return errors.New("not found")
+
+}
+
+func fm(arr []string) {
+	for _, v := range arr {
+		fmt.Println("v:", v)
+		time.Sleep(time.Second * 1)
+	}
+	wg.Done()
+}
+
+var wg sync.WaitGroup
+
+type Integer int
+
+//func (a Integer) Add(b Integer) Integer {
+//	return a + b
+//}
+func (a Integer) Add(b Integer) Integer {
+	return a + b
+}
+
+func Processor(seq chan int, wait chan struct{}) {
+	go func() {
+		prime, ok := <-seq
+		if !ok {
+			close(wait)
+			return
+		}
+		fmt.Println("prime:", prime)
+		out := make(chan int)
+		Processor(out, wait)
+		for num := range seq {
+			if num%prime != 0 {
+				out <- num
+				//fmt.Println("out", num)
+			}
+		}
+		close(out)
+	}()
+
+}
+
+var quit chan int // 只开一个信道
+
+func foo() {
+	//fmt.Println(id)
+	// ok, finished
+	go func() {
+		fmt.Println("quit:", <-quit)
+	}()
+}
+
 func main() {
+	count := 1000
+	quit = make(chan int) // 无缓冲
+	//go foo()
+	for i := 0; i < 6; i++ {
+		foo()
+	}
+
+	for i := 100; i < count; i++ {
+		quit <- i
+	}
+
+	return
+
+	orgin, wait := make(chan int), make(chan struct{})
+	Processor(orgin, wait)
+	for num := 2; num < 1000; num++ {
+		orgin <- num
+	}
+	close(wait)
+	<-wait
+
+	return
+	var ss []int
+
+	ss = append(ss, 1)
+	fmt.Println("s:", ss, 100/0.000000000000000001)
+	//var m map[string]int
+	//m["one"]= 1
+	//fmt.Println("m:", m)
+
+	var a Integer = 1
+
+	var b Integer = 2
+
+	var i interface{} = a
+	aa := 3
+	fmt.Println(&aa)
+	sum := i.(Integer).Add(b)
+
+	fmt.Println(sum)
+
+	ar := make([]string, 10)
+	for i := 0; i < 10; i++ {
+		ar[i] = strconv.Itoa((i + 1) * 10)
+	}
+
+	//ar1 := ar[:5]
+	//ar2 := ar[5:]
+	//wg.Add(2)
+	//go fm(ar1)
+	//go fm(ar2)
+	//wg.Wait()
+
+	sl := Sl{S{0}, S{1}, S{2}, S{3}, S{4}, S{5}, S{6}}
+	fmt.Println(sl[:len(sl)-1])
+	fmt.Println(sl.Remove(2))
+	fmt.Println(sl)
+	ii := 1
+	fmt.Println(ii)
+	ii++
+	fmt.Println(ii)
+	fmt.Println(ii)
+	return
+
 	//defer func() { //必须要先声明defer，否则不能捕获到panic异常
 	//	fmt.Println("2")
 	//	if err := recover(); err != nil {
@@ -290,26 +426,25 @@ func main() {
 	arr1 = append(arr1, arr2...)
 	fmt.Println("srr1:", arr1, len(arr1))
 
-	tt := "ab&&2&&fasdfa&&1802395"
-	str := tt
-	n := strings.Count(str, "&&") + 1
-	a := make([]string, n)
-	n--
-	i := 0
-	for i < n {
-		m := strings.Index(str, "&&")
-		if m < 0 {
-			break
-		}
-		a[i] = str[:m]
-		str = str[m+len("&&"):]
-		i++
-	}
-	a[i] = str
-	fmt.Println("Hoo:", a[:], len(a))
-
-	res := strings.SplitN(tt, "&&", -1)
-	fmt.Println("res:", res[:3], len(res))
+	//tt := "ab&&2&&fasdfa&&1802395"
+	//str := tt
+	//n := strings.Count(str, "&&") + 1
+	//a := make([]string, n)
+	//n--
+	//i := 0
+	//for i < n {
+	//	m := strings.Index(str, "&&")
+	//	if m < 0 {
+	//		break
+	//	}
+	//	a[i] = str[:m]
+	//	str = str[m+len("&&"):]
+	//	i++
+	//}
+	//a[i] = str
+	//fmt.Println("Hoo:", a[:], len(a))
+	//res := strings.SplitN(tt, "&&", -1)
+	//fmt.Println("res:", res[:3], len(res))
 	return
 	date2 := time.Now().Unix()
 	fmt.Println("-----", date2, date2*1000)
