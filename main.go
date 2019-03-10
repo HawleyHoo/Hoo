@@ -11,9 +11,9 @@ import (
 	//"github.com/astaxie/beego/session"
 	"Hoo/h_math"
 	"encoding/json"
-	"errors"
-	"homedoctor/utils"
+
 	"math"
+	"nursing/utils"
 	"strconv"
 	"strings"
 	"sync"
@@ -214,6 +214,60 @@ func isValid(s string) bool {
 		return true
 	}
 	return false
+}
+func isPalindrome2(x int) bool {
+	if x < 0 {
+		return false
+	} else if x <= 9 {
+		return true
+	} else if x%10 == 0 {
+		return false
+	}
+
+	var y int
+	var r int
+	for x > y {
+		r = x % 10
+		x = x / 10
+		y = y*10 + r
+
+		if x == y || x/10 == y {
+			return true
+		}
+	}
+	return false
+}
+
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+	if x < 10 {
+		return true
+	}
+	l := make([]int, 0)
+
+	for x > 9 {
+		t := x % 10
+		l = append(l, t)
+		x = x / 10
+	}
+	l = append(l, x)
+	//fmt.Println(x)
+	//for _, v := range l {
+	//	fmt.Println(v)
+	//}
+
+	length := len(l)
+	l2 := length / 2
+	for i := 0; i < l2; i++ {
+		fmt.Println("v", i, length-1-i, l[i], l[length-1-i])
+		if l[i] != l[length-1-i] {
+			return false
+		}
+	}
+
+	return true
 }
 
 type Sl []S
