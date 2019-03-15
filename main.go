@@ -12,6 +12,7 @@ import (
 	"Hoo/h_math"
 	"encoding/json"
 
+	"errors"
 	"math"
 	"nursing/utils"
 	"strconv"
@@ -337,21 +338,124 @@ func foo() {
 	// ok, finished
 	go func() {
 		fmt.Println("quit:", <-quit)
+		//time.Sleep(1 * time.Second)
 	}()
 }
 
+type threadSafeSet struct {
+	sync.RWMutex
+	s []interface{}
+}
+
+func (set *threadSafeSet) Iter() <-chan interface{} {
+	//ch := make(chan interface{}) // 解除注释看看！
+	ch := make(chan interface{}, len(set.s))
+	go func() {
+		set.RLock()
+		for elem, value := range set.s {
+			ch <- elem
+			println("Iter:", elem, value)
+		}
+		close(ch)
+		set.RUnlock()
+	}()
+	return ch
+}
+
+func DeferFunc1(i int) (t int) {
+	t = i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
+func DeferFunc2(i int) int {
+	t := i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
+func DeferFunc3(i int) (t int) {
+	defer func() {
+		t += i
+	}()
+	return 2
+}
+
 func main() {
-	count := 1000
-	quit = make(chan int) // 无缓冲
-	//go foo()
-	for i := 0; i < 6; i++ {
-		foo()
+	sn1 := struct {
+		age  int
+		name string
+	}{age: 11, name: "qq"}
+
+	sn2 := struct {
+		age  int
+		name string
+	}{age: 11, name: "qq"}
+	if sn1 == sn2 {
+		fmt.Println("sn1== sn2")
+	}
+	sm1 := struct {
+		age int
+		m   map[string]string
+	}{age: 11, m: map[string]string{"a": "1"}}
+	sm2 := struct {
+		age int
+		m   map[string]string
+	}{age: 11, m: map[string]string{"a": "1"}}
+	//if sm1 == sm2 {
+	//	fmt.Println("sm1== sm2")
+	//}
+
+	return
+
+	c := make(chan int)
+
+	go func() {
+		c <- 1
+	}()
+	fmt.Println(<-c)
+
+	return
+	count := 10
+	quit = make(chan int, 0) // 无缓冲
+
+	for i := 0; i < count; i++ {
+		//foo()
+		go func(ii int) {
+			quit <- ii
+		}(i)
 	}
 
-	for i := 100; i < count; i++ {
-		quit <- i
+	for i := 0; i < count; i++ {
+		fmt.Println("quit:", <-quit)
 	}
 
+	ch := make(chan int, 3)
+	ch <- 1
+	ch <- 2
+	ch <- 3
+	go func() {
+		//ch <- 4
+	}()
+	//const zero = 0.0
+	//fmt.Println(reflect.TypeOf(zero))
+	// 显式地关闭信道
+	close(ch)
+
+	for v := range ch {
+		fmt.Println(v)
+	}
+	//for v := range ch {
+	//	fmt.Println(v)
+	//	if len(ch) <= 0 { // 如果现有数据量为0，跳出循环
+	//		break
+	//	}
+	//}
+	//fmt.Println(<-ch) // 2
+	//fmt.Println(<-ch) // 3
+	//fmt.Println(<-ch) // 3
 	return
 
 	orgin, wait := make(chan int), make(chan struct{})
@@ -439,7 +543,7 @@ func main() {
 	fmt.Println("Fibonacci2:", h_math.Fibonacci2(100))
 	fmt.Println("Fibonacci3:", h_math.Fibonacci3(100))
 	return
-	s1 := "4710620350"
+	//s1 := "4710620350"
 	r := []string{}
 
 	for i := 1; i < len(s); i++ {
@@ -450,7 +554,7 @@ func main() {
 		s = s[i:]
 	}
 	fmt.Println(r)
-	fmt.Println("parse:", parseIP(s1, 4))
+	//fmt.Println("parse:", parseIP(s1, 4))
 	return
 	//sr := []rune(s)
 	l := len(s)
