@@ -1,4 +1,4 @@
-package h_pkg
+package main
 
 import (
 	"fmt"

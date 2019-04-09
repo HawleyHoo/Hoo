@@ -1,4 +1,4 @@
-package h_pkg
+package main
 
 import (
 	"testing"
@@ -18,4 +18,3 @@ func TestSafeMap_ReadMap(t *testing.T) {
 	//testSlice(testTimeSlice2)
 	//testMap(testTimeMap2)
 }
-

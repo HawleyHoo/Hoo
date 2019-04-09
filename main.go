@@ -6,10 +6,9 @@ import (
 	//"github.com/go-xorm/core"
 	//"nursing/model"
 
-	"Hoo/h_pkg"
 	"time"
 	//"github.com/astaxie/beego/session"
-	"Hoo/h_math"
+
 	"encoding/json"
 
 	"errors"
@@ -18,6 +17,8 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+
+	"runtime"
 )
 
 type Man struct {
@@ -383,30 +384,29 @@ func DeferFunc3(i int) (t int) {
 	return 2
 }
 
-func main() {
-	sn1 := struct {
-		age  int
-		name string
-	}{age: 11, name: "qq"}
-
-	sn2 := struct {
-		age  int
-		name string
-	}{age: 11, name: "qq"}
-	if sn1 == sn2 {
-		fmt.Println("sn1== sn2")
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		//time.Sleep(100 * time.Millisecond)
+		runtime.Gosched()
+		fmt.Println(s)
 	}
-	sm1 := struct {
-		age int
-		m   map[string]string
-	}{age: 11, m: map[string]string{"a": "1"}}
-	sm2 := struct {
-		age int
-		m   map[string]string
-	}{age: 11, m: map[string]string{"a": "1"}}
-	//if sm1 == sm2 {
-	//	fmt.Println("sm1== sm2")
-	//}
+}
+func say2(s string) {
+	for i := 0; i < 5; i++ {
+		//time.Sleep(100 * time.Millisecond)
+		//runtime.Gosched()
+		fmt.Println(s)
+	}
+}
+
+func main() {
+	//runtime.GOMAXPROCS(4)
+	go say2("1 world")
+	say("hello")
+}
+
+func main0406() {
+	//fmt.Println(multiAdd("1111111", "222222"))
 
 	return
 
@@ -532,17 +532,17 @@ func main() {
 			}
 		}
 	}
-	fmt.Println("IP:", h_math.RestoreIPAddress2("25525511135"))
-	fmt.Println("IP:", h_math.RestoreIPAddress2("4710620350"))
-	fmt.Println("IP:", h_math.RestoreIPAddress2("2552551113"))
-	fmt.Println("IP:", h_math.RestoreIPAddress2("127001"))
-	for i := 1; i <= 30; i++ {
-		fmt.Println("Fibonacci1:", i, "    ", h_math.Fibonacci(i))
-
-	}
-	fmt.Println("Fibonacci2:", h_math.Fibonacci2(100))
-	fmt.Println("Fibonacci3:", h_math.Fibonacci3(100))
-	return
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("25525511135"))
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("4710620350"))
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("2552551113"))
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("127001"))
+	//for i := 1; i <= 30; i++ {
+	//	fmt.Println("Fibonacci1:", i, "    ", h_math.Fibonacci(i))
+	//
+	//}
+	//fmt.Println("Fibonacci2:", h_math.Fibonacci2(100))
+	//fmt.Println("Fibonacci3:", h_math.Fibonacci3(100))
+	//return
 	//s1 := "4710620350"
 	r := []string{}
 
@@ -620,7 +620,7 @@ func main() {
 	for k, v := range tagstr {
 		fmt.Println("range tag str :", k, "->", v)
 	}
-	h_pkg.ReflectTest3()
+	//h_pkg.ReflectTest3()
 	return
 	trimTest1()
 	trimTest2()
@@ -638,11 +638,11 @@ func main() {
 		}
 	}
 
-	h_pkg.Test1()
-
-	h_pkg.ReflectTest()
-	h_pkg.ReflectTest2()
-	h_pkg.ReflectTest3()
+	//h_pkg.Test1()
+	//
+	//h_pkg.ReflectTest()
+	//h_pkg.ReflectTest2()
+	//h_pkg.ReflectTest3()
 
 	fmt.Println("------------- 分割线 ---------------")
 }

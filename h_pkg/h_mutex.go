@@ -1,4 +1,4 @@
-package h_pkg
+package main
 
 import (
 	"fmt"
@@ -120,7 +120,7 @@ func SyncWaitGroup() {
 
 var m *sync.RWMutex
 
-func main() {
+func main04063() {
 	m = new(sync.RWMutex)
 	go write(1)
 	go read(21)

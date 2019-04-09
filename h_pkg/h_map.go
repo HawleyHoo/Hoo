@@ -1,9 +1,9 @@
-package h_pkg
+package main
 
 import (
+	"fmt"
 	"sync"
 	"time"
-	"fmt"
 )
 
 /*
@@ -49,51 +49,49 @@ func (sm *SafeMap) WriteMap(key int, value int) {
 	sm.Unlock()
 }
 
-
-var testTimeSlice=[]string{"aa","bb","cc","dd","ee","aa","zz"}
+var testTimeSlice = []string{"aa", "bb", "cc", "dd", "ee", "aa", "zz"}
 
 var testTimeMap = map[string]bool{"aa": true, "bb": true, "cc": true, "dd": true, "ee": true, "ff": true, "zz": true}
 
 //以上为第一组查询测试数据
 
-
-var testTimeSlice2=[] string{"aa","bb","cc","dd","ee","aa","aa","bb","cc","dd","ee",
-	"aa","aa","bb","cc","dd","ee","aa","aa","bb","cc","dd","ee","aa",
-	"i","j", "l", "m", "n", "o", "p", "q", "k", "x", "y", "z", "zz",
+var testTimeSlice2 = []string{"aa", "bb", "cc", "dd", "ee", "aa", "aa", "bb", "cc", "dd", "ee",
+	"aa", "aa", "bb", "cc", "dd", "ee", "aa", "aa", "bb", "cc", "dd", "ee", "aa",
+	"i", "j", "l", "m", "n", "o", "p", "q", "k", "x", "y", "z", "zz",
 	"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
 
 var testTimeMap2 = map[string]bool{"aa": true, "bb": true, "cc": true, "dd": true, "ee": true,
-	"ff": true, "qq": true,"ww": true, "rr": true, "tt": true, "q": true, "k": true, "x": true,
-	"uu": true, "ii": true,"oo": true, "pp": true, "lk": true, "kl": true, "jk": true, "kj": true,"hl": true,
-	"lh": true, "fg": true, "gfdd": true, "df": true, "fd": true,"y": true, "z": true,
+	"ff": true, "qq": true, "ww": true, "rr": true, "tt": true, "q": true, "k": true, "x": true,
+	"uu": true, "ii": true, "oo": true, "pp": true, "lk": true, "kl": true, "jk": true, "kj": true, "hl": true,
+	"lh": true, "fg": true, "gfdd": true, "df": true, "fd": true, "y": true, "z": true,
 	"i": true, "j": true, "l": true, "m": true, "n": true, "o": true, "p": true, "zz": true,
 	"1": true, "2": true, "3": true, "4": true, "5": true, "6": true, "7": true, "8": true, "9": true, "10": true}
 
 //以上为第二组查询测试数据
-func testSlice(a []string)  {
-	now:=time.Now()
+func testSlice(a []string) {
+	now := time.Now()
 
-	for j:=0; j < 100000; j++{
-		for _,v:=range a{
-			if v=="zz"{
+	for j := 0; j < 100000; j++ {
+		for _, v := range a {
+			if v == "zz" {
 				break
 			}
 		}
 	}
-	finish:=time.Since(now)
-	fmt.Println("slice:",finish)
+	finish := time.Since(now)
+	fmt.Println("slice:", finish)
 	fmt.Println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 
 }
 
 func testMap(a map[string]bool) {
-	now:=time.Now()
-	for j:=0; j < 100000; j++{
+	now := time.Now()
+	for j := 0; j < 100000; j++ {
 		if _, ok := a["zz"]; ok {
 			continue
 		}
 	}
-	finish2:=time.Since(now)
-	fmt.Println("map:",finish2)
+	finish2 := time.Since(now)
+	fmt.Println("map:", finish2)
 	fmt.Println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
 }

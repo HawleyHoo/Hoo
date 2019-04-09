@@ -1,21 +1,21 @@
-package h_pkg
+package main
 
 import (
-	"testing"
 	"fmt"
+	"testing"
 )
 
 func TestSay(t *testing.T) {
 	//go Say("world")
 	//Say("hello")
 
-	a := []int{7,2,6,8,-9,4,0}
+	a := []int{7, 2, 6, 8, -9, 4, 0}
 
 	c := make(chan int)
 	go Sum(a[:len(a)/2], c)
 	go Sum(a[len(a)/2:], c)
-	x,y := <-c, <-c
-	fmt.Println(x,y,x + y)
+	x, y := <-c, <-c
+	fmt.Println(x, y, x+y)
 
 	d := make(chan int, 10)
 	go fibonacci(cap(d), d)
