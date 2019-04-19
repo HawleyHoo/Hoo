@@ -1,0 +1,191 @@
+INFO 2018/12/03 14:53:00.006335 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 14:53:00.007337 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 14:53:00.007337 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 14:53:00.007337 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 14:53:00.040425 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 14:53:01.504956 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 14:53:01.599617 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 14:53:01.599617 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 14:54:23.481971 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 14:54:23.482973 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 14:54:23.482973 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 14:54:23.482973 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 14:54:23.508061 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 14:54:24.946073 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 14:54:24.988585 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 14:54:24.988585 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 14:55:48.673154 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 14:55:48.673154 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 14:55:48.674129 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 14:55:48.674129 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 14:55:48.701237 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 14:55:50.174684 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 14:55:50.234840 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 14:55:50.234840 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 14:55:50.234840 schedule.go:180: Calculate last run in AT: 1970/01/01 08:00:70
+INFO 2018/12/03 15:19:18.638450 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:19:18.638450 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:19:18.638450 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:19:18.638450 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:19:18.665522 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:19:20.189364 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:19:20.228466 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:19:20.228466 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:20:49.873079 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:20:49.874082 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:20:49.874082 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:20:49.874082 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:20:49.904162 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:20:51.413254 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:20:51.542639 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:20:51.542639 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:20:51.542639 schedule.go:180: Calculate last run in AT: 2018/12/03 15:00:18
+INFO 2018/12/03 15:20:58.007677 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:20:58.007677 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:20:58.007677 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:20:58.007677 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:20:58.035750 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:20:59.430732 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:20:59.481802 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:20:59.481802 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:20:59.481802 schedule.go:180: Calculate last run in AT: 2018/12/02 15:00:18
+INFO 2018/12/03 15:21:42.132037 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:21:42.133040 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:21:42.133040 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:21:42.133040 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:21:42.158106 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:21:43.609323 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:21:43.651572 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:21:43.651572 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:21:43.651572 schedule.go:180: Calculate last run in AT: 2018/12/02 15:00:18
+INFO 2018/12/03 15:58:49.300170 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:58:49.300170 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:58:49.300170 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:58:49.300170 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:58:49.328272 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:58:50.713673 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:58:50.771835 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:58:50.771835 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:58:50.771835 schedule.go:192: Calculate last run in AT: 2017/12/03 15:00:17
+INFO 2018/12/03 15:59:09.154050 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:59:09.155053 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:59:09.155053 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:59:09.155053 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:59:09.183127 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:59:10.587558 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:59:10.641545 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:59:10.641545 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:59:10.641545 schedule.go:192: Calculate last run in AT: 2017/12/03 15:00:17
+INFO 2018/12/03 15:59:29.342082 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 15:59:29.342082 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 15:59:29.342082 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 15:59:29.342082 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 15:59:29.375170 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 15:59:30.940874 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 15:59:30.980977 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 15:59:30.980977 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 15:59:30.980977 schedule.go:192: Calculate last run in AT: 2017/12/03 16:00:17
+INFO 2018/12/03 16:14:54.220925 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:14:54.220925 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:14:54.220925 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:14:54.220925 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:14:54.247997 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:14:55.715607 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:14:55.768968 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:14:55.768968 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:14:55.768968 schedule.go:192: Calculate last run in AT: 2017/12/03 16:00:17
+INFO 2018/12/03 16:32:53.245298 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:32:53.246316 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:32:53.246316 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:32:53.246316 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:32:53.271395 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:32:54.709942 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:32:54.761307 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:32:54.761307 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:34:20.844264 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:34:20.845264 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:34:20.845264 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:34:20.845264 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:34:20.873318 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:34:22.357237 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:34:22.405468 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:34:22.405468 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:35:51.836623 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:35:51.836623 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:35:51.836623 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:35:51.836623 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:35:51.867706 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:35:53.297688 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:35:53.338793 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:35:53.339796 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:36:09.495605 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:36:09.495605 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:36:09.495605 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:36:09.495605 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:36:09.520671 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:36:11.329841 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:36:11.368900 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:36:11.368900 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:39:49.568193 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:39:49.568193 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:39:49.568193 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:39:49.568193 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:39:49.597270 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:39:51.005429 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:39:51.056888 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:39:51.056888 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:41:13.114315 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:41:13.115318 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:41:13.115318 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:41:13.115318 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:41:13.142389 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:41:14.721930 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:41:14.762074 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:41:14.762074 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:42:32.838255 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:42:32.838255 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:42:32.838255 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:42:32.838255 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:42:32.865327 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:42:34.332871 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:42:34.371967 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:42:34.372816 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:42:34.372816 schedule.go:204: job:&{interval:1 jobFunc: unit:once atTime: lastRun:{wall:0 ext:62135596800 loc:0xf54d80} nextRun:{wall:0 ext:63679423364 loc:0xf54d80} period:0 startDay:0 funcs:map[] fparams:map[]}
+INFO 2018/12/03 16:43:38.034582 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:43:38.035585 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:43:38.035585 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:43:38.035585 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:43:38.063669 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:43:39.459144 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:43:39.505210 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:43:39.505210 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:43:39.505210 schedule.go:204: job:2018-12-03 16:43:49 +0800 CST 1970-01-01 08:00:00 +0800 CST
+INFO 2018/12/03 16:48:30.329342 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:48:30.329342 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:48:30.329342 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:48:30.329342 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:48:30.356414 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:48:31.815505 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:48:31.854645 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:48:31.854645 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:48:31.854645 schedule.go:204: job:2018-12-03 16:48:49 +0800 CST 1970-01-01 08:00:00 +0800 CST
+INFO 2018/12/03 16:49:22.273577 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:49:22.273577 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:49:22.273577 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:49:22.273577 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:49:22.300649 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:49:23.694029 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:49:23.768253 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:49:23.768253 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:49:23.768253 schedule.go:204: job:2018-12-03 16:49:41 +0800 CST 1970-01-01 08:00:00 +0800 CST
+INFO 2018/12/03 16:50:45.993769 config.go:71: Database Configuration file is : ./config.json
+INFO 2018/12/03 16:50:45.993769 config.go:102: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/03 16:50:45.993769 config.go:103: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/03 16:50:45.993769 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/03 16:50:46.019871 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/03 16:50:47.441319 initStoreInfoM.go:121: InitStoreNumber: today(20181203) PreSale(false) count(77396)
+INFO 2018/12/03 16:50:47.486461 orderM.go:826: Load overtime unpaid order count:0
+INFO 2018/12/03 16:50:47.486461 runtime.go:31: Runtime: PreSaleMode:false InitStoreNum=77396 PayMode:true RefundMode:true IgnoreOMS:true Ignore3RdStore:true
+INFO 2018/12/03 16:50:47.486461 schedule.go:204: job:2018-12-03 16:51:05 +0800 CST 1970-01-01 08:00:00 +0800 CST
+INFO 2018/12/03 16:50:48.486500 schedule.go:95: schedule do job: <func() Value>
+INFO 2018/12/03 16:50:48.486500 schedule.go:98: remove job: &{interval:1 jobFunc:main.testsssss unit:once atTime: lastRun:{wall:13761128516340863036 ext:1514728501 loc:0xf55d80} nextRun:{wall:13761128516340863036 ext:1514728501 loc:0xf55d80} period:0 startDay:0 funcs:map[main.testsssss:0x966d00] fparams:map[main.testsssss:[]]}

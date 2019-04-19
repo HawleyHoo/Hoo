@@ -1,17 +1,17 @@
-package h_pkg
+package main
 
 import (
-	"reflect"
 	"fmt"
+	"reflect"
 )
 
 type User struct {
-	Id int
+	Id   int
 	Name string
 	Addr string
 }
 
-func ReflectTest()  {
+func ReflectTest() {
 	var x float64 = 3.4
 	v1 := reflect.ValueOf(x)
 	fmt.Println("settability of v:", v1.CanSet()) // false
@@ -24,19 +24,17 @@ func ReflectTest()  {
 	v.SetFloat(6.6)
 	fmt.Println("x=", x)
 
-
 	user := User{
-		Id:12,
-		Name:"jack",
-		Addr:"hehehe",
+		Id:   12,
+		Name: "jack",
+		Addr: "hehehe",
 	}
-
 
 	//t := reflect.TypeOf(user)
 	//v3 := reflect.ValueOf(user)
 	/*
-	reflect.ValueOf(&t)只是一个地址的值，通过.Elem()获取原始值对应的反射对象user
-	所以上面两行等同于下面两行
+		reflect.ValueOf(&t)只是一个地址的值，通过.Elem()获取原始值对应的反射对象user
+		所以上面两行等同于下面两行
 	*/
 	t := reflect.TypeOf(&user).Elem()
 	v3 := reflect.ValueOf(&user).Elem()
@@ -51,17 +49,17 @@ func ReflectTest()  {
 	fmt.Println("set user.name:", user.Name)
 
 	/*
-	在面对类型时，需要区分 Type 和 Kind。
-	前者表示真实类型（静态类型），后者表示其基础结构（底层类型）类别 -- 基类型。
+		在面对类型时，需要区分 Type 和 Kind。
+		前者表示真实类型（静态类型），后者表示其基础结构（底层类型）类别 -- 基类型。
 	*/
-	fmt.Println("kind:", t.Kind(), "type:",v3.Type())
+	fmt.Println("kind:", t.Kind(), "type:", v3.Type())
 	//kind: struct type: h_pkg.User
 
 }
 
 type user struct {
 	name string
-	age int
+	age  int
 }
 type manager struct {
 	user
@@ -101,9 +99,10 @@ type A int
 type B struct {
 	A
 }
-func (A) av() {}
+
+func (A) av()  {}
 func (*A) ap() {}
-func (B) bv() {}
+func (B) bv()  {}
 func (*B) bp() {}
 
 func ReflectTest3() {
@@ -120,8 +119,9 @@ func ReflectTest3() {
 
 type User1 struct {
 	Name string `field:"name" type:"varchar(50)"`
-	Age  int `field:"age" type:"int"`
+	Age  int    `field:"age" type:"int"`
 }
+
 func ReflectTest4() {
 	var u User1
 	t := reflect.TypeOf(u)
@@ -135,11 +135,11 @@ func ReflectTest4() {
 
 type X int
 
-func (X) String() string  {
+func (X) String() string {
 	return ""
 }
 
-func ReflectTest5()  {
+func ReflectTest5() {
 	var a X
 	t := reflect.TypeOf(a)
 	// Implements 不能直接使用类型作为参数，导致这种用法非常别扭
@@ -149,5 +149,3 @@ func ReflectTest5()  {
 	fmt.Println(t.ConvertibleTo(it))
 	fmt.Println(t.AssignableTo(st), t.AssignableTo(it))
 }
-
-

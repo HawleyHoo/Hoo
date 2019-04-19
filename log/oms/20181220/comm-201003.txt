@@ -1,0 +1,2 @@
+http://erpoms.qdama.cn/omsweb/api/PurchaseInfo?ArticleID=20047085&companyID=1002&recDate=&storeID=201003&token=szQdm
+{"code":9,"message":"参数recDate不能为空","count":0,"result":null}l}

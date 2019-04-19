@@ -1,4 +1,4 @@
-package h_pkg
+package main
 
 type CommonFunc struct{}
 
@@ -31,7 +31,7 @@ func merge(x []int, i int, y []int, j int) []int {
 	ylen := len(y)              //y数组的长度
 	z := make([]int, xlen+ylen) //创建一个大小为xlen+ylen的数组切片
 	k := 0                      //数组切片z的下标
-	for k !=  xlen + ylen {
+	for k != xlen+ylen {
 		if x[i] < y[j] { //把小数放在数组切片z里
 			z[k] = x[i]
 			i++

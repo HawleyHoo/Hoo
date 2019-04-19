@@ -1,0 +1,42 @@
+INFO 2018/12/19 17:36:50.825324 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:36:50.844499 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:36:50.844499 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:36:50.845503 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:36:50.873601 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:36:50.892629 sch_update_stock.go:78: SchPlanGroupByStore: count is 10
+INFO 2018/12/19 17:37:34.577797 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:37:34.579833 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:37:34.579833 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:37:34.579833 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:37:34.611968 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:37:34.624003 sch_update_stock.go:78: SchPlanGroupByStore: count is 10
+INFO 2018/12/19 17:38:13.479512 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:38:13.480515 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:38:13.480515 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:38:13.480515 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:38:13.509565 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:38:13.519614 sch_update_stock.go:78: SchPlanGroupByStore: count is 10
+INFO 2018/12/19 17:39:47.475648 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:39:47.477653 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:39:47.477653 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:39:47.477653 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:39:47.503694 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:39:47.514722 sch_update_stock.go:78: SchPlanGroupByStore: count is 10
+INFO 2018/12/19 17:46:56.594961 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:46:56.595964 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:46:56.595964 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:46:56.595964 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:46:56.627126 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:46:56.638076 sch_update_stock.go:76: SchPlanGroupByStore: count is 10
+INFO 2018/12/19 17:47:33.312841 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:47:33.313844 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:47:33.313844 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:47:33.313844 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:47:33.343925 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:47:33.354970 sch_update_stock.go:76: SchPlanGroupByStore: count is 10
+INFO 2018/12/19 17:49:26.099047 config.go:73: Database Configuration file is : ./config.json
+INFO 2018/12/19 17:49:26.099047 config.go:104: Eshop online merchant system. V0.6.2-20181127
+INFO 2018/12/19 17:49:26.099047 config.go:105: &util.Configuration{Host:"10.111.101.52", Username:"", Password:"", Port:27017, DbName:"qdmDB", IgnoreOMS:true, Ignore3RdStore:true, IgnoreReduceQuantity:true, IsDebug:true, IsPushToOMS:false, PosIntervalQueryTime:3, RuntimeCheckInterval:0x3, ImageBasePath:"image/", ThumbnailBasePath:"image/thumbnail/", RefundPicBasePath:"image/refund/", CustomerFdbackImagePath:"image/wx/feedback/", BarcodeImagePath:"image/barcode/", SaleStartHour:6, SaleStartMinute:30, SaleLastHour:12, SaleLastMinutes:30, HotSearchAgeTime:240, HotSearchMax:30, TicketRechExpireHintDay:3, ServiceHost:"test.qdama.cn"}
+INFO 2018/12/19 17:49:26.099047 mgoconn.go:38: mgo start to connect : 10.111.101.52
+INFO 2018/12/19 17:49:26.130134 mgoconn.go:51: mgo connect '10.111.101.52' successfully
+INFO 2018/12/19 17:49:26.144192 sch_update_stock.go:76: SchPlanGroupByStore: count is 10

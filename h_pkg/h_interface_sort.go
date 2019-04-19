@@ -1,4 +1,4 @@
-package h_pkg
+package main
 
 import (
 	"fmt"
@@ -11,6 +11,7 @@ type Interface interface {
 	Less(i, j int) bool
 	Swap(i, j int)
 }
+
 /*
 我们没有实现HumanGroup的排序函数，所做的只是实现了三个函数（Len，Less和Swap），这个就是sort.Sort函数需要的全部信息。
 
@@ -23,28 +24,27 @@ type Interface interface {
 來源：简书
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
 */
-func Test1()  {
-	list := []int {1, 23, 65, 11, 0, 3, 233, 88, 99}
+func Test1() {
+	list := []int{1, 23, 65, 11, 0, 3, 233, 88, 99}
 	fmt.Println("The list is: ", list)
 
 	sort.Ints(list)
 	fmt.Println("The sorted list is: ", list)
 
-
 	group := HumanGroup{
-		Human{Name:"Bart", Age:24},
-		Human{Name:"Bob", Age:23},
-		Human{Name:"Gertrude", Age:104},
-		Human{Name:"Paul", Age:44},
-		Human{Name:"Sam", Age:34},
-		Human{Name:"Jack", Age:54},
-		Human{Name:"Martha", Age:74},
-		Human{Name:"Leo", Age:4},
+		Human{Name: "Bart", Age: 24},
+		Human{Name: "Bob", Age: 23},
+		Human{Name: "Gertrude", Age: 104},
+		Human{Name: "Paul", Age: 44},
+		Human{Name: "Sam", Age: 34},
+		Human{Name: "Jack", Age: 54},
+		Human{Name: "Martha", Age: 74},
+		Human{Name: "Leo", Age: 4},
 	}
 
 	//Let's print this group as it is
 	fmt.Println("The unsorted group is:")
-	for _, v := range group{
+	for _, v := range group {
 		fmt.Println(v)
 	}
 
@@ -53,14 +53,14 @@ func Test1()  {
 
 	//Print the sorted group
 	fmt.Println("\nThe sorted group is:")
-	for _, v := range group{
+	for _, v := range group {
 		fmt.Println(v)
 	}
 
 }
 
 func (h Human) String() string {
-	return "(name: " + h.Name + " - Age: "+strconv.Itoa(h.Age)+ " years)"
+	return "(name: " + h.Name + " - Age: " + strconv.Itoa(h.Age) + " years)"
 }
 
 type HumanGroup []Human //HumanGroup is a type of slices that contain Humans
@@ -76,8 +76,6 @@ func (g HumanGroup) Less(i, j int) bool {
 	return false
 }
 
-func (g HumanGroup) Swap(i, j int){
+func (g HumanGroup) Swap(i, j int) {
 	g[i], g[j] = g[j], g[i]
 }
-
-

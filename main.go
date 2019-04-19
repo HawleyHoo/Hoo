@@ -6,16 +6,19 @@ import (
 	//"github.com/go-xorm/core"
 	//"nursing/model"
 
-	"Hoo/h_pkg"
 	"time"
 	//"github.com/astaxie/beego/session"
+
 	"encoding/json"
-	"homedoctor/utils"
+
+	"errors"
 	"math"
-	"math/rand"
-	"os"
-	"reflect"
+	"nursing/utils"
+	"strconv"
 	"strings"
+	"sync"
+
+	"runtime"
 )
 
 type Man struct {
@@ -138,43 +141,6 @@ func (s Studnt) String() string {
 
 const MIN = 0.000001
 
-// MIN 为用户自定义的比较精度
-func IsEqual(f1, f2 float64) bool {
-	return math.Dim(f1, f2) < MIN
-}
-
-//func filter(r rune) rune {
-//	if strings.IndexRune() {
-//
-//	}
-//}
-
-func RandInt(min, max int) int {
-	if min >= max || min == 0 || max == 0 {
-		return max
-	}
-	return rand.Intn(max-min) + min
-}
-
-func testsss(str string) string {
-
-	str = "hehe"
-	return str
-}
-func testsssss() {
-	var str string = "12345"
-	tmpstr := str
-	fmt.Printf("%p %p\n", &str, &tmpstr)
-	tmpstr = tmpstr + "x"
-	fmt.Printf("%p %p\n", &str, &tmpstr)
-
-	var b []string = []string{"b"}
-	a := "a"
-	fmt.Printf("%p %p\n", &a, &b)
-	b = append(b, a)
-	fmt.Printf("%p %p\n", &a, &b[1])
-}
-
 func DeepCopy(value interface{}) interface{} {
 	if valueMap, ok := value.(map[string]interface{}); ok {
 		newMap := make(map[string]interface{})
@@ -195,196 +161,448 @@ func DeepCopy(value interface{}) interface{} {
 	return value
 }
 
-func testhehe(arr interface{}) [][]interface{} {
-	if reflect.TypeOf(arr).Kind() != reflect.Slice {
-		return nil
+//判断a是否等于b
+func IsEqualA(a, b float64) bool {
+	var r = a - b
+	if r == 0.0 {
+		return true
+	} else if r < 0.0 {
+		return r > -0.0001
 	}
-	arrValue := reflect.ValueOf(arr)
-	step := 2
-	retArr := make([][]interface{}, 0)
-	for k := 0; k < arrValue.Len(); k = k + step {
-		temp := make([]interface{}, 0)
-
-		temp = append(temp, arrValue.Index(k).Interface())
-		if k+1 < arrValue.Len() {
-			temp = append(temp, arrValue.Index(k+1).Interface())
-		}
-
-		retArr = append(retArr, temp)
-	}
-	return retArr
+	return r < 0.0001
 }
 
-type Test struct {
-	Name string
+func parseIP(s string, require int) []string {
+	if require == 1 {
+		return []string{s}
+	}
+	r := []string{}
+	for i := 1; i < 4 && i+require-1 < len(s); i++ {
+		pre := s[:i]
+		if v, _ := strconv.Atoi(pre); v < 256 {
+			r = append(r, pre)
+			r = append(r, parseIP(s[i:], require-1)...)
+		}
+		if '0' == s[0] {
+			fmt.Println("break:", len(s), s)
+			break
+		}
+	}
+
+	return r
+}
+
+func addDot(s string, k int) (res string) {
+	if len(s) < k {
+		return ""
+	}
+	if len(s) > 3*(k+1) {
+		return ""
+	}
+	return res
+}
+
+func isValid(s string) bool {
+	if ('0' == s[0] && len(s) > 1) || len(s) > 3 || len(s) == 0 {
+		return false
+	}
+
+	val, err := strconv.Atoi(s)
+	if err != nil {
+		fmt.Println("strconv err:%s , str:%s", err.Error(), s)
+		return false
+	}
+	if val < 256 && val >= 0 {
+		return true
+	}
+	return false
+}
+func isPalindrome2(x int) bool {
+	if x < 0 {
+		return false
+	} else if x <= 9 {
+		return true
+	} else if x%10 == 0 {
+		return false
+	}
+
+	var y int
+	var r int
+	for x > y {
+		r = x % 10
+		x = x / 10
+		y = y*10 + r
+
+		if x == y || x/10 == y {
+			return true
+		}
+	}
+	return false
+}
+
+func isPalindrome(x int) bool {
+	if x < 0 {
+		return false
+	}
+	if x < 10 {
+		return true
+	}
+	l := make([]int, 0)
+
+	for x > 9 {
+		t := x % 10
+		l = append(l, t)
+		x = x / 10
+	}
+	l = append(l, x)
+	//fmt.Println(x)
+	//for _, v := range l {
+	//	fmt.Println(v)
+	//}
+
+	length := len(l)
+	l2 := length / 2
+	for i := 0; i < l2; i++ {
+		fmt.Println("v", i, length-1-i, l[i], l[length-1-i])
+		if l[i] != l[length-1-i] {
+			return false
+		}
+	}
+
+	return true
+}
+
+type Sl []S
+
+func (s *Sl) Remove(value interface{}) error {
+
+	for i, v := range *s {
+		fmt.Println("sl:", i, v)
+		if v.v == value {
+
+			*s = append((*s)[:i], (*s)[i+1:]...)
+
+			return nil
+
+		}
+
+	}
+
+	return errors.New("not found")
+
+}
+
+func fm(arr []string) {
+	for _, v := range arr {
+		fmt.Println("v:", v)
+		time.Sleep(time.Second * 1)
+	}
+	wg.Done()
+}
+
+var wg sync.WaitGroup
+
+type Integer int
+
+//func (a Integer) Add(b Integer) Integer {
+//	return a + b
+//}
+func (a Integer) Add(b Integer) Integer {
+	return a + b
+}
+
+func Processor(seq chan int, wait chan struct{}) {
+	go func() {
+		prime, ok := <-seq
+		if !ok {
+			close(wait)
+			return
+		}
+		fmt.Println("prime:", prime)
+		out := make(chan int)
+		Processor(out, wait)
+		for num := range seq {
+			if num%prime != 0 {
+				out <- num
+				//fmt.Println("out", num)
+			}
+		}
+		close(out)
+	}()
+
+}
+
+var quit chan int // 只开一个信道
+
+func foo() {
+	//fmt.Println(id)
+	// ok, finished
+	go func() {
+		fmt.Println("quit:", <-quit)
+		//time.Sleep(1 * time.Second)
+	}()
+}
+
+type threadSafeSet struct {
+	sync.RWMutex
+	s []interface{}
+}
+
+func (set *threadSafeSet) Iter() <-chan interface{} {
+	//ch := make(chan interface{}) // 解除注释看看！
+	ch := make(chan interface{}, len(set.s))
+	go func() {
+		set.RLock()
+		for elem, value := range set.s {
+			ch <- elem
+			println("Iter:", elem, value)
+		}
+		close(ch)
+		set.RUnlock()
+	}()
+	return ch
+}
+
+func DeferFunc1(i int) (t int) {
+	t = i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
+func DeferFunc2(i int) int {
+	t := i
+	defer func() {
+		t += 3
+	}()
+	return t
+}
+func DeferFunc3(i int) (t int) {
+	defer func() {
+		t += i
+	}()
+	return 2
+}
+
+func say(s string) {
+	for i := 0; i < 5; i++ {
+		//time.Sleep(100 * time.Millisecond)
+		runtime.Gosched()
+		fmt.Println(s)
+	}
+}
+func say2(s string) {
+	for i := 0; i < 5; i++ {
+		//time.Sleep(100 * time.Millisecond)
+		//runtime.Gosched()
+		fmt.Println(s)
+	}
 }
 
 func main() {
-	//arr1 := []string{"a", "b", "c", "d", "e"}
-	//arr1 := []int{1,2, 3, 4, 5, 6}
-	arr1 := []Test{Test{"a"}, Test{"b"}, Test{"c"}, Test{"d"}, Test{"e"}, Test{"f"}}
-	arr2 := testhehe(arr1)
-	fmt.Printf("%+v  \n", arr2)
+	//runtime.GOMAXPROCS(4)
+	go say2("1 world")
+	say("hello")
+}
+
+func main0406() {
+	//fmt.Println(multiAdd("1111111", "222222"))
 
 	return
-	//rad := rand.New(rand.NewSource(time.Now().Unix()))
-	//for i := 0; i < rad.Intn(9)+1; i++ {
-	//	fmt.Println(rad.Intn(50))
+
+	c := make(chan int)
+
+	go func() {
+		c <- 1
+	}()
+	fmt.Println(<-c)
+
+	return
+	count := 10
+	quit = make(chan int, 0) // 无缓冲
+
+	for i := 0; i < count; i++ {
+		//foo()
+		go func(ii int) {
+			quit <- ii
+		}(i)
+	}
+
+	for i := 0; i < count; i++ {
+		fmt.Println("quit:", <-quit)
+	}
+
+	ch := make(chan int, 3)
+	ch <- 1
+	ch <- 2
+	ch <- 3
+	go func() {
+		//ch <- 4
+	}()
+	//const zero = 0.0
+	//fmt.Println(reflect.TypeOf(zero))
+	// 显式地关闭信道
+	close(ch)
+
+	for v := range ch {
+		fmt.Println(v)
+	}
+	//for v := range ch {
+	//	fmt.Println(v)
+	//	if len(ch) <= 0 { // 如果现有数据量为0，跳出循环
+	//		break
+	//	}
 	//}
-	//testsssss()
+	//fmt.Println(<-ch) // 2
+	//fmt.Println(<-ch) // 3
+	//fmt.Println(<-ch) // 3
+	return
 
-	workPath, err := os.Getwd()
-	fmt.Println(workPath)
-	workPath2, err := os.Getwd()
-	if err != nil {
-		panic(err)
+	orgin, wait := make(chan int), make(chan struct{})
+	Processor(orgin, wait)
+	for num := 2; num < 1000; num++ {
+		orgin <- num
 	}
-	fmt.Println(workPath2)
+	close(wait)
+	<-wait
 
-	now := time.Now()
-	timenow := now.Format("20060102") + " 000000"
-	fmt.Println(timenow)
-	list := make([]int, 0)
+	return
+	var ss []int
+
+	ss = append(ss, 1)
+	fmt.Println("s:", ss, 100/0.000000000000000001)
+	//var m map[string]int
+	//m["one"]= 1
+	//fmt.Println("m:", m)
+
+	var a Integer = 1
+
+	var b Integer = 2
+
+	var i interface{} = a
+	aa := 3
+	fmt.Println(&aa)
+	sum := i.(Integer).Add(b)
+
+	fmt.Println(sum)
+
+	ar := make([]string, 10)
 	for i := 0; i < 10; i++ {
-		list = append(list, i*2)
-		if i == 9 {
-			h := list[i]
-			h = 168
-			fmt.Println(h, list[i])
-			//list[i] = 168
-		}
+		ar[i] = strconv.Itoa((i + 1) * 10)
 	}
-	fmt.Println(list)
 
-	aaaaaa := "haha"
+	//ar1 := ar[:5]
+	//ar2 := ar[5:]
+	//wg.Add(2)
+	//go fm(ar1)
+	//go fm(ar2)
+	//wg.Wait()
 
-	fmt.Println("200025893" < "200025892")
-	fmt.Println("200025893" <= "200025893")
-	fmt.Println("200025893" < "200025894")
-
-	fmt.Println(testsss(aaaaaa))
-	fmt.Println(aaaaaa)
+	sl := Sl{S{0}, S{1}, S{2}, S{3}, S{4}, S{5}, S{6}}
+	fmt.Println(sl[:len(sl)-1])
+	fmt.Println(sl.Remove(2))
+	fmt.Println(sl)
+	ii := 1
+	fmt.Println(ii)
+	ii++
+	fmt.Println(ii)
+	fmt.Println(ii)
 	return
-	fmt.Println(strings.Replace("10-17-18", "-", "", -1))
-	fmt.Println("123456789"[:8])
-	for i := 0; i < 100; i++ {
-		fmt.Println(RandInt(1000, 9999))
-	}
-	SaleTime := func(input string, characters string) string { //
-		filter := func(r rune) rune {
-			if strings.IndexRune(characters, r) < 0 {
-				return r
+
+	//defer func() { //必须要先声明defer，否则不能捕获到panic异常
+	//	fmt.Println("2")
+	//	if err := recover(); err != nil {
+	//		fmt.Println(err) //这里的err其实就是panic传入的内容，bug
+	//	}
+	//	fmt.Println("3")
+	//}()
+	//s := "25525511135"
+	s := "127001"
+	for i := 1; i < len(s)-2 && i < 4; i++ {
+		for j := i + 1; j < len(s)-1 && j < 4+i; j++ {
+			for k := j + 1; k < len(s) && k < 4+j; k++ {
+				v1 := s[:i]
+				v2 := s[i:j]
+				v3 := s[j:k]
+				v4 := s[k:]
+
+				if isValid(v1) && isValid(v2) && isValid(v3) && isValid(v4) {
+					fmt.Println("-------------------------:" + v1 + "." + v2 + "." + v3 + "." + v4)
+				}
 			}
-			return -1
-		}
-		return strings.Map(filter, input)
-	}("2016-05-08 23:00:00", "-:")
-	fmt.Println(SaleTime)
-	//fmt.Println(strings.Map(":","2016-05-08 23:00:00"))
-	ru := []rune(":")
-	fmt.Println("ele:", strings.IndexRune("20asdf16:88", ru[0]))
-
-	he := ";asdfasdfa;sldkfj;"
-	strhe := strings.TrimSuffix(he, ";")
-
-	fmt.Println(he, len("哈哈"))
-	fmt.Println(strhe)
-	fmt.Println(time.Now().Unix())
-	a1 := 0.0000123
-	b2 := 0.000012234
-	if IsEqual(a1, b2) {
-		fmt.Println("a < b", 7/2, h_pkg.Reverse("Hello world!"))
-	}
-	lsit := make([]string, 0)
-	fmt.Println("list :", lsit, "len:", len(lsit))
-	storeList := []string{"204149", "204146", "204251", "204086", "204024", "204081", "204220", "204121", "204190", "204007", "204191", "204005", "204010", "204100", "204209", "204221", "204002", "204004", "204008", "204204", "204241", "204206", "204335"}
-	for _, v := range storeList {
-		if v != "" {
-			lsit = append(lsit, v)
 		}
 	}
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("25525511135"))
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("4710620350"))
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("2552551113"))
+	//fmt.Println("IP:", h_math.RestoreIPAddress2("127001"))
+	//for i := 1; i <= 30; i++ {
+	//	fmt.Println("Fibonacci1:", i, "    ", h_math.Fibonacci(i))
+	//
+	//}
+	//fmt.Println("Fibonacci2:", h_math.Fibonacci2(100))
+	//fmt.Println("Fibonacci3:", h_math.Fibonacci3(100))
+	//return
+	//s1 := "4710620350"
+	r := []string{}
 
-	fmt.Println("list :", lsit, "len:", len(lsit))
-	return
-
-	hhe := map[string]int{"a": 2, "b": 3}
-	if aaaaaaa, ok := hhe["c"]; ok {
-		fmt.Println("c:", aaaaaaa)
-	} else {
-		fmt.Println("no c:", aaaaaaa)
-	}
-
-	s := Studnt{}
-	fmt.Println(s)
-	t1 := time.Now()
-
-	t2 := time.Unix(0, 0)
-
-	fmt.Println(t1)
-	fmt.Println(t2)
-
-	//aaa := [20]int{1}
-	for i := 0; i < 20; i += 3 {
-		fmt.Println("hehe", i)
-	}
-
-	var i = 3
-	go func(a int) {
-		fmt.Println(a)
-		fmt.Println("1")
-	}(i)
-	go fmt.Println("hehe")
-	fmt.Println("2")
-	fmt.Println("22")
-
-	return
-
-	data, i := [3]int{0, 1, 2}, 0
-	i, data[i] = 2, 100
-	fmt.Println(data, i)
-	data[i], i = 100, 2
-	fmt.Println(data, i)
-
-	return
-
-	fmt.Println(" SplitN 函数的用法")
-	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 1))
-
-	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", 2))  //["/" "home/" "m_ta/" "src"]
-	fmt.Printf("%q\n", strings.SplitN("/home/m_ta/src", "/", -1)) //["" "home" "m_ta" "src"]
-	fmt.Printf("%q\n", strings.SplitN("home,m_ta,src", ",", 2))   //["/" "home/" "m_ta/" "src"]
-
-	fmt.Printf("%q\n", strings.SplitN("#home#m_ta#src", "#", -1)) //["/" "home/" "m_ta/" "src"]
-	sss := "a,b"
-	ss := "a"
-	sli1 := strings.Split(sss, ",")
-	sli2 := strings.Split(ss, ",")
-	fmt.Println("sli :", sli1, len(sli1))
-	fmt.Println("sli :", sli2, len(sli2))
-
-	fmt.Println("---:", 0.00001 > 0)
-	fmt.Println("---:", -0.00001 > 0)
-
-	list1 := [8]string{"a", "b", "c", "d", "e", "f"}
-	list2 := make([]string, 6)
-
-	fmt.Println("list:", list1, list2)
-	str := "ab&&2"
-	n := strings.Count(str, "&&") + 1
-	a := make([]string, n)
-	n--
-	i = 0
-	for i < n {
-		m := strings.Index(str, "&&")
-		if m < 0 {
-			break
+	for i := 1; i < len(s); i++ {
+		pre := s[:i]
+		if v, _ := strconv.Atoi(pre); v < 256 {
+			r = append(r, pre)
 		}
-		a[i] = str[:m]
-		str = str[m+len("&&"):]
-		i++
+		s = s[i:]
 	}
-	a[i] = str
-	fmt.Println("Hoo:", a[:i+1])
+	fmt.Println(r)
+	//fmt.Println("parse:", parseIP(s1, 4))
+	return
+	//sr := []rune(s)
+	l := len(s)
+	for i := 0; i < l; i++ {
+		fmt.Printf(" %s ", s[:i])
+	}
+	fmt.Println("\n")
+	for _, v := range s {
+		fmt.Printf(" %c ", v)
+	}
+	return
+	//fmt.Println(restore(s, 4))
+	//fmt.Println(restore(s1, 4))
+
+	fmt.Printf("%0.10f \n", math.Abs(0.00000001-0.000000026))
+
+	arr1 := []string{"1", "2"}
+	arr2 := []string{"21", "22"}
+	arr3 := []string{}
+
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	arr1 = append(arr1, arr3...)
+	fmt.Println("srr1:", arr1, len(arr1))
+	arr1 = append(arr1, arr2...)
+	fmt.Println("srr1:", arr1, len(arr1))
+
+	//tt := "ab&&2&&fasdfa&&1802395"
+	//str := tt
+	//n := strings.Count(str, "&&") + 1
+	//a := make([]string, n)
+	//n--
+	//i := 0
+	//for i < n {
+	//	m := strings.Index(str, "&&")
+	//	if m < 0 {
+	//		break
+	//	}
+	//	a[i] = str[:m]
+	//	str = str[m+len("&&"):]
+	//	i++
+	//}
+	//a[i] = str
+	//fmt.Println("Hoo:", a[:], len(a))
+	//res := strings.SplitN(tt, "&&", -1)
+	//fmt.Println("res:", res[:3], len(res))
 	return
 	date2 := time.Now().Unix()
 	fmt.Println("-----", date2, date2*1000)
@@ -402,7 +620,7 @@ func main() {
 	for k, v := range tagstr {
 		fmt.Println("range tag str :", k, "->", v)
 	}
-	h_pkg.ReflectTest3()
+	//h_pkg.ReflectTest3()
 	return
 	trimTest1()
 	trimTest2()
@@ -420,11 +638,11 @@ func main() {
 		}
 	}
 
-	h_pkg.Test1()
-
-	h_pkg.ReflectTest()
-	h_pkg.ReflectTest2()
-	h_pkg.ReflectTest3()
+	//h_pkg.Test1()
+	//
+	//h_pkg.ReflectTest()
+	//h_pkg.ReflectTest2()
+	//h_pkg.ReflectTest3()
 
 	fmt.Println("------------- 分割线 ---------------")
 }

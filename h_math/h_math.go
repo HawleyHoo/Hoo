@@ -1,15 +1,28 @@
-package h_math
+package main
 
 import (
 	"fmt"
 	//"time"
+	"math"
 )
 
+// 向上取整 向下取整
+func ceilFloor() {
+	x := 1.1
+	fmt.Println(math.Ceil(x))  // 2
+	fmt.Println(math.Floor(x)) // 1
+
+}
+
+// 四舍五入方法
+func round(x float64) int {
+	return int(math.Floor(x + 0.5))
+}
 
 func fansuanjiecheng(n int) (res int) {
 	len := n
 	res = 0
-	for  i := 2; i < len; i++ {
+	for i := 2; i < len; i++ {
 		remainder := n % i
 		if remainder > 0 { // n 不能被整除  则n不是某个数阶乘的乘
 			return 0
@@ -112,13 +125,13 @@ func count1(n int) int {
 
 func countDigitOne(n int) int {
 	ones := 0
-	for m := 1; m <= n;m *= 10 {
+	for m := 1; m <= n; m *= 10 {
 		a := n / m
 		b := n % m
-		if a % 10 == 1 {
-			ones += (a + 8) / 10 * m + 1 * (b + 1)
+		if a%10 == 1 {
+			ones += (a+8)/10*m + 1*(b+1)
 		} else {
-			ones += (a + 8) / 10 * m + 0 * (b + 1)
+			ones += (a+8)/10*m + 0*(b+1)
 		}
 	}
 	return ones
@@ -178,4 +191,63 @@ func isPrinme(m int) bool {
 		}
 	}
 	return true
+}
+
+// 大数相加， 从末尾开始相加
+func multiAdd(str1, str2 string) (res string)  {
+	if len(str1) == 0 && len(str2) == 0 {
+		res = "0"
+		return
+	}
+
+	index1 := len(str1) - 1
+	index2 := len(str2) - 1
+	left := 0
+
+	for index1 >= 0 && index2 >= 0  {
+		c1 := str1[index1] - '0'
+		c2 := str2[index2] - '0'
+
+		sum := int(c1) + int(c2) + left
+		if sum > 9 {
+			left = 1
+		} else {
+			left = 0
+		}
+
+		c3 := (sum % 10) + '0'
+		res = fmt.Sprintf("%c%s", c3, res)
+		index1--
+		index2--
+		fmt.Println(c1, c2, c3, res)
+	}
+	for index1 >= 0 {
+		c1 := str1[index1] - '0'
+		sum := int(c1) + left
+		if sum > 9 {
+			left = 1
+		} else {
+			left = 0
+		}
+
+		c3 := (sum % 10) + '0'
+		res = fmt.Sprintf("%c%s", c3, res)
+		index1--
+	}
+	for index2 >= 0 {
+		c2 := str2[index2] - '0'
+		sum := int(c2) + left
+		if sum > 9 {
+			left = 1
+		} else {
+			left = 0
+		}
+
+		c3 := (sum % 10) + '0'
+		res = fmt.Sprintf("%c%s", c3, res)
+		index2--
+	}
+	fmt.Println(index1, index2)
+
+	return
 }

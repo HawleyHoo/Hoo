@@ -1,11 +1,11 @@
-package main
+package h_db
 
 import (
-	"flag"
-	"log"
-	_ "github.com/denisenkom/go-mssqldb"
 	"database/sql"
+	"flag"
 	"fmt"
+	_ "github.com/denisenkom/go-mssqldb"
+	"log"
 )
 
 var debug = flag.Bool("debug", true, "enable debugging")
@@ -13,9 +13,9 @@ var password = flag.String("password", "youhao", "the database password")
 var port *int = flag.Int("port", 1433, "the database port")
 var server = flag.String("server", "192.168.0.129", "the database server")
 var user = flag.String("user", "sa", "the database user")
-var database  = flag.String("database", "his", "the database name")
+var database = flag.String("database", "his", "the database name")
 
-func GetDB() (*sql.DB, error){
+func GetDB() (*sql.DB, error) {
 	if *debug {
 		fmt.Printf(" password:%s\n", *password)
 		fmt.Printf(" port:%d\n", *port)
@@ -33,13 +33,13 @@ func GetDB() (*sql.DB, error){
 	}
 	err = db.Ping()
 	if err != nil {
-		fmt.Print("PING:%s",err)
+		fmt.Print("PING:%s", err)
 		return nil, err
 	}
 	return db, nil
 }
 
-func main()  {
+func main() {
 	db, err := GetDB()
 
 	fmt.Println(db, err)
