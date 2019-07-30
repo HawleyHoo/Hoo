@@ -2,10 +2,12 @@ package main
 
 import (
 	"fmt"
+	"golang.org/x/net/websocket"
 	"html/template"
 	"log"
+	"math/rand"
 	"net/http"
-	"github.com/gorilla/websocket"
+	"strconv"
 	//"code.google.com/p/go.net/websocket"
 )
 
@@ -56,7 +58,7 @@ func Echo(ws *websocket.Conn) {
 
 		fmt.Println("Received back from client: " + reply)
 
-		msg := "Received:  " + reply
+		msg := "hehe :" + reply + strconv.Itoa(rand.Int())
 		fmt.Println("Sending to client: " + msg)
 
 		if err = websocket.Message.Send(ws, msg); err != nil {
@@ -79,4 +81,34 @@ func main() {
 	if err := http.ListenAndServe("localhost:1234", nil); err != nil {
 		log.Fatal("ListenAndServe:", err)
 	}
+}
+
+var origin = "http://127.0.0.1:8080/"
+var url = "ws://127.0.0.1:8080/echo"
+
+func maintest() {
+	/*
+		客户端使用websocket.Dial(url, “”, origin) 进行websocket连接，但是origin参数并没有实际调用。
+		使用websocket进行数据的发送和接受。非常有意思的事情是，如果客户端和服务端都是用go写，用的都是websocket这个对象。
+		函数调用都是一样的，只不过一个写一个读数据而已。
+	*/
+	ws, err := websocket.Dial(url, "", origin)
+	if err != nil {
+		log.Fatal(err)
+	}
+	message := []byte("hello, world!你好")
+	_, err = ws.Write(message)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Send: %s\n", message)
+
+	var msg = make([]byte, 512)
+	m, err := ws.Read(msg)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Printf("Receive: %s\n", msg[:m])
+
+	ws.Close() //关闭连接
 }

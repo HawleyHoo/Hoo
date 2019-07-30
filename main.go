@@ -1,7 +1,22 @@
 package main
 
 import (
+	"Hoo/h_tool/ansi2html"
+	"bytes"
+	"context"
 	"fmt"
+	"github.com/gogf/gf/g/os/gproc"
+	"log"
+	"math/rand"
+	"net/http"
+	"os"
+	"os/exec"
+	"path"
+	"path/filepath"
+	"reflect"
+	"sort"
+	"syscall"
+
 	//"github.com/go-xorm/xorm"
 	//"github.com/go-xorm/core"
 	//"nursing/model"
@@ -19,6 +34,8 @@ import (
 	"sync"
 
 	"runtime"
+	//"github.com/movsb/aes2htm"
+	"github.com/buildkite/terminal-to-html"
 )
 
 type Man struct {
@@ -399,9 +416,423 @@ func say2(s string) {
 	}
 }
 
+func Nextts(ts *time.Time, per int64) time.Time {
+	return ts.Add(time.Minute * time.Duration(per))
+}
+func Decimal(value float64) float64 {
+	value, _ = strconv.ParseFloat(fmt.Sprintf("%.4f", value), 64)
+	return value
+}
+
+var updownArr = [10]float64{1, 1, 1, -1, 1, 1, 1, -1, 1, 1}
+
+func balancedNumber(n, s int) int {
+	switch {
+	case s > 300:
+		//if n > s / 4 {
+		//	n = n / 4
+		//} else {
+		//	n = n / 2
+		//}
+		n = int(math.Sqrt(float64(n)))
+		return n
+	case s > 100:
+		return n
+	case s > 10:
+		return n
+	default:
+		return n
+	}
+}
+
+func unmar(data string) string {
+	var fval interface{}
+	err := json.Unmarshal([]byte(data), &fval)
+	if err != nil {
+		fmt.Println("json", err)
+		return data
+	}
+
+	fmt.Println("default:", fval, reflect.TypeOf(fval))
+	switch fval.(type) {
+	case string:
+		return fval.(string)
+	default:
+		return data
+	}
+
+}
+func testbyte() {
+	var a interface{}
+	var b interface{}
+
+	a = []byte("secret")
+	b = "secret"
+
+	//key, ok := a.([]byte)
+	//if !ok {
+	//	fmt.Println("a is an invalid type")
+	//} else {
+	//	fmt.Println(key)
+	//}
+
+	isbyte(a)
+	isbyte(b)
+
+}
+
+func isbyte(b interface{}) {
+	key, ok := b.([]byte)
+	if !ok {
+		fmt.Println(b, " is an invalid type")
+	} else {
+		fmt.Println(key)
+	}
+}
+
+func Run(ctx context.Context) {
+	cmd := exec.CommandContext(ctx, "sh", "-c", "nohup ./testmain >>nohup.out &")
+	cmd.Dir = "/Users/lx/Desktop/release/testm"
+
+	var out bytes.Buffer
+	cmd.Stdout = &out
+	cmd.Stderr = &out
+
+	err := cmd.Start()
+	if err != nil {
+		// Run could also return this error and push the program
+		// termination decision to the `main` method.
+		log.Fatal(err)
+	}
+
+	err = cmd.Wait()
+	if err != nil {
+		log.Println("waiting on cmd:", err)
+	}
+
+	fmt.Println("out:", out.String())
+}
+
+func ttttt() {
+	//cmd := exec.Command("echo", "-n", `{"Name": "Bob", "Age": 32}`)
+	//cmd := exec.Command("sh", "-c", "nohup ./testmain >>nohup.out 2>&1 &")
+	//cmd := exec.Command( "sh", "-c", "nohup ./testmain >>nohup.out &")
+	//sysProcAttr := &syscall.SysProcAttr{
+	//	//Setpgid: true, // 使子进程拥有自己的 pgid，等同于子进程的 pid
+	//	Setsid: true,
+	//}
+	timeoutCtx, cancel := context.WithTimeout(context.Background(), 10000*time.Millisecond)
+	defer cancel()
+
+	cmd := exec.CommandContext(timeoutCtx, "sh", "-c", "nohup ./testmain >>nohup.out &")
+	//cmd := exec.Command("sh", "-c", "ls -l")
+	var b = bytes.Buffer{}
+	cmd.Stdout = &b
+	cmd.Stderr = &b
+	//cmd.SysProcAttr = sysProcAttr
+	cmd.Dir = "/Users/lx/Desktop/release/testm"
+	if err := cmd.Start(); err != nil {
+		fmt.Println("2 Start: ", err)
+	}
+	fmt.Println("stdout:", b.String())
+	fmt.Println("wait..")
+	fmt.Println("********************", time.Now().String())
+
+	go func() {
+		select {
+		case <-timeoutCtx.Done():
+			fmt.Println("done...................")
+			fmt.Println(cmd.Process.Kill())
+
+			//interruptTimer := time.AfterFunc(200 * time.Millisecond, func() {
+			//	cmd.Process.Signal(os.Interrupt)
+			//})
+			//killTimer := time.AfterFunc(1000 * time.Millisecond, func() {
+			//	cmd.Process.Kill()
+			//})
+			//interruptTimer.Stop()
+			//killTimer.Stop()
+			fmt.Println("pid:", cmd.Process.Pid)
+			syscall.Kill(cmd.Process.Pid, syscall.SIGKILL)
+			fmt.Println("interrupt & kill ")
+			//cancel()
+		}
+	}()
+
+	if err := cmd.Wait(); err != nil {
+		fmt.Println("3 wait:", err)
+	}
+
+	//fmt.Println(cmd.ProcessState.Success())
+	//fmt.Println(cmd.ProcessState.String())
+	//fmt.Println(cmd.ProcessState.Sys())
+	//fmt.Println(cmd.ProcessState.Exited())
+	fmt.Println("********************", time.Now().String())
+	fmt.Println("stdout:", b.String())
+	//fmt.Printf("%s is %d years old\n", person.Name, person.Age)
+}
+func ttgproc() {
+	d := "nohup ./testmain >> nohup.out  &"
+	//gproc.ShellExec(d)
+	cmd := exec.Command("sh", "-c", d)
+	var b = bytes.Buffer{}
+	cmd.Stdout = &b
+	cmd.Stderr = &b
+	cmd.Dir = "/Users/lx/Desktop/release/testm"
+	err := cmd.Run()
+	if err != nil {
+		fmt.Println("err:", err.Error())
+	}
+	fmt.Println("res:", b.String())
+}
+func testpipe() {
+	c1 := exec.Command("ls")
+	c2 := exec.Command("wc", "-l")
+	c2.Stdin, _ = c1.StdoutPipe()
+	c2.Stdout = os.Stdout
+	_ = c2.Start()
+	_ = c1.Run()
+	_ = c2.Wait()
+}
+
 func main() {
+	//ctx, cancel := context.WithTimeout(context.Background(), 2000*time.Millisecond)
+	//defer cancel()
+	//
+	//if err := exec.CommandContext(ctx, "sleep", "10").Run(); err != nil {
+	//	// This will fail after 100 milliseconds. The 5 second sleep
+	//	// will be interrupted.
+	//}
+	//return
+	//ttgproc()
+	//ttttt()
+	fmt.Println(filepath.Abs("/Users/lx/Desktop/release/testm"))
+	fmt.Println(filepath.Abs("/Users/lx/Desktop/release/testm/"))
+	fmt.Println(filepath.Abs("../"))
+	fmt.Println(path.Base("/Users/lx/Desktop/release/testm"))
+	fmt.Println(path.Split("/Users/lx/Desktop/release/testm"))
+	fmt.Println(path.Dir("/Users/lx/Desktop/release/testm"))
+	fmt.Println(path.Join("/Users/lx/Desktop/release/testm", "testmain"))
+	fmt.Println(path.Join("/Users/lx/Desktop/release/testm", "/testmain"))
+	return
+	//testpipe()
+	ctx, cancel := context.WithCancel(context.TODO())
+	go func() {
+		Run(ctx)
+	}()
+
+	<-time.After(3 * time.Second)
+	cancel()
+	fmt.Println("cancel........")
+
+	select {}
+	return
+	var ansiStr = []byte("[36m[INFO][0m 2019/07/19 14:24 200 1.200785ms ::1 GET /")
+	//buf := bytes.NewBuffer(nil)
+	//ans := ansi2html.NewAes2Htm(buf)
+	//ans.Input()
+
+	sw := bytes.NewBuffer(nil)
+	ah := ansi2html.NewAes2Htm(sw)
+	sr := strings.NewReader(string(ansiStr))
+	er := ah.Input(sr)
+	if er != nil {
+		fmt.Println("er:", er)
+	}
+
+	fmt.Println("val:", sw.String())
+	fmt.Println(ansi2html.Render(string(ansiStr)))
+
+	//aes2htm.NewAes2Htm("")
+	res := terminal.Render(ansiStr)
+	fmt.Println(string(res))
+	fmt.Println(path.Base("/Users/lx/Desktop/release/testm"))
+	fmt.Println(filepath.Base("/Users/lx/Desktop/release/testm"))
+	fmt.Println(path.Dir("/Users/lx/Desktop/release/testm"))
+	fmt.Println(path.Join("/Users/lx/Desktop/release/testm", "testmain"))
+	fmt.Println(path.Join("/Users/lx/Desktop/release/testm", "/testmain"))
+	return
+	sigs := strings.Fields("1 9 15")
+	fmt.Println(sigs)
+	fmt.Println(string(filepath.Separator))
+	fmt.Println(filepath.Separator)
+
+	testbyte()
+	ls, err22 := gproc.ShellExec("ls -l")
+	fmt.Println(ls, err22)
+	return
+
+	http.Handle("/log/", http.StripPrefix("/log/", http.FileServer(http.Dir("log"))))
+	http.ListenAndServe(":8888", nil)
+	sss := "\"0.43\""
+	var fa interface{}
+	err2 := json.Unmarshal([]byte(sss), &fa)
+	if err2 != nil {
+		fmt.Println("json err:", err2)
+	}
+	s1 := unmar(sss)
+	s2 := unmar("1234.6")
+	fmt.Println("fval:", fa, reflect.TypeOf(fa))
+	fmt.Println("fval s1:", s1, reflect.TypeOf(s1))
+	fmt.Println("fval s2:", s2, reflect.TypeOf(s2))
+
+	price, err2 := strconv.ParseFloat(s1, 64)
+	fmt.Println("price1", price, err2)
+	price, err2 = strconv.ParseFloat(s2, 64)
+	fmt.Println("price2", price, err2)
+
+	return
+
+	f1 := 0.01939900
+
+	str := "\"0.44425478\""
+	var a string
+	err2 = json.Unmarshal([]byte(str), &a)
+	if err2 != nil {
+		fmt.Println("err", err2.Error())
+	}
+	fmt.Println("hehe", a)
+
+	fmt.Println("str:", strconv.FormatFloat(f1, 'f', -8, 64))
+	fmt.Println("str:", fmt.Sprintf("%.8f", f1))
+	s := 306
+	for i := 1; i <= s; i++ {
+		dur := s - i + 1
+		//if dur > s/4 {
+		//	dur = dur / 4
+		//} else {
+		//	dur = dur / 2
+		//}
+		//dur = balancedNumber(dur, s)
+		//if dur > s / 2 {
+		dur = int(math.Sqrt(float64(dur))*math.Sqrt(math.Sqrt(float64(dur)))) + 1
+		//} else {
+		//	dur = int(math.Sqrt(float64(dur))) + 1
+		//}
+
+		fmt.Print(" ", dur)
+	}
+	return
+	dur := 20
+	t1 := time.Unix(1560478819, 0)
+	tt1 := t1.Add(time.Minute * time.Duration(dur))
+	fmt.Println(t1)
+	fmt.Println(tt1)
+	fmt.Println(tt1.Sub(t1).Minutes())
+	now := time.Now()
+	fmt.Println(tt1.Sub(now).Minutes())
+	fmt.Println(math.Ceil(tt1.Sub(now).Minutes()))
+
+	fmt.Println(math.Pow(1.00001, 24*60))
+
+	rand.Seed(time.Now().Unix())
+	for i := 0; i < 10; i++ {
+		v := rand.Float64()
+		for v < 0.2 {
+			fmt.Println("----", v)
+			v = rand.Float64()
+		}
+		fmt.Println("v:", v)
+	}
+
+	return
+
+	seconds := time.Now().Unix()
+	fmt.Println(seconds)
+	timeKey := seconds - (seconds % 5)
+	fmt.Println(timeKey)
+
+	rand.Seed(time.Now().Unix())
+
+	fmt.Println("str:", "212.134135154" > "212.134135154")
+
+	fmt.Println("str:", "212.134135154" > "212.13413515")
+	fmt.Println("str:", "212.134135154" < "212.134135155")
+	fmt.Println("str:", "-212.134135154" < "-2")
+
+	fmt.Println("float:", strconv.FormatFloat(212.134135156234, 'f', 8, 64))
+	return
+
+	var err error
+	var ts time.Time = time.Now()
+	var period int64 = 1
+	fmt.Println("now:", ts)
+	ts = time.Unix(ts.Unix()-ts.Unix()%(period*60), 0)
+	fmt.Println("ts :", ts)
+	if err == nil && !ts.IsZero() {
+		fmt.Println("11")
+	} else if err != nil {
+		fmt.Println("22")
+	} else {
+		fmt.Println("33")
+	}
+
+	return
+
+	tsArr := make([]float64, 6)
+	tsArr[0] = 1.2
+	tsArr[1] = 2.2
+	tsArr[2] = 6.2
+	tsArr[3] = 8.2
+	tsArr[4] = 6.24
+	tsArr[5] = 3.2
+
+	sort.Float64s(tsArr)
+
+	fmt.Println(tsArr)
+	fmt.Println("decimal:", Decimal(324.23415123512))
+	t0 := time.Now()
+	fmt.Println(t0.Unix(), rand.Intn(10))
+
+	//ma := make(map[int]bool, 10)
+	//ma[2] = false
+	//ma[4] = false
+	//var res []bool
+	//以时间作为初始化种子
+	rand.Seed(time.Now().Unix())
+	for i := 1; i < 10; i++ {
+		fmt.Println(i, rand.Float64(), rand.Float64()*rand.Float64())
+	}
+
+	updown := updownArr[rand.Intn(10)]
+	floatingRate := 0.1 * rand.Float64()
+
+	var p0 float64 = 412.241235135134
+	rate := float64(1 + updown*floatingRate)
+	fmt.Println(updown, floatingRate, rate)
+	fmt.Println(p0 * rate)
+
+	return
+	ts = time.Now()
+	period = 60
+
+	fmt.Println("ts1 :", ts.String())
+	//t := time.Second * period
+	ts = ts.Add(time.Minute * time.Duration(period))
+	fmt.Println("ts2 :", ts.String())
+
+	fmt.Println("period", period, int64(period), time.Duration(period))
+
+	fmt.Println("ts:", time.Unix(1558063620, 0).String(), t0.Unix())
+
+	for {
+		fmt.Println("ts ", ts)
+		ts = Nextts(&ts, period)
+		fmt.Println("ts2", ts, "\n")
+
+		if ts.Sub(t0) > time.Hour*6 {
+			break
+		}
+		time.Sleep(time.Second * 1)
+	}
+
+	//fmt.Println("time.Minute*time.Duration(period)", time.Minute*time.Duration(period))
+	//d := time.Minute*time.Duration(period)
+	//ts = ts.Add(d)
+	//fmt.Println("ts3 :", ts.String())
+	//fmt.Println("d", d, time.Duration(period))
 	//runtime.GOMAXPROCS(4)
-	go say2("1 world")
+	//go say2("1 world")
 	say("hello")
 }
 

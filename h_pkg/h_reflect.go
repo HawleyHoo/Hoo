@@ -5,6 +5,48 @@ import (
 	"reflect"
 )
 
+type Robot struct {
+	ID      string  `xorm:"id"`
+	IsAuto  bool    `xorm:"is_auto"`  // ture: 机器人刷单，  false：取火币网k线
+	Low     float64 `xorm:"low"`      // 浮动最低价
+	High    float64 `xorm:"high"`     // 浮动最高价
+	Rate    float64 `xorm:"-"`        //
+	VolHigh float64 `xorm:"vol_high"` // 挂单最低数
+	VolLow  float64 `xorm:"vol_low"`  // 挂单最高数
+}
+
+func main() {
+	robot := Robot{}
+	getType := reflect.TypeOf(robot)
+	fmt.Println("get Type is :", getType.Name())
+
+	// // 获取Value,这里注意,如果你要改变这个变量的话,需要传递变量的地址
+	getValue := reflect.ValueOf(&robot)
+	fmt.Println("get all Fields is:", getValue)
+	// value是一个指针,这里获取了该指针指向的值,相当于value.Elem()
+	getValue = reflect.Indirect(getValue)
+	// 获取方法字段
+	// 1. 先获取interface的reflect.Type，然后通过NumField进行遍历
+	// 2. 再通过reflect.Type的Field获取其Field
+	// 3. 最后通过Field的Interface()得到对应的value
+	for i := 0; i < getType.NumField(); i++ {
+		field := getType.Field(i)
+		value := getValue.Field(i)
+		fmt.Printf("%s, tag:%s = %v = %v\n", field.Name, field.Tag.Get("xorm"), field.Type, value.Interface())
+		if field.Tag.Get("xorm") == "id" {
+			if value.CanSet() {
+				value.SetString("hehe")
+				fmt.Println(value.Interface(), "set:hehe")
+			}
+		}
+		fmt.Println(getValue.Field(i).Interface())
+	}
+
+	fmt.Println(robot)
+
+	return
+}
+
 type User struct {
 	Id   int
 	Name string

@@ -5,6 +5,13 @@ import (
 	"time"
 )
 
+func main() {
+	var t1 time.Time = time.Unix(0, 0)
+	t2 := time.Unix(0, 0)
+	fmt.Println("t1:", t1, t1.IsZero())
+	fmt.Println("t2:", t2, t2.IsZero(), t2.Unix())
+}
+
 func test(datestr string) {
 
 	loc, _ := time.LoadLocation("Local")

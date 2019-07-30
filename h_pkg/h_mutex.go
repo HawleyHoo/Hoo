@@ -181,3 +181,34 @@ func write(i int) {
 //来源：CSDN
 //原文：https://blog.csdn.net/u010230794/article/details/78554370
 //版权声明：本文为博主原创文章，转载请附上博文链接！
+
+type Model struct {
+	//sync.Mutex  // 匿名和不匿名效果一样
+	mu sync.Mutex
+	A  string
+}
+
+func (m *Model) Read() {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	time.Sleep(time.Second)
+	fmt.Println("read:", m.A, time.Now())
+}
+
+func (m *Model) Write(v string) {
+	m.mu.Lock()
+	defer m.mu.Unlock()
+	time.Sleep(time.Second * 2)
+	m.A = v
+	fmt.Println("write:", m.A, time.Now())
+}
+
+func main() {
+	m := Model{A: "hehe"}
+	go m.Read()
+	go m.Write("haha")
+	go m.Read()
+
+	time.Sleep(time.Second * 6)
+
+}
